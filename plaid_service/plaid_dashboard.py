@@ -5,7 +5,7 @@ from plaid.model.transactions_get_request import TransactionsGetRequest
 from token_service.token_workflow import token, amex, navy, chase
 
 
-class Dashboard():
+class Plaid_service():
     def __init__(self, amex=amex, navy=navy, chase=chase, client=token.client):
         self.navy = navy
         self.amex = amex
@@ -40,6 +40,4 @@ class Dashboard():
         transactions = response['transactions']
         return transactions
 
-d = Dashboard()
-print(d.get_transactions("chase",date(2021,7,1),date(2021,8,23)))
-
+plaid_service = Plaid_service()

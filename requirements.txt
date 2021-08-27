@@ -1,2 +1,5 @@
 plaid-python
 python-dotenv==0.15.0
+sqlalchemy
+psycopg2
+alembic
