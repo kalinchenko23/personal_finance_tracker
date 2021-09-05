@@ -1,5 +1,3 @@
-from datetime import date
-
 from plaid.model.accounts_get_request import AccountsGetRequest
 from plaid.model.transactions_get_request import TransactionsGetRequest
 from token_service.token_workflow import token, amex, navy, chase
@@ -21,10 +19,9 @@ class Plaid_service():
             request = AccountsGetRequest(access_token=self.chase)
 
         response = self.client.accounts_get(request)
-        accounts = response['accounts']
-        return accounts
+        return response.to_dict()
 
-    def get_transactions(self,access_token: str, start_date: str,end_date:str):
+    def get_transactions(self, access_token: str, start_date: str, end_date: str):
         if access_token == "navy":
             access_token = self.navy
         elif access_token == "amex":
@@ -37,7 +34,9 @@ class Plaid_service():
             end_date=end_date,
         )
         response = self.client.transactions_get(request)
-        transactions = response['transactions']
-        return transactions
+
+        # returning dict instead of PLAID API object.
+        return response.to_dict()
+
 
 plaid_service = Plaid_service()

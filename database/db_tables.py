@@ -23,20 +23,11 @@ class Expenses(base):
     id: int = Column(Integer, primary_key=True, autoincrement=True)
     created_date: datetime.datetime = Column(DateTime, default=None, index=True)
     amount: str = Column(Float)
-    _category: str = Column(String, index=True)
+    category: str = Column(String, index=True)
     merchant_name: str = Column(String, index=True)
     transaction_id: str = Column(String)
     account_id: int = Column(String, ForeignKey('accounts.id'))
     accounts = relationship('Accounts', back_populates='transactions')
-
-    @hybrid_property
-    def category(self):
-        return self._category
-
-    @category.setter
-    def category(self, category):
-        self._category = category[-1]
-
 
 class Accounts(base):
     __tablename__ = 'accounts'
@@ -51,4 +42,4 @@ def create_tables():
     base.metadata.create_all(engine)
 
 
-create_tables()
+

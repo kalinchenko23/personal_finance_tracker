@@ -1,45 +1,40 @@
 import datetime
-
-from sqlalchemy.orm import query
+from typing import List
 
 from database.db_tables import Accounts, Expenses
+from database.pydantic_models import Expenses_pydantic, Accounts_pydantic
 from plaid_service.plaid_dashboard import plaid_service
-from session import Session, engine
-from sqlalchemy import select, column, func, table, update
+from session import Session
+
+banks = ["amex", "navy", "chase"]
 
 
 class Accounts_operations():
-    def original_insertion(self):
-        banks = ["amex", "navy", "chase"]
-        records = [plaid_service.get_acounts_info(bank) for bank in banks]
-        accoounts = [Accounts(id=record["account_id"], name=record["name"], balance=record["balances"]["current"],
-                              subtype=str(record["subtype"])) for row in records for record in row]
-        return accoounts
+    def accounts_update(self, session: Session, banks: List):
+        records = [plaid_service.get_acounts_info(bank)['accounts'] for bank in banks]
 
-    def update_balance(self, session: Session):
-        banks = ["amex", "navy", "chase"]
-        records = [plaid_service.get_acounts_info(bank) for bank in banks]
-        result = [session.query(Accounts).filter(Accounts.id == record["account_id"]).update(
-            {Accounts.balance: record["balances"]["current"]}) for row in records for record in row]
-        return result
+        # inserting new accounts into database
+        [session.add(Accounts(**Accounts_pydantic(**record).to_dict())) for row in records for record in row
+         if session.query(Accounts).filter(Accounts.id == record["account_id"]).first() is None]
+
+        # updating amount for existing accounts
+        [session.query(Accounts).filter(Accounts.id == Accounts_pydantic(**record).id).update(
+            {Accounts.balance: Accounts_pydantic(**record).balance}) for row in records for record in row]
+        session.commit()
 
 
 class Expenses_operations():
-    def transactions_update(self, session: Session):
-        banks = ["amex", "navy", "chase"]
-        records = [plaid_service.get_transactions(bank, datetime.date(2021, 1, 1), datetime.date.today()) for bank in
+    def transactions_update(self, session: Session, from_date: datetime.date, banks):
+        records = [plaid_service.get_transactions(bank, from_date, datetime.date.today())["transactions"] for bank in
                    banks]
-        transactions = [Expenses(created_date=record["date"], amount=str(record["amount"]), category=record["category"],
-                                 merchant_name=record["merchant_name"],
-                                 transaction_id=record["transaction_id"], account_id=record["account_id"]) for row in
-                        records for record in row if session.query(Expenses).filter(Expenses.transaction_id == record["transaction_id"]).first() is None]
-        [session.add(transaction) for transaction in transactions]
+        [session.add(Expenses(**Expenses_pydantic(**transaction).dict())) for record in records for transaction in
+         record
+         if session.query(Expenses).filter(Expenses.transaction_id == transaction["transaction_id"]).first() is None]
         session.commit()
-
 
 
 accounts = Accounts_operations()
 expenses = Expenses_operations()
 
 with Session() as sess:
-    expenses.transactions_update(sess)
+    accounts.accounts_update(sess, banks)
