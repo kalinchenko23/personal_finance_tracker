@@ -1,13 +1,16 @@
 from alembic.operations import Operations
 from alembic.runtime.migration import MigrationContext
-from sqlalchemy import Column, String, ForeignKey, Integer
+from sqlalchemy import Column, String
 
-from database.session import engine
+from db_tables import base
+from session_sql import engine
 
 conn = engine.connect()
 ctx = MigrationContext.configure(conn)
 op = Operations(ctx)
 
+def create_tables():
+    base.metadata.create_all(engine)
 
 # This file is used to modify a state of database schema, you can
 # add new function as needed using https://alembic.sqlalchemy.org/en/latest/ops.html documentation
@@ -26,4 +29,6 @@ def alter_table_multiple_statements():
         batch_op.drop_column('test_column')
 
 
-add_column('expenses', Column("account_id", Integer, ForeignKey('accounts.id')))
+
+create_tables()
+

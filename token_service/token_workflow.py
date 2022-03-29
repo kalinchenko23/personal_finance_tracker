@@ -1,19 +1,17 @@
 import json
 from pathlib import Path
-from .client import create_client
-from .link_token import create_link_token
-from .exchange_publick_token import exchange
-from .remove_token import remove_token
-from .update_mode import update_token
+from client import create_client
+from link_token import create_link_token
+from exchange_publick_token import exchange
+from remove_token import remove_token
+from update_mode import update_token
 
 with open(Path(__file__).parents[1] / 'classified.json', 'r') as f:
     secrets = json.load(f)
+    chase, amex, navy, bofa =[v for v in secrets['credentials'].values()]
+
     client_id = secrets["token"]["clientId"]
     client_secret = secrets["token"]["secret"]
-    amex=secrets["credentials"]["amex"]
-    navy=secrets["credentials"]["navy"]
-    chase=secrets["credentials"]["chase"]
-
 
 class Token_dash():
     def __init__(self, client_id, client_secret, old_access_token=None, public_token=None, access_token_to_remove=None):

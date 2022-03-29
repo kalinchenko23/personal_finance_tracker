@@ -1,40 +1,18 @@
 import datetime
-from typing import List
 
-from database.db_tables import Accounts, Expenses
-from database.pydantic_models import Expenses_pydantic, Accounts_pydantic
+from .pydantic_models import Expenses_pydantic, Accounts_pydantic, Expenses_additional_info_pydantic
 from plaid_service.plaid_dashboard import plaid_service
-from session import Session
-
-banks = ["amex", "navy", "chase"]
 
 
-class Accounts_operations():
-    def accounts_update(self, session: Session, banks: List):
-        records = [plaid_service.get_acounts_info(bank)['accounts'] for bank in banks]
-
-        # inserting new accounts into database
-        [session.add(Accounts(**Accounts_pydantic(**record).to_dict())) for row in records for record in row
-         if session.query(Accounts).filter(Accounts.id == record["account_id"]).first() is None]
-
-        # updating amount for existing accounts
-        [session.query(Accounts).filter(Accounts.id == Accounts_pydantic(**record).id).update(
-            {Accounts.balance: Accounts_pydantic(**record).balance}) for row in records for record in row]
-        session.commit()
+def pydantic_validation_transactions(bank: str):
+    return [Expenses_pydantic(**i).dict() for i in
+            plaid_service.get_transactions(bank, datetime.date(2021, 1, 1), datetime.date.today())['transactions']]
 
 
-class Expenses_operations():
-    def transactions_update(self, session: Session, from_date: datetime.date, banks):
-        records = [plaid_service.get_transactions(bank, from_date, datetime.date.today())["transactions"] for bank in
-                   banks]
-        [session.add(Expenses(**Expenses_pydantic(**transaction).dict())) for record in records for transaction in
-         record
-         if session.query(Expenses).filter(Expenses.transaction_id == transaction["transaction_id"]).first() is None]
-        session.commit()
+def pydantic_validation_transactions_additional_info(bank: str):
+    return [Expenses_additional_info_pydantic(**i).dict() for i in
+            plaid_service.get_transactions(bank, datetime.date(2021, 1, 1), datetime.date.today())['transactions']]
 
 
-accounts = Accounts_operations()
-expenses = Expenses_operations()
-
-with Session() as sess:
-    accounts.accounts_update(sess, banks)
+def pydantic_validation_accounts(bank: str):
+    return Accounts_pydantic(**plaid_service.get_acounts_info(bank)).dict()

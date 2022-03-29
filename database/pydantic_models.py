@@ -5,14 +5,23 @@ from typing import Optional, List
 from pydantic import BaseModel, validator, Field
 
 
-
 class Expenses_pydantic(BaseModel):
     created_date: datetime.date = Field(alias='date')
     amount: Decimal
-    category: List
-    merchant_name: Optional[str] = "N/A"
-    transaction_id: str
     account_id: str
+    transaction_id: str
+
+    @validator('created_date')
+    def category_check(cls, v):
+        return v.strftime("%m/%d/%Y")
+
+    class Config:
+        extra = 'ignore'
+
+
+class Expenses_additional_info_pydantic(BaseModel):
+    category: List
+    merchant_name: str | None
 
     @validator('category')
     def category_check(cls, v):
