@@ -20,6 +20,7 @@ class Expenses_pydantic(BaseModel):
 
 
 class Expenses_additional_info_pydantic(BaseModel):
+    transaction_id:str
     category: List
     merchant_name: str | None
 

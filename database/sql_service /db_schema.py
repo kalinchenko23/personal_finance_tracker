@@ -30,5 +30,5 @@ def alter_table_multiple_statements():
 
 
 
-create_tables()
+# create_tables()
 
