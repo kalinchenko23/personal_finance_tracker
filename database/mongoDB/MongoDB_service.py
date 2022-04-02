@@ -3,17 +3,17 @@ from datetime import datetime
 import mongoengine
 import json
 from database.db_service import pydantic_validation_transactions, pydantic_validation_transactions_additional_info, \
-    pydantic_validation_accounts
+    pydantic_validation_accounts, banks
 from database.mongoDB.documents import Accounts, Expenses_additional_info, Expenses
 
 mongoengine.connect('personal_finance_tracker')
-banks = ['bofa', 'amex', 'chase', 'navy']
 
 
-def inserting_expenses():
+#This function inserts and updates transactions and accounts
+def inserting_transactions_updating_accounts():
     for bank in banks:
         transactions = [Expenses(**record) for record in pydantic_validation_transactions(bank)]
-        additional_info = [Expenses_additional_info(**record) for record in
+        additional_info = [Expenses_additional_info(category=record['category'],merchant_name=record['merchant_name']) for record in
                            pydantic_validation_transactions_additional_info(bank)]
         account = Accounts(**pydantic_validation_accounts(bank))
         paird_transactions_and_info = list(map(lambda x, y: (x, y), transactions, additional_info))
@@ -24,4 +24,3 @@ def inserting_expenses():
         account.save()
 
 
-inserting_expenses()

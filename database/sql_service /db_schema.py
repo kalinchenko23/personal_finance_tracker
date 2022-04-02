@@ -9,6 +9,7 @@ conn = engine.connect()
 ctx = MigrationContext.configure(conn)
 op = Operations(ctx)
 
+# This function creates tables from classes in db_tables.py
 def create_tables():
     base.metadata.create_all(engine)
 

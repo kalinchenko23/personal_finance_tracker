@@ -4,7 +4,7 @@ from sqlalchemy.orm import declarative_base, relationship
 
 base = declarative_base()
 
-
+# Classes below represent our DB schema
 class Expenses(base):
     __tablename__ = 'expenses'
     transaction_id: str = Column(String, primary_key=True)

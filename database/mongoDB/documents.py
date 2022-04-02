@@ -2,7 +2,7 @@ from datetime import datetime
 
 import mongoengine
 from mongoengine import Document, EmbeddedDocument, EmbeddedDocumentField, StringField, DateTimeField, FloatField, \
-    ReferenceField
+    ReferenceField, DynamicField
 
 
 class Accounts(Document):

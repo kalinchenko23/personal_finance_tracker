@@ -1,58 +1,49 @@
-from sqlalchemy import select
-
-import sqlalchemy
-
+from sqlalchemy import select, update
 from session_sql import Session
 from database.db_service import pydantic_validation_transactions, pydantic_validation_transactions_additional_info, \
-    pydantic_validation_accounts
+    pydantic_validation_accounts, banks
 from db_tables import Expenses, Expenses_additional_info, Accounts
 
-banks = ['amex', 'bofa', 'chase', 'navy']
 
 
+
+# This class is responsible for writing and updating entities to SQL DB
 class DB_service():
-    def __init__(self, banks,session):
+    def __init__(self, banks, session):
         self.banks = banks
-        self.session=session
+        self.session = session
 
     def insert_account_info(self):
         with self.session() as sess, sess.begin():
+            sess.add_all([Accounts(pydantic_validation_accounts(bank)) for bank in banks if sess.execute(
+                select(Accounts).filter(
+                    Accounts.id == pydantic_validation_accounts(bank)['id'])).scalars().first() == None])
+
+    def update_account_info(self):
+        with self.session() as sess, sess.begin():
             for bank in self.banks:
-                sess.add(Accounts(**pydantic_validation_accounts(bank)))
+                account = pydantic_validation_accounts(bank)
+                stmt = (
+                    update(Accounts).
+                        where(Accounts.id == account['id']).
+                        values(**account)
+                )
+                sess.execute(stmt)
+
     def insert_transactions(self):
-        with self.session() as sess:
-            for bank in self.banks:
-                most_recent_date = sess.execute(select(Expenses).order_by(Expenses.created_date.desc())).scalars().first().created_date
-                for row in pydantic_validation_transactions(bank):
-                    expense = Expenses(**row)
-                    sess.add(expense)
-                try:
-                    sess.commit()
-                except Exception as exc:
-                    print(f'{exc.__context__}')
-                    pass
-                finally:
-                    sess.close()
+        with self.session() as sess, sess.begin():
+            for bank in banks:
+                sess.add_all([Expenses(**row) for row in pydantic_validation_transactions(bank) if sess.execute(
+                    select(Expenses).filter(
+                        Expenses.transaction_id == row['transaction_id'])).scalars().first() == None])
 
-    def insert_additional_info(self):
-        with self.session() as sess:
-            for bank in self.banks:
-                for row in pydantic_validation_transactions_additional_info(bank):
-                    additional_info = Expenses_additional_info(**row)
-                    sess.add(additional_info)
-                try:
-                    sess.commit()
-                except Exception as exc:
-                    print(f'{exc.__context__}')
-                    pass
-                finally:
-                    sess.close()
+                sess.add_all(
+                    [Expenses_additional_info(**row) for row in pydantic_validation_transactions_additional_info(bank)
+                     if sess.execute(
+                        select(Expenses_additional_info).filter(
+                            Expenses_additional_info.transaction_id == row[
+                                'transaction_id'])).scalars().first() == None])
 
 
-
-
-
-
-service = DB_service(banks,Session)
-service.insert_transactions()
-
+service = DB_service(banks, Session)
+# service.insert_transactions()

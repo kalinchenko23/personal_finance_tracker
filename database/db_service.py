@@ -1,7 +1,9 @@
 import datetime
 
-from .pydantic_models import Expenses_pydantic, Accounts_pydantic, Expenses_additional_info_pydantic
+from database.pydantic_models import Expenses_pydantic, Accounts_pydantic, Expenses_additional_info_pydantic
 from plaid_service.plaid_dashboard import plaid_service
+
+banks = ['amex', 'bofa', 'chase', 'navy']
 
 
 def pydantic_validation_transactions(bank: str):
