@@ -1,6 +1,6 @@
 from plaid.model.item_remove_request import ItemRemoveRequest
 
-from client import create_client
+from .client import create_client
 
 
 # def remove_token(client: create_client, access_token: str):

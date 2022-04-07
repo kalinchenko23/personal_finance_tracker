@@ -3,7 +3,7 @@ from plaid.model.link_token_create_request import LinkTokenCreateRequest
 from plaid.model.link_token_create_request_user import LinkTokenCreateRequestUser
 from plaid.model.products import Products
 
-from client import create_client
+from .client import create_client
 
 
 def create_link_token(client: create_client, client_id:str):

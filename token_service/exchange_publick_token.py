@@ -1,5 +1,5 @@
 from plaid.model.item_public_token_exchange_request import ItemPublicTokenExchangeRequest
-from client import create_client
+from .client import create_client
 
 
 def exchange(client: create_client, public_token):

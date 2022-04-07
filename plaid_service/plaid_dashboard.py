@@ -1,7 +1,9 @@
 import datetime
 import sys
+import pathlib
+import time
 
-sys.path.insert(0, '/Users/maximkalinchenko/Desktop/personal_finanse_tracker/token_service')
+sys.path.insert(0, pathlib.Path.cwd().parent/'token_service')
 from plaid.model.accounts_get_request import AccountsGetRequest
 from plaid.model.transactions_get_request import TransactionsGetRequest
 from token_service.token_workflow import token, amex, navy, chase, bofa
@@ -46,4 +48,4 @@ class Plaid_service():
 
 
 plaid_service = Plaid_service()
-
+print(plaid_service.get_transactions('amex',datetime.date(2022,3,27),datetime.date.today()))
