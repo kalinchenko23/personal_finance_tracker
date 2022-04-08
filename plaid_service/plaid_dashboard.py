@@ -48,4 +48,3 @@ class Plaid_service():
 
 
 plaid_service = Plaid_service()
-print(plaid_service.get_transactions('amex',datetime.date(2022,3,27),datetime.date.today()))

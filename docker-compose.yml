@@ -1,6 +1,17 @@
 version: '3.9'
 services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "28017:27017"
+    volumes:
+      - mongo_db:/data/db
   token:
     build: .
     volumes:
-      - ./plaid_service:/plaid_service
+      - ./database/mongoDB:/database/mongoDB
+    depends_on:
+      - mongodb
+
+volumes:
+  mongo_db:

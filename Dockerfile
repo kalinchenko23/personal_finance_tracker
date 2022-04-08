@@ -3,4 +3,4 @@ FROM python:3.10
 COPY . .
 RUN pip install -r requirements.txt
 ENV PYTHONPATH "${PYTHONPATH}:."
-CMD ["python3","plaid_service/plaid_dashboard.py"]
+CMD ["python3","database/mongoDB/MongoDB_service.py"]
