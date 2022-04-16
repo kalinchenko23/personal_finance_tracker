@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="added logging capabilities" />
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="added logging capabilities">
+      <change afterPath="$PROJECT_DIR$/test_file" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,8 +49,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../personal_finance_tracker/logging_service" />
-      <recent name="$PROJECT_DIR$/../personal_finance_tracker" />
+      <recent name="$PROJECT_DIR$/logging_service" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/plaid_service" />
       <recent name="$PROJECT_DIR$/token_service" />
@@ -100,11 +107,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../personal_finance_tracker/logging_service" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/logging_service" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../personal_finance_tracker/logging_service/logger.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logging_service/logger.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
