@@ -29,4 +29,3 @@ def inserting_transactions_updating_accounts():
 
 
 inserting_transactions_updating_accounts()
-time.sleep(100000000)
