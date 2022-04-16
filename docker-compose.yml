@@ -9,7 +9,8 @@ services:
   token:
     build: .
     volumes:
-      - ./database/mongoDB:/database/mongoDB
+       - ./:/personal_finance_tracker
+
     depends_on:
       - mongodb
 

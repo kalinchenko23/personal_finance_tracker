@@ -1,12 +1,14 @@
+import time
+
 import mongoengine
 from database.db_service import pydantic_validation_transactions, pydantic_validation_transactions_additional_info, \
     pydantic_validation_accounts, banks
 from database.mongoDB.documents import Accounts, Expenses_additional_info, Expenses
+from logging_service.logger import finance_logger
 
-mongoengine.connect(host="mongodb://personal_finanse_tracker_mongodb_1/personl_finanse_tracker")
-
-
+mongoengine.connect(host="mongodb://personal_finance_tracker_mongodb_1/personal_finance_tracker")
 # This function inserts and updates transactions and accounts
+
 def inserting_transactions_updating_accounts():
     for bank in banks:
         transactions = [Expenses(**record) for record in pydantic_validation_transactions(bank)]
@@ -18,8 +20,13 @@ def inserting_transactions_updating_accounts():
         for pair in paird_transactions_and_info:
             transaction, additional_info = pair
             transaction.additional_info = additional_info
-            transaction.save()
+            try:
+                transaction.save()
+            except Exception as ex:
+                finance_logger.debug("Exception occured", exc_info=True)
         account.save()
+        finance_logger.info(f"Transactions for {bank} are updated")
 
 
 inserting_transactions_updating_accounts()
+time.sleep(100000000)
