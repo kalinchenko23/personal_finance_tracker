@@ -3,10 +3,10 @@ import sys
 import pathlib
 import time
 
-sys.path.insert(0, pathlib.Path.cwd().parent/'token_service')
+sys.path.insert(1,'/Users/maximkalinchenko/Desktop/personal_finance_tracker/token_service')
 from plaid.model.accounts_get_request import AccountsGetRequest
 from plaid.model.transactions_get_request import TransactionsGetRequest
-from token_service.token_workflow import token, amex, navy, chase, bofa
+from token_workflow import token, amex, navy, chase, bofa
 
 
 class Plaid_service():
@@ -29,7 +29,7 @@ class Plaid_service():
                 request = AccountsGetRequest(access_token=self.chase)
 
         response = self.client.accounts_get(request)
-        return response.to_dict()['accounts'][0]
+        return response.to_dict()['accounts']
 
     def get_transactions(self, bank: str, start_date: str, end_date: str):
         match bank:
@@ -48,3 +48,4 @@ class Plaid_service():
 
 
 plaid_service = Plaid_service()
+

@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="added logging capabilities">
-      <change afterPath="$PROJECT_DIR$/test_file" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/mongoDB/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/sql_service /__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/sql_service /aws_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/pydantic_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sql_service /session_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/sql_service /session_sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sql_service /sql_db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/sql_service /sql_db_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plaid_service/plaid_dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/plaid_service/plaid_dashboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/exchange_publick_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/exchange_publick_token.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/link_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/link_token.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/remove_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/remove_token.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/token_workflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/token_workflow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/update_mode.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/update_mode.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +60,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/mongoDB" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database/mongoDB" />
+      <recent name="$PROJECT_DIR$/database/sql_service " />
+      <recent name="$PROJECT_DIR$/database" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/logging_service" />
       <recent name="$PROJECT_DIR$" />
@@ -56,8 +78,8 @@
       <recent name="$PROJECT_DIR$/token_service" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.logger">
-    <configuration name="MongoDB_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.aws_service">
+    <configuration name="aws_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -65,11 +87,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database/mongoDB" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database/sql_service " />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongoDB/MongoDB_service.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/sql_service /aws_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -78,7 +100,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="documents" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="db_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -86,11 +108,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database/mongoDB" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongoDB/documents.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/db_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,7 +121,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="logger" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="exchange_publick_token" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -107,11 +129,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/logging_service" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/token_service" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logging_service/logger.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/token_service/exchange_publick_token.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -129,7 +151,7 @@
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plaid_service" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plaid_service/plaid_dashboard.py" />
@@ -164,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.logger" />
-        <item itemvalue="Python.MongoDB_service" />
-        <item itemvalue="Python.plaid_dashboard" />
-        <item itemvalue="Python.documents" />
+        <item itemvalue="Python.aws_service" />
         <item itemvalue="Python.sql_db_service" />
+        <item itemvalue="Python.db_service" />
+        <item itemvalue="Python.plaid_dashboard" />
+        <item itemvalue="Python.exchange_publick_token" />
       </list>
     </recent_temporary>
   </component>

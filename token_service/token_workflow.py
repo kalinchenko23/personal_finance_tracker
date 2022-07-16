@@ -1,10 +1,10 @@
 import json
 from pathlib import Path
-from .client import create_client
-from .link_token import create_link_token
-from .exchange_publick_token import exchange
-from .remove_token import remove_token
-from .update_mode import update_token
+from client import client
+from link_token import create_link_token
+from exchange_publick_token import exchange
+from remove_token import remove_token
+from update_mode import update_token
 
 with open(Path(__file__).parents[1] / 'classified.json', 'r') as f:
     secrets = json.load(f)
@@ -14,13 +14,11 @@ with open(Path(__file__).parents[1] / 'classified.json', 'r') as f:
     client_secret = secrets["token"]["secret"]
 
 class Token_dash():
-    def __init__(self, client_id, client_secret, old_access_token=None, public_token=None, access_token_to_remove=None):
-        self.client_id = client_id
-        self.client_secret = client_secret
+    def __init__(self, old_access_token=None, public_token=None, access_token_to_remove=None):
         self.old_access_token = old_access_token
         self.public_token = public_token
         self.access_token_to_remove = access_token_to_remove
-        self.client=create_client(self.client_id,self.client_secret)
+        self.client=client
 
 
     def create_link(self):

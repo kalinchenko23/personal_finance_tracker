@@ -1,7 +1,7 @@
-import datetime
-
-from database.pydantic_models import Expenses_pydantic, Accounts_pydantic, Expenses_additional_info_pydantic
-from plaid_service.plaid_dashboard import plaid_service
+import datetime,sys
+sys.path.insert(1,'/Users/maximkalinchenko/Desktop/personal_finance_tracker/plaid_service')
+from pydantic_models import Expenses_pydantic, Accounts_pydantic, Expenses_additional_info_pydantic
+from plaid_dashboard import plaid_service
 
 banks = ['amex', 'bofa', 'chase', 'navy']
 
@@ -17,4 +17,8 @@ def pydantic_validation_transactions_additional_info(bank: str):
 
 
 def pydantic_validation_accounts(bank: str):
-    return Accounts_pydantic(**plaid_service.get_acounts_info(bank)).dict()
+    accounts=[]
+    for account in plaid_service.get_acounts_info(bank):
+        accounts.append(Accounts_pydantic(**account).dict())
+    return accounts
+

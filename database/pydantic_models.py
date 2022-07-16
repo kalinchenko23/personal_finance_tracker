@@ -34,7 +34,7 @@ class Expenses_additional_info_pydantic(BaseModel):
 
 class Accounts_pydantic(BaseModel):
     id: str = Field(alias='account_id')
-    name: str
+    # name: str
     balance: Decimal = Field(alias='balances')
     subtype: str
 

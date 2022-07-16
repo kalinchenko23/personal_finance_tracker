@@ -1,10 +1,10 @@
-from .client import create_client
+from client import client
 from plaid.model.country_code import CountryCode
 from plaid.model.link_token_create_request import LinkTokenCreateRequest
 from plaid.model.link_token_create_request_user import LinkTokenCreateRequestUser
 
 
-def update_token(client:create_client, old_access_token, client_id:str):
+def update_token(client:client, old_access_token, client_id:str):
     request = LinkTokenCreateRequest(
         client_name="US ARMY",
         country_codes=[CountryCode('US')],
