@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="added logging capabilities">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/mongoDB/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/sql_service /__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/sql_service /aws_service.py" afterDir="false" />
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="added aws rds capabilities">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mongoDB/MongoDB_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongoDB/MongoDB_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mongoDB/documents.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongoDB/documents.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/pydantic_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sql_service /session_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/sql_service /session_sql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sql_service /sql_db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/sql_service /sql_db_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plaid_service/plaid_dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/plaid_service/plaid_dashboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/exchange_publick_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/exchange_publick_token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/link_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/link_token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/remove_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/remove_token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/token_workflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/token_workflow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/update_mode.py" beforeDir="false" afterPath="$PROJECT_DIR$/token_service/update_mode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging_service/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/logging_service/logger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging_service/logger_config.conf" beforeDir="false" afterPath="$PROJECT_DIR$/logging_service/logger_config.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging_service/personal_finance.log" beforeDir="false" afterPath="$PROJECT_DIR$/logging_service/personal_finance.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +69,28 @@
       <recent name="$PROJECT_DIR$/token_service" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.aws_service">
+  <component name="RunManager" selected="Python.MongoDB_service">
+    <configuration name="MongoDB_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="personal_finanse_tracker" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database/mongoDB" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongoDB/MongoDB_service.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="aws_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -113,27 +125,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/db_service.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="exchange_publick_token" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="personal_finanse_tracker" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/token_service" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/token_service/exchange_publick_token.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -186,11 +177,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MongoDB_service" />
         <item itemvalue="Python.aws_service" />
         <item itemvalue="Python.sql_db_service" />
         <item itemvalue="Python.db_service" />
         <item itemvalue="Python.plaid_dashboard" />
-        <item itemvalue="Python.exchange_publick_token" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649461872018</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added aws rds capabilities">
+      <created>1657931928700</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657931928700</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,7 +264,8 @@
     <MESSAGE value="fixed all the DB malfunctions" />
     <MESSAGE value="added venv" />
     <MESSAGE value="mounted a volume for token service in docker_compose file" />
-    <option name="LAST_COMMIT_MESSAGE" value="mounted a volume for token service in docker_compose file" />
+    <MESSAGE value="added aws rds capabilities" />
+    <option name="LAST_COMMIT_MESSAGE" value="added aws rds capabilities" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

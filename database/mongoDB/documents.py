@@ -7,7 +7,7 @@ from mongoengine import Document, EmbeddedDocument, EmbeddedDocumentField, Strin
 
 class Accounts(Document):
     id = StringField(primary_key=True)
-    name = StringField(required=True)
+    name = StringField()
     balance = FloatField(required=True)
     subtype = StringField(required=True)
 

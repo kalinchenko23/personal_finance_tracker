@@ -34,7 +34,7 @@ class Expenses_additional_info_pydantic(BaseModel):
 
 class Accounts_pydantic(BaseModel):
     id: str = Field(alias='account_id')
-    # name: str
+    name: str
     balance: Decimal = Field(alias='balances')
     subtype: str
 
@@ -43,3 +43,23 @@ class Accounts_pydantic(BaseModel):
     @validator('balance', pre=True)
     def current_balance(cls, v):
         return v['current']
+
+    @validator('name')
+    def name_change(cls, n):
+        match n:
+            case "MAKSYM KALINCHENKO -91008":
+                n="amex credit card"
+            case "Customized Cash Rewards World Mastercard Card":
+                n = "bofa credit card"
+            case "More Rewards Amex":
+                n = "navy credit card"
+            case "CREDIT CARD":
+                n = "chase credit card"
+            case "TOTAL CHECKING":
+                n = "chase checking"
+            case "Active Duty Checking":
+                n = "navy checking"
+            case "Share Savings":
+                n = "navy savings"
+        return n
+
