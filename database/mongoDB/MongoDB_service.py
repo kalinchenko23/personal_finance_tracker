@@ -6,8 +6,9 @@ from db_service import pydantic_validation_transactions, pydantic_validation_tra
     pydantic_validation_accounts, banks
 from mongoDB.documents import Accounts, Expenses_additional_info, Expenses
 from logger import finance_logger
+from mongo_connection_service import connection_mongo
 
-mongoengine.connect('personal_finance_tracker')
+conn=connection_mongo()
 # This function inserts and updates transactions and accounts
 
 def inserting_transactions_updating_accounts():
