@@ -1,6 +1,6 @@
 import time, sys
-sys.path.insert(1,'/Users/maximkalinchenko/Desktop/personal_finance_tracker/database')
-sys.path.insert(1,'/Users/maximkalinchenko/Desktop/personal_finance_tracker/logging_service')
+sys.path.insert(1,'/Users/maximkalinchenko/Desktop/personal_finance_tracker/backend/database')
+sys.path.insert(1,'/Users/maximkalinchenko/Desktop/personal_finance_tracker/backend/logging_service')
 import mongoengine
 from db_service import pydantic_validation_transactions, pydantic_validation_transactions_additional_info, \
     pydantic_validation_accounts, banks
@@ -33,4 +33,4 @@ def inserting_transactions_updating_accounts():
         finance_logger.info(f"Transactions for {bank} are updated")
 
 
-inserting_transactions_updating_accounts()
+# inserting_transactions_updating_accounts()

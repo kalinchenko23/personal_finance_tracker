@@ -4,14 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed mongodb issues">
-      <change afterPath="$PROJECT_DIR$/database/mongoDB/aws_mongodb_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/mongoDB/mongo_connection_service.py" afterDir="false" />
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="implemented aws documentDB capabilities">
+      <change afterPath="$PROJECT_DIR$/backend/database/fastapi_sql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongoDB/MongoDB_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongoDB/MongoDB_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sql_service /session_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/sql_service /session_sql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging_service/personal_finance.log" beforeDir="false" afterPath="$PROJECT_DIR$/logging_service/personal_finance.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/db_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mongoDB/MongoDB_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoDB/MongoDB_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mongoDB/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoDB/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mongoDB/aws_mongodb_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoDB/aws_mongodb_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mongoDB/documents.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoDB/documents.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mongoDB/mongo_connection_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoDB/mongo_connection_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sql_service /__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service /__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sql_service /aws_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service /aws_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sql_service /db_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service /db_schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sql_service /db_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service /db_tables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sql_service /session_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service /session_sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sql_service /sql_db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service /sql_db_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging_service/logger.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging_service/logger_config.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logging_service/personal_finance.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plaid_service/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plaid_service/plaid_dashboard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/exchange_publick_token.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/link_token.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/remove_token.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/token_workflow.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_service/update_mode.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +69,7 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -62,11 +86,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/logging_service" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/plaid_service" />
-      <recent name="$PROJECT_DIR$/token_service" />
+      <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$/backend " />
+      <recent name="$PROJECT_DIR$/database" />
+      <recent name="$PROJECT_DIR$/database/sql_service " />
     </key>
   </component>
   <component name="RunManager" selected="Python.MongoDB_service">
@@ -77,12 +101,17 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database/mongoDB" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/mongoDB" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongoDB/MongoDB_service.py" />
+      <EXTENSION ID="software.aws.toolkits.jetbrains.core.execution.PythonAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/mongoDB/MongoDB_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -91,7 +120,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="aws_mongodb_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -99,11 +128,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database/mongoDB" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/token_service" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongoDB/aws_mongodb_service.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/token_service/client.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -112,40 +141,24 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="aws_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="plaid_dashboard" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database/sql_service " />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/plaid_service" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/sql_service /aws_service.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="db_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="personal_finanse_tracker" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/db_service.py" />
+      <EXTENSION ID="software.aws.toolkits.jetbrains.core.execution.PythonAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -162,11 +175,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database/sql_service " />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/sql_service " />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/sql_service /sql_db_service.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/sql_service /sql_db_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -175,13 +188,41 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="token_workflow" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="personal_finanse_tracker" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/token_service" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/token_service/token_workflow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.plaid_dashboard" />
+      <item itemvalue="Python.client" />
+      <item itemvalue="Python.token_workflow" />
+      <item itemvalue="Python.sql_db_service" />
+      <item itemvalue="Python.MongoDB_service" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.MongoDB_service" />
-        <item itemvalue="Python.aws_mongodb_service" />
-        <item itemvalue="Python.aws_service" />
         <item itemvalue="Python.sql_db_service" />
-        <item itemvalue="Python.db_service" />
+        <item itemvalue="Python.token_workflow" />
+        <item itemvalue="Python.client" />
+        <item itemvalue="Python.plaid_dashboard" />
       </list>
     </recent_temporary>
   </component>
@@ -250,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658018998016</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="implemented aws documentDB capabilities">
+      <created>1660002739872</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1660002739872</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -273,7 +321,8 @@
     <MESSAGE value="mounted a volume for token service in docker_compose file" />
     <MESSAGE value="added aws rds capabilities" />
     <MESSAGE value="fixed mongodb issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed mongodb issues" />
+    <MESSAGE value="implemented aws documentDB capabilities" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented aws documentDB capabilities" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
