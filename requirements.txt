@@ -1,9 +1,0 @@
-plaid-python
-python-dotenv==0.15.0
-sqlalchemy
-psycopg2
-alembic
-pydantic
-sqlalchemy_utils
-mongoengine
-sshtunnel
