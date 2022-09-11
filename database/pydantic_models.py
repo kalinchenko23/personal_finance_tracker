@@ -63,8 +63,3 @@ class Accounts_pydantic(BaseModel):
                 n = "navy savings"
         return n
 
-class User_pydantic(BaseModel):
-    username: str
-    last_name: str
-    first_name: str
-

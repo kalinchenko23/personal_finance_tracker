@@ -30,4 +30,3 @@ class Accounts(base):
     balance: float = Column(Integer)
     subtype: str = Column(String, index=True)
     expense = relationship("Expenses", back_populates='account')
-
