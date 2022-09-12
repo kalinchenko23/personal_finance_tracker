@@ -1,5 +1,5 @@
 import datetime
-from sqlalchemy import Column, Integer, DateTime, String, ForeignKey, Float
+from sqlalchemy import Column, Integer, DateTime, String, ForeignKey, Float, Identity
 from sqlalchemy.orm import declarative_base, relationship
 
 base = declarative_base()
@@ -30,3 +30,12 @@ class Accounts(base):
     balance: float = Column(Integer)
     subtype: str = Column(String, index=True)
     expense = relationship("Expenses", back_populates='account')
+
+class Users(base):
+    __tablename__ = 'users'
+    id: int = Column(Integer, Identity(start=1, cycle=True), primary_key=True)
+    username: str = Column(String)
+    password: str = Column(String)
+    first_name: str = Column(String)
+    last_name: str = Column(String)
+

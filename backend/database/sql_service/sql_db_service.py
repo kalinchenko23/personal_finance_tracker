@@ -1,6 +1,6 @@
 import sys
 
-sys.path.insert(1, '/Users/maximkalinchenko/Desktop/personal_finance_tracker/database')
+sys.path.insert(1, '/Users/maximkalinchenko/Desktop/personal_finance_tracker/backend/database')
 from sqlalchemy import select, update
 from session_sql import Session
 from db_service import pydantic_validation_transactions, pydantic_validation_transactions_additional_info, \
