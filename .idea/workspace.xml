@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="Created &quot;backend&quot; folder">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="Created fost API (/users/) endpoint">
+      <change afterPath="$PROJECT_DIR$/client/.storybook/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.storybook/preview.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service /__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service /aws_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/aws_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service /db_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/db_schema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service /db_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service /session_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/session_sql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service /sql_db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/sql_db_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.github/workflows/create-branch.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.github/workflows/issue-autolink.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.github/workflows/lint.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.github/workflows/release-please.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
