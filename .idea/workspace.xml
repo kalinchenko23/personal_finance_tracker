@@ -189,9 +189,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.db_service" />
-      <item itemvalue="Python.api_service" />
       <item itemvalue="Python.MongoDB_service" />
+      <item itemvalue="Python.api_service" />
+      <item itemvalue="Python.db_service" />
       <item itemvalue="Python.fastapi_sql_service" />
       <item itemvalue="Python.sql_db_service" />
     </list>
