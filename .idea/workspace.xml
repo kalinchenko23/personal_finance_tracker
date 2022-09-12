@@ -4,40 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="Created &quot;backend&quot; folder">
-      <change afterPath="$PROJECT_DIR$/backend/database/db_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/fastapi_sql/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" afterDir="false" />
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="Created fost API (/users/) endpoint">
+      <change afterPath="$PROJECT_DIR$/client/.storybook/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/.storybook/preview.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/db_service.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongoDB/MongoDB_service.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongoDB/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongoDB/aws_mongodb_service.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongoDB/documents.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongoDB/mongo_connection_service.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/pydantic_models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sql_service /__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sql_service /aws_service.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sql_service /db_schema.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sql_service /db_tables.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sql_service /session_sql.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sql_service /sql_db_service.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging_service/logger.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging_service/logger_config.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logging_service/personal_finance.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plaid_service/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plaid_service/plaid_dashboard.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/exchange_publick_token.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/link_token.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/remove_token.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/token_workflow.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_service/update_mode.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.github/workflows/create-branch.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.github/workflows/issue-autolink.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.github/workflows/lint.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.github/workflows/release-please.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,27 +118,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="aws_mongodb_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="personal_finanse_tracker" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database/mongoDB" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongoDB/aws_mongodb_service.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="db_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,19 +144,62 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="fastapi_sql_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="personal_finanse_tracker" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/fastapi_sql" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sql_db_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="personal_finanse_tracker" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/sql_service" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/sql_service/sql_db_service.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.aws_mongodb_service" />
-      <item itemvalue="Python.db_service" />
-      <item itemvalue="Python.api_service" />
       <item itemvalue="Python.MongoDB_service" />
+      <item itemvalue="Python.api_service" />
+      <item itemvalue="Python.db_service" />
+      <item itemvalue="Python.fastapi_sql_service" />
+      <item itemvalue="Python.sql_db_service" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.api_service" />
+        <item itemvalue="Python.sql_db_service" />
+        <item itemvalue="Python.fastapi_sql_service" />
         <item itemvalue="Python.MongoDB_service" />
         <item itemvalue="Python.db_service" />
-        <item itemvalue="Python.MongoDB_service" />
-        <item itemvalue="Python.aws_mongodb_service" />
       </list>
     </recent_temporary>
   </component>
@@ -278,7 +275,21 @@
       <option name="project" value="LOCAL" />
       <updated>1662854545770</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Created &quot;backend&quot; folder">
+      <created>1662857009848</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1662857009848</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Created &quot;backend&quot; folder">
+      <created>1662857148807</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1662857148807</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -66,5 +66,6 @@ class Accounts_pydantic(BaseModel):
 class User(BaseModel):
     username: str
     password: str
-    last_name: str
     first_name: str
+    last_name: str
+
