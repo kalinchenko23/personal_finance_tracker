@@ -1,7 +1,7 @@
 import plaid
 import json
 from plaid.api import plaid_api
-with open ('/Users/maximkalinchenko/Desktop/personal_finance_tracker/classified.json') as secret_file:
+with open ('/Users/maximkalinchenko/Desktop/personal_finance_tracker/backend/classified.json') as secret_file:
     secrets = json.load(secret_file)
     client_id,secret=secrets['token']['clientId'],secrets['token']['secret']
 

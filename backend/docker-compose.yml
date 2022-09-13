@@ -7,7 +7,7 @@ services:
     volumes:
       - mongo_db:/data/db
   token:
-    build: .
+    build: ..
     volumes:
        - ./:/personal_finance_tracker
 

@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="Created fost API (/users/) endpoint">
-      <change afterPath="$PROJECT_DIR$/client/.storybook/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/.storybook/preview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dockerignore " beforeDir="false" afterPath="$PROJECT_DIR$/backend/.dockerignore " afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.github/workflows/create-branch.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.github/workflows/issue-autolink.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.github/workflows/lint.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.github/workflows/release-please.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/mongoDB/mongo_connection_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoDB/mongo_connection_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/session_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/session_sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_service/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_service/token_workflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/token_workflow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,11 +65,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/logging_service" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/plaid_service" />
-      <recent name="$PROJECT_DIR$/token_service" />
     </key>
   </component>
   <component name="RunManager" selected="Python.api_service">

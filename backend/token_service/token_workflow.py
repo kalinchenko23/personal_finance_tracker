@@ -6,7 +6,7 @@ from exchange_publick_token import exchange
 from remove_token import remove_token
 from update_mode import update_token
 
-with open(Path(__file__).parents[2] / 'classified.json', 'r') as f:
+with open(Path(__file__).parents[1] / 'classified.json', 'r') as f:
     secrets = json.load(f)
     chase, amex, navy, bofa =[v for v in secrets['credentials'].values()]
 
