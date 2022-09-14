@@ -9,7 +9,7 @@ export const ThemeContext = React.createContext<{
     color:Color,
     mode:'dark' | 'light';
     // toggleMode:()=>void
-    setMode:React.Dispatch<React.SetStateAction<"dark" | "light">>
+    setMode:React.Dispatch<any>
 }>({
     color:'sky',
     mode:'light',
