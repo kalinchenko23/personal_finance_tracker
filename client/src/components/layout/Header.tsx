@@ -33,7 +33,7 @@ const DesktopNav:React.FC<{
           >Login
           </Button>
         </li>
-        <li key={`login`}>
+        <li key={`theme`}>
           <Button 
               variant={mode === 'dark' ? 'light' : 'dark'}
               className='rounded-lg text-2xl' 
@@ -45,27 +45,45 @@ const DesktopNav:React.FC<{
   )
 };
 
-const MobileNavDropDown = ()=>{
+const MobileNav:React.FC<{
+  mode:'light'|'dark'
+  // toggleMode:()=>void
+  setMode:React.Dispatch<React.SetStateAction<"dark" | "light">>
+  setOpenLogin:React.Dispatch<React.SetStateAction<boolean>>
+}> = ({mode, setMode, setOpenLogin})=>{
   return(
-    <div className="group relative bg-blue-300 ">
+    <nav className='lg:hidden flex'>
       <Button 
-        variant='light'
-        className="hidden"
-        /* className="hidden bg-gray-300 text-gray-700 
-        font-semibold py-2 px-4 rounded inline-flex items-center" */
+        className='mx-2'
+        variant={mode === 'dark' ? 'light' : 'dark'}
+        onClick={()=>setOpenLogin(true)}
       >
-        <span className="mr-1">Menu</span>
+        Login
       </Button>
-      <ul className="absolute hidden text-gray-700 pt-1 group-hover:block">
-        {links.map(({ href, label }) => (
-            <li key={`${href}${label}`}>
-              <PrimaryLink href={href} className='rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 flex flex-col justify-start whitespace-no-wrap '>
-                {label}
-              </PrimaryLink>
-            </li>
-          ))}
-      </ul>
-    </div>
+      <div className="group relative ">
+        <Button variant='light' >
+          Menu
+        </Button>
+        <ul className="absolute hidden text-gray-700 pt-1 group-hover:block">
+          {links.map(({ href, label }) => (
+              <li key={`${href}${label}`}>
+                <PrimaryLink href={href} className='rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 flex flex-col justify-start whitespace-no-wrap '>
+                  {label}
+                </PrimaryLink>
+              </li>
+            ))}
+          <li key={`theme`}>
+            <Button 
+              // variant={mode === 'dark' ? 'light' : 'dark'}
+              className='w-full text-center' 
+              onClick={()=>setMode( mode === 'light' ? 'dark': 'light' )}
+            >
+              {mode === 'light' ? <FaMoon/> : <FaSun/>}
+            </Button>
+          </li>
+        </ul>
+      </div>
+    </nav>
   )
 };
 
@@ -89,7 +107,7 @@ export default function Header() {
         <Logo withText={true} mode={mode}/> 
         <nav className='mt-2'>
           <DesktopNav mode={mode} setMode={setMode} setOpenLogin={setOpenLogin}/>
-          {/* <MobileNavDropDown/> */}
+          <MobileNav mode={mode} setMode={setMode} setOpenLogin={setOpenLogin}/>
         </nav>
       </div>
     </header>
