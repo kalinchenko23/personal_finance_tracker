@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className={clsx(
-      'h-full relative', mode === 'dark' ? 'bg-dark' : 'bg-gray-50', 
+      'h-full relative', mode === 'dark' ? 'bg-zinc-900' : 'bg-gray-50', 
       color
     )}>
       <Header/>
