@@ -54,35 +54,22 @@ const MobileNav:React.FC<{
   return(
     <nav className='lg:hidden flex'>
       <Button 
-        className='mx-2'
+        className='mx-2 mt-2 text-lg'
         variant={mode === 'dark' ? 'light' : 'dark'}
         onClick={()=>setOpenLogin(true)}
       >
         Login
       </Button>
-      <div className="group relative ">
-        <Button variant='light' >
-          Menu
-        </Button>
-        <ul className="absolute hidden text-gray-700 pt-1 group-hover:block">
-          {links.map(({ href, label }) => (
-              <li key={`${href}${label}`}>
-                <PrimaryLink href={href} className='rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 flex flex-col justify-start whitespace-no-wrap '>
-                  {label}
-                </PrimaryLink>
-              </li>
-            ))}
-          <li key={`theme`}>
-            <Button 
-              // variant={mode === 'dark' ? 'light' : 'dark'}
-              className='w-full text-center' 
-              onClick={()=>setMode( mode === 'light' ? 'dark': 'light' )}
-            >
-              {mode === 'light' ? <FaMoon/> : <FaSun/>}
-            </Button>
-          </li>
-        </ul>
-      </div>
+      <Button 
+        className='mx-1 mt-2 text-lg'
+        variant={mode === 'dark' ? 'light' : 'dark'}
+        onClick={()=>{
+          setMode( mode === 'light' ? 'dark': 'light' )
+          setOpenLogin(false)
+        }}
+      >
+        {mode === 'light' ? <FaMoon/> : <FaSun/>}
+      </Button>
     </nav>
   )
 };
