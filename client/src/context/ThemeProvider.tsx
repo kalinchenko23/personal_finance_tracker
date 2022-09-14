@@ -3,6 +3,7 @@ import React from 'react'
 
 
 type Color = typeof colorList[number];
+
 export const ThemeContext = React.createContext<{
     color:Color,
     mode:'dark' | 'light';
@@ -21,7 +22,11 @@ const ThemeProvider:React.FC<{children:JSX.Element}>=  ({children}) => {
         return mode === 'dark' ? setMode('light') : setMode('dark');
     }
     return (
-        <ThemeContext.Provider value={{color, mode, toggleMode}}>
+        <ThemeContext.Provider value={{
+            color, 
+            mode, 
+            toggleMode
+        }}>
             {children}
         </ThemeContext.Provider>
     )

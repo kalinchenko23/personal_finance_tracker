@@ -83,7 +83,7 @@ export default function HomePage() {
         <section className='h-full sm:w-2/4 sm:h-[80vh] p-6 '>
           <h4>Banks:</h4>
           <div className='flex'>
-            {bakns.map(b=><span className='font-semibold mx-1'>{b}</span>)}
+            {bakns.map(b=><span key={b} className='font-semibold mx-1'>{b}</span>)}
           </div>
           
           <h4>Total balance:</h4>
@@ -94,7 +94,7 @@ export default function HomePage() {
             <ChartUp/>
           </div>
           <div className='flex flex-wrap'>
-            {chipsList.map(el=> <Chip text={el}/>)}
+            {chipsList.map(el=> <Chip key={el} text={el}/>)}
           </div>
 
         </section>
