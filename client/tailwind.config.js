@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
+      //   backgroundImage:{
+      //     'hero-pattern': "url('./src/styles/hero-bg-pattern.svg')"
+      //   }
       },
       colors: {
         primary: {
