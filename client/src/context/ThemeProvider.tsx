@@ -4,14 +4,17 @@ import React from 'react'
 
 type Color = typeof colorList[number];
 
+
 export const ThemeContext = React.createContext<{
     color:Color,
     mode:'dark' | 'light';
-    toggleMode:()=>void
+    // toggleMode:()=>void
+    setMode:React.Dispatch<React.SetStateAction<"dark" | "light">>
 }>({
     color:'sky',
     mode:'light',
-    toggleMode:()=>{}
+    // toggleMode:()=>{}
+    setMode:()=>{}
 });
 
 const ThemeProvider:React.FC<{children:JSX.Element}>=  ({children}) => {
@@ -25,7 +28,7 @@ const ThemeProvider:React.FC<{children:JSX.Element}>=  ({children}) => {
         <ThemeContext.Provider value={{
             color, 
             mode, 
-            toggleMode
+            setMode
         }}>
             {children}
         </ThemeContext.Provider>

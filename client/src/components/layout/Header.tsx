@@ -12,9 +12,10 @@ import { ThemeContext } from '@/context/ThemeProvider';
 
 const DesktopNav:React.FC<{
   mode:'light'|'dark'
-  toggleMode:()=>void
+  // toggleMode:()=>void
+  setMode:React.Dispatch<React.SetStateAction<"dark" | "light">>
   setOpenLogin:React.Dispatch<React.SetStateAction<boolean>>
-}> = ({mode, toggleMode, setOpenLogin})=>{
+}> = ({mode, setMode, setOpenLogin})=>{
   return (
     <ul className='hidden items-center justify-between space-x-4  lg:flex '>
       {links.map(({ href, label }) => (
@@ -36,7 +37,7 @@ const DesktopNav:React.FC<{
           <Button 
               variant={mode === 'dark' ? 'light' : 'dark'}
               className='rounded-lg text-2xl' 
-              onClick={toggleMode}
+              onClick={()=>setMode( mode === 'light' ? 'dark': 'light' )}
             >{mode === 'light' ? <FaMoon/> : <FaSun/>}
             </Button>
         </li>
@@ -76,7 +77,7 @@ const links = [
 ];
 
 export default function Header() {
-  const { mode, toggleMode} = React.useContext(ThemeContext);
+  const { mode, setMode} = React.useContext(ThemeContext);
   // const textColor = mode === 'dark' ? 'text-gray-300' : 'text-gray-900';
   const [openLogin, setOpenLogin] = React.useState(false);
   return (
@@ -87,7 +88,7 @@ export default function Header() {
       <div className='layout flex pt-2 h-14 content-center justify-between'>
         <Logo withText={true} mode={mode}/> 
         <nav className='mt-2'>
-          <DesktopNav mode={mode} toggleMode={toggleMode} setOpenLogin={setOpenLogin}/>
+          <DesktopNav mode={mode} setMode={setMode} setOpenLogin={setOpenLogin}/>
           {/* <MobileNavDropDown/> */}
         </nav>
       </div>
