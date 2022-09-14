@@ -69,7 +69,7 @@ export default function HomePage() {
       
       <main className={clsx('w-full h-full flex flex-col', textColor)}>
 
-        <div className={clsx('w-screen h-[75vh] flex flex-col sm:flex-row px-4')} >
+        <div className={clsx('w-full h-[75vh] flex flex-col sm:flex-row')} >
           <section className='h-3/5 sm:w-2/4 sm:h-[80vh] flex justify-center items-center p-4'>
             <div className='lg:pl-16'>
               <h1 className='text-3xl font-extrabold tracking-tight  sm:text-5xl xl:text-6xl'>
