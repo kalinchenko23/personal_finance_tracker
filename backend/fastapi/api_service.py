@@ -22,6 +22,9 @@ def get_session():
     finally:
         sess.close()
 
+@app.get("/")
+def status_check():
+    return {"message": "It's working!"}
 
 @app.post("/users/")
 def new_user(user: User, session: sqlalchemy.orm.session = Depends(get_session)):
@@ -32,4 +35,3 @@ def new_user(user: User, session: sqlalchemy.orm.session = Depends(get_session))
 
 
 
-uvicorn.run(app)
