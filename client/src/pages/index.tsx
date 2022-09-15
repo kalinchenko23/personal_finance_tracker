@@ -60,19 +60,17 @@ export default function HomePage() {
   const { mode } = React.useContext(ThemeContext);
   const textColor = mode === 'dark' ? 'text-gray-300' : 'text-gray-900';
 
-
-
-
   return (
     <Layout>
       <Seo templateTitle='Home' />
       
-      <main className={clsx('w-full h-full flex flex-col', textColor)}>
+      <main className={clsx('w-full h-full flex flex-col ', textColor)}>
 
-        <div className={clsx('w-full h-[75vh] flex flex-col sm:flex-row')} >
-          <section className='h-3/5 sm:w-2/4 sm:h-[80vh] flex justify-center items-center p-4'>
+        <div className={clsx('w-full flex flex-col sm:flex-row mb-12')} >
+
+          <section className='sm:w-2/4 flex md:justify-center md:items-center p-4'>
             <div className='lg:pl-16'>
-              <h1 className='text-3xl font-extrabold tracking-tight  sm:text-5xl xl:text-6xl'>
+              <h1 className=' text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight  sm:text-5xl xl:text-6xl'>
                 Take {' '}
                 <UnstyledLink href='#'>
                 <Accent>control</Accent>
