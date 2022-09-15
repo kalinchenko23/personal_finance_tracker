@@ -9,7 +9,7 @@ export default function Accent({
   return (
     <span
       className={clsx(
-        'font-bold text-transparent bg-gradient-to-tr from-primary-900 via-primary-600 to-primary-500 bg-clip-text',
+        'font-bold text-transparent bg-gradient-to-tr from-primary-400 via-primary-600 to-primary-500 bg-clip-text',
         className
       )}
       {...rest}

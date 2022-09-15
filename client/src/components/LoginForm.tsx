@@ -14,7 +14,7 @@ const LoginForm = ({
     const [toggle, setToggle] = React.useState(false)
   
     return (
-      <div className={`absolute h-screen w-screen flex justify-center items-center z-50 bg-dark/75 transition duration-500 ease-out ${openLogin ? 'block' : 'hidden '}`}>
+      <div className={`fixed inset-0 h-screen w-screen flex justify-center items-center z-50 bg-dark/75 transition duration-500 ease-out ${openLogin ? 'block' : 'hidden '}`}>
   
         <section className='h-3/4 w-full lg:w-96  p-2 
         relative flex shadow-lg shadow-dark/40 bg-white 
