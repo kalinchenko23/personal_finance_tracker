@@ -7,7 +7,7 @@ const Chip = ({text}:{text:string}) => {
     font-semibold tracking-wider
     transition duration-150 ease-out hover:ease-in
     hover:bg-gradient-to-tr from-primary-400 via-primary-600 to-primary-500 hover:border-transparent
-    hover:text-white cursor-pointer'>{text}</div>
+    hover:text-white cursor-pointer inline-block'>{text}</div>
   )
 }
 
