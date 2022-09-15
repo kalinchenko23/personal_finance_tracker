@@ -8,7 +8,7 @@ import {
     Title,
     Tooltip,
     Legend,
-    Filler
+    Filler,
 } from 'chart.js';
 
 ChartJS.register(
@@ -19,24 +19,31 @@ ChartJS.register(
     Title,
     Tooltip,
     Legend,
-    Filler
+    Filler,
 )
 
 import { Line } from 'react-chartjs-2';
 import { ThemeContext } from '@/context/ThemeProvider';
+import {faker} from '@faker-js/faker'
+
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const fakeDataset = {
+    labels:months,
+    datasets:[
+        {   
+            data: months.map(() => faker.datatype.number({ min: 1000, max: 20000 })),
+        },
+    ],
+};
 
 
-const LineChart = () => {
-    const {mode} = React.useContext(ThemeContext)
-    const data = {
-        labels:['Jan', 'Feb', 'March', 'April', 'May', 'June','July', 'August', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets:[
-            {
-                data: [  8400, 8100, 11700, 9400, 10500, 13200, 10300, 16000, 13500, 12600, 17300 ]
-            },
-        ],
-    };
-    
+const LineChart:React.FC<{
+    width:string, height:string, isFakeData?:boolean
+}> = ({width, height, isFakeData}) => {
+
+    const {mode} = React.useContext(ThemeContext);
+
+
     const options = {
         plugins:{
             legend:{
@@ -52,8 +59,8 @@ const LineChart = () => {
                 backgroundColor:'transparent'
             },
             point:{
-                radius:0,
-                itRadius:0
+                radius:6,
+                itRadius:1
             },
         },
         scales:{
@@ -63,10 +70,21 @@ const LineChart = () => {
             yAxis: {
                 display:false
             },
+            x: {
+                grid: {
+                    // color: 'red'
+                }
+            }
         },
-    }
+    };
+
     return (
-        <Line data={data} width={'100%'} height={'30%'} options={options} />
+        <Line 
+            data={fakeDataset} 
+            width={width} 
+            height={height} 
+            options={options} 
+        />
     )
 }
 
