@@ -8,9 +8,9 @@ module.exports = {
     extend: {
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
-      //   backgroundImage:{
-      //     'hero-pattern': "url('./src/styles/hero-bg-pattern.svg')"
-      //   }
+        backgroundImage:{
+          'blurry-gradient': "url('./src/assets/blurry-gradient-haikei.svg')"
+        }
       },
       colors: {
         primary: {
