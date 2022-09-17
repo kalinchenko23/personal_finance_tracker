@@ -1,6 +1,6 @@
 import mongoengine
 import json
-with open('/Users/maximkalinchenko/Desktop/personal_finance_tracker/backend/classified.json') as secret_file:
+with open('/home/ubuntu/personal_finance_tracker/backend/classified.json') as secret_file:
     secrets = json.load(secret_file)
     user, password = secrets['db']['user'], secrets['aws']['password']
 
