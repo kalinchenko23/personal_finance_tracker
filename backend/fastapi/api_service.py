@@ -1,9 +1,9 @@
 import sys
 import sqlalchemy
-sys.path.insert(0, '/Users/maximkalinchenko/Desktop/personal_finance_tracker/backend/plaid_service')
-sys.path.insert(1, '/Users/maximkalinchenko/Desktop/personal_finance_tracker/backend/database')
-sys.path.insert(2, '/Users/maximkalinchenko/Desktop/personal_finance_tracker/backend/database/fastapi_sql')
-sys.path.insert(3, '/Users/maximkalinchenko/Desktop/personal_finance_tracker/backend/database/sql_service')
+sys.path.insert(0, '/home/ubuntu/personal_finance_tracker/backend/plaid_service')
+sys.path.insert(1, '/home/ubuntu/personal_finance_tracker/backend/database')
+sys.path.insert(2, '/home/ubuntu/personal_finance_tracker/backend/database/fastapi_sql')
+sys.path.insert(3, '/home/ubuntu/personal_finance_tracker/backend/database/sql_service')
 from fastapi import FastAPI, Query, HTTPException, Depends
 import uvicorn
 from plaid_dashboard import plaid_service
