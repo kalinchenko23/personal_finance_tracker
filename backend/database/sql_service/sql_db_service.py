@@ -1,6 +1,6 @@
 import sys
 
-sys.path.insert(1, '/home/ubuntu/personal_finance_tracker/backend/database')
+sys.path.insert(1, f'{pathlib.Path.cwd().parents[0]}/database')
 from sqlalchemy import select, update
 from session_sql import Session
 from db_service import pydantic_validation_transactions, pydantic_validation_transactions_additional_info, \

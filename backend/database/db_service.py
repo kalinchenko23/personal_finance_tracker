@@ -1,5 +1,5 @@
-import datetime,sys
-sys.path.insert(1,'/home/ubuntu/personal_finance_tracker/backend/plaid_service')
+import datetime,sys, pathlib
+sys.path.insert(1,f'{pathlib.Path.cwd().parents[0]}/plaid_service')
 from pydantic_models import Expenses_pydantic, Accounts_pydantic, Expenses_additional_info_pydantic
 from plaid_dashboard import plaid_service
 

@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="Refactored backend directory.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/db_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/mongoDB/MongoDB_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoDB/MongoDB_service.py" afterDir="false" />
