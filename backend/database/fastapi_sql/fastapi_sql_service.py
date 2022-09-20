@@ -1,6 +1,6 @@
 import sys
-sys.path.insert(0,'/Users/maximkalinchenko/Desktop/personal_finance_tracker/backend/database')
-sys.path.insert(0,'/Users/maximkalinchenko/Desktop/personal_finance_tracker/backend/database/sql_service')
+sys.path.insert(0,'/home/ubuntu/personal_finance_tracker/backend/database')
+sys.path.insert(0,'/home/ubuntu/personal_finance_tracker/backend/database/sql_service')
 import sqlalchemy
 from sqlalchemy import select
 from pydantic_models import User

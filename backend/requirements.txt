@@ -9,4 +9,3 @@ mongoengine
 sshtunnel
 fastapi
 uvicorn
-request
