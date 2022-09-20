@@ -1,8 +1,8 @@
 import json
-
+import pathlib
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-with open('/home/ubuntu/personal_finance_tracker/backend/classified.json') as secret_file:
+with open(f'{pathlib.Path.cwd().parents[0]}/classified.json') as secret_file:
     secrets = json.load(secret_file)
     user,password=secrets['db']['user'],secrets['db']['password']
     

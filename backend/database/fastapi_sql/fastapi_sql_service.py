@@ -1,6 +1,7 @@
 import sys
-sys.path.insert(0,'/home/ubuntu/personal_finance_tracker/backend/database')
-sys.path.insert(0,'/home/ubuntu/personal_finance_tracker/backend/database/sql_service')
+import pathlib
+sys.path.insert(0,f'{pathlib.Path.cwd().parents[0]}/database')
+sys.path.insert(0,f'{pathlib.Path.cwd().parents[0]}/database/sql_service')
 import sqlalchemy
 from sqlalchemy import select
 from pydantic_models import User
