@@ -35,3 +35,4 @@ def new_user(user: User, session: sqlalchemy.orm.session = Depends(get_session))
 
 
 
+
