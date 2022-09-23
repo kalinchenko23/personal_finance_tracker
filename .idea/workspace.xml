@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="Refactored backend directory.">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="edited path with pathlib for multiplatform development">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/db_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/mongoDB/MongoDB_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoDB/MongoDB_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/mongoDB/mongo_connection_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoDB/mongo_connection_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/sql_service/aws_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/aws_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/sql_service/session_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/session_sql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/sql_service/sql_db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/sql_db_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/logging_service/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logging_service/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/logging_service/logger_config.conf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/logging_service/logger_config.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/token_service/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_service/link_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/link_token.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +73,7 @@
       <recent name="$PROJECT_DIR$/plaid_service" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.api_service">
+  <component name="RunManager" selected="Python.fastapi_sql_service">
     <configuration name="MongoDB_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,32 +121,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="db_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="personal_finanse_tracker" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="software.aws.toolkits.jetbrains.core.execution.PythonAwsConnectionExtension">
-        <option name="credential" />
-        <option name="region" />
-        <option name="useCurrentConnection" value="false" />
-      </EXTENSION>
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/db_service.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="fastapi_sql_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -161,6 +134,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="link_token" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="personal_finanse_tracker" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/token_service" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/token_service/link_token.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -193,17 +187,17 @@
     <list>
       <item itemvalue="Python.MongoDB_service" />
       <item itemvalue="Python.api_service" />
-      <item itemvalue="Python.db_service" />
       <item itemvalue="Python.fastapi_sql_service" />
       <item itemvalue="Python.sql_db_service" />
+      <item itemvalue="Python.link_token" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.api_service" />
-        <item itemvalue="Python.sql_db_service" />
         <item itemvalue="Python.fastapi_sql_service" />
+        <item itemvalue="Python.sql_db_service" />
+        <item itemvalue="Python.api_service" />
+        <item itemvalue="Python.link_token" />
         <item itemvalue="Python.MongoDB_service" />
-        <item itemvalue="Python.db_service" />
       </list>
     </recent_temporary>
   </component>
@@ -307,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663271379775</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="edited path with pathlib for multiplatform development">
+      <created>1663716458534</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1663716458534</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -333,7 +334,8 @@
     <MESSAGE value="Created &quot;backend&quot; folder" />
     <MESSAGE value="Refactored backend directory." />
     <MESSAGE value="edited config file for nginx" />
-    <option name="LAST_COMMIT_MESSAGE" value="edited config file for nginx" />
+    <MESSAGE value="edited path with pathlib for multiplatform development" />
+    <option name="LAST_COMMIT_MESSAGE" value="edited path with pathlib for multiplatform development" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

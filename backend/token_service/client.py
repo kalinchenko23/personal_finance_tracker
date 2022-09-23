@@ -2,7 +2,7 @@ import plaid
 import json
 import pathlib
 from plaid.api import plaid_api
-with open (f'{pathlib.Path.cwd().parents[0]}/classified.json') as secret_file:
+with open (f'{pathlib.Path(__file__).parents[1]}/classified.json') as secret_file:
     secrets = json.load(secret_file)
     client_id,secret=secrets['token']['clientId'],secrets['token']['secret']
 
