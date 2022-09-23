@@ -1,7 +1,7 @@
 import sys
 import pathlib
-sys.path.insert(0,f'{pathlib.Path.cwd().parents[0]}/database')
-sys.path.insert(0,f'{pathlib.Path.cwd().parents[0]}/database/sql_service')
+sys.path.insert(0,f'{pathlib.Path(__file__).parents[1]}')
+sys.path.insert(0,f'{pathlib.Path(__file__).parents[1]}/sql_service')
 import sqlalchemy
 from sqlalchemy import select
 from pydantic_models import User

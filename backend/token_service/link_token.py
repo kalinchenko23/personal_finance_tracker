@@ -3,10 +3,10 @@ from plaid.model.link_token_create_request import LinkTokenCreateRequest
 from plaid.model.link_token_create_request_user import LinkTokenCreateRequestUser
 from plaid.model.products import Products
 
-from client import client
+from client import client, client_id
 
 
-def create_link_token(client: client, client_id:str):
+def create_link_token(client=client, client_id=client_id):
     request = LinkTokenCreateRequest(
         products=[Products("transactions")],
         client_name="US ARMY",
