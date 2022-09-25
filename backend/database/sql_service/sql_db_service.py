@@ -1,5 +1,5 @@
 import sys
-
+import pathlib
 sys.path.insert(1, f'{pathlib.Path(__file__).parents[1]}')
 from sqlalchemy import select, update
 from session_sql import Session

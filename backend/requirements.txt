@@ -9,3 +9,4 @@ mongoengine
 sshtunnel
 fastapi
 uvicorn
+bcrypt

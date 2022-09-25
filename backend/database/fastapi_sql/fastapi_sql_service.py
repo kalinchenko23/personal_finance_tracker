@@ -9,8 +9,8 @@ from session_sql import Session_aws, engine_aws
 from db_tables import Users, base
 
 
-def get_user(session: sqlalchemy.orm.session, username: str):
-    stmt=select(Users).where(Users.username==username)
+def get_user(session: sqlalchemy.orm.session, email: str):
+    stmt=select(Users).where(Users.email==email)
     result=session.scalars(stmt).first()
     return result
 

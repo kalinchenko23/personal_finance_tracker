@@ -3,15 +3,15 @@ from alembic.runtime.migration import MigrationContext
 from sqlalchemy import Column, String
 
 from db_tables import base
-from session_sql import engine
+from session_sql import engine_aws
 
-conn = engine.connect()
+conn = engine_aws.connect()
 ctx = MigrationContext.configure(conn)
 op = Operations(ctx)
 
 # This function creates tables from classes in db_tables.py
 def create_tables():
-    base.metadata.create_all(engine)
+    base.metadata.create_all(engine_aws)
 
 # This file is used to modify a state of database schema, you can
 # add new function as needed using https://alembic.sqlalchemy.org/en/latest/ops.html documentation
@@ -31,5 +31,5 @@ def alter_table_multiple_statements():
 
 
 
-# create_tables()
+create_tables()
 
