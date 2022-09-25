@@ -1,8 +1,13 @@
 import datetime
+import bcrypt
 from decimal import Decimal
 from typing import Optional, List
-
 from pydantic import BaseModel, validator, Field
+
+
+def hash_password(password: str, salt=bcrypt.gensalt()):
+    hashed_pass = bcrypt.hashpw(password.encode('utf-8'), salt)
+    return hashed_pass
 
 
 class Expenses_pydantic(BaseModel):
@@ -20,7 +25,7 @@ class Expenses_pydantic(BaseModel):
 
 
 class Expenses_additional_info_pydantic(BaseModel):
-    transaction_id:str
+    transaction_id: str
     category: List
     merchant_name: str | None
 
@@ -48,7 +53,7 @@ class Accounts_pydantic(BaseModel):
     def name_change(cls, n):
         match n:
             case "MAKSYM KALINCHENKO -91008":
-                n="amex credit card"
+                n = "amex credit card"
             case "Customized Cash Rewards World Mastercard Card":
                 n = "bofa credit card"
             case "More Rewards Amex":
@@ -63,9 +68,14 @@ class Accounts_pydantic(BaseModel):
                 n = "navy savings"
         return n
 
+
 class User(BaseModel):
-    username: str
-    password: str
+    email: str
+    password: bytes
     first_name: str
     last_name: str
 
+    @validator('password', pre=True)
+    def hashing_p(cls, v):
+        v = hash_password(v)
+        return v

@@ -22,3 +22,4 @@ def pydantic_validation_accounts(bank: str):
         accounts.append(Accounts_pydantic(**account).dict())
     return accounts
 
+

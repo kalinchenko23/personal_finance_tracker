@@ -32,10 +32,11 @@ def status_check():
 
 @app.post("/users/", status_code=201)
 def new_user(user: User, session: sqlalchemy.orm.session = Depends(get_session)):
-    if get_user(session, user.dict()['username']):
+    if get_user(session, user.dict()['email']):
         raise HTTPException(status_code=400, detail="User already exist")
     else:
         create_user(session, user)
+        return {user}
 
 
 uvicorn.run(app)
