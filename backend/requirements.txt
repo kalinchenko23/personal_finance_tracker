@@ -10,3 +10,5 @@ sshtunnel
 fastapi
 uvicorn
 bcrypt
+pyjwt
+asyncpg
