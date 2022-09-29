@@ -8,4 +8,3 @@ from session_sql import Session_aws
 
 service=DB_service(banks,Session_aws)
 # service.insert_transactions()
-service.update_account_info()

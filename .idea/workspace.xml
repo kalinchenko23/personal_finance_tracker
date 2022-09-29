@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed pathlib IndexError on the server">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="refactored DB structure">
+      <change afterPath="$PROJECT_DIR$/backend/database/fastapi_sql/user_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/db_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/fastapi_sql_service.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/db_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/db_schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/aws_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/aws_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/session_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/session_sql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/sql_service/sql_db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/sql_db_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/requirements.txt" afterDir="false" />
@@ -114,7 +116,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="db_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="jwt_token_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,11 +124,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/fastapi" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/db_service.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,7 +158,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sql_db_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="user_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -164,11 +166,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/sql_service" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/fastapi_sql" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/sql_service/sql_db_service.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/fastapi_sql/user_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -178,19 +180,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.sql_db_service" />
-      <item itemvalue="Python.db_service" />
       <item itemvalue="Python.pydantic_models" />
       <item itemvalue="Python.db_schema" />
       <item itemvalue="Python.api_service" />
+      <item itemvalue="Python.user_service" />
+      <item itemvalue="Python.jwt_token_service" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.api_service" />
+        <item itemvalue="Python.jwt_token_service" />
+        <item itemvalue="Python.user_service" />
         <item itemvalue="Python.db_schema" />
         <item itemvalue="Python.pydantic_models" />
-        <item itemvalue="Python.db_service" />
-        <item itemvalue="Python.sql_db_service" />
       </list>
     </recent_temporary>
   </component>
@@ -308,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663973097888</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="refactored DB structure">
+      <created>1664074189604</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1664074189604</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -336,7 +345,8 @@
     <MESSAGE value="edited config file for nginx" />
     <MESSAGE value="edited path with pathlib for multiplatform development" />
     <MESSAGE value="fixed pathlib IndexError on the server" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed pathlib IndexError on the server" />
+    <MESSAGE value="refactored DB structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored DB structure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
