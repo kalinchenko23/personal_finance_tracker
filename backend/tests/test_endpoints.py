@@ -12,7 +12,7 @@ class TestEndpoiints:
         assert response.status_code == 200
         assert response.json()=={"message": "It's working!"}
 
-    def test_loging_with_incorrect_credash entials(self):
+    def test_loging_with_incorrect_credash(self):
         response=client.post("/login?username=some&password=some")
         assert response.status_code == 404
 

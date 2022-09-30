@@ -62,4 +62,3 @@ async def read_user(session: AsyncSession = Depends(get_session),token: str = De
     user =  await get_current_user(session,token)
     return user
 
-uvicorn.run(app)
