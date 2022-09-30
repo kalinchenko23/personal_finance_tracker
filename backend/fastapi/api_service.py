@@ -43,8 +43,8 @@ async def login_for_access_token(username:str, password:str, session: AsyncSessi
     user= await get_user(session, username)
     if not user:
         raise HTTPException(status_code=404, detail="User not found.")
-    if not authenticate_user(session,username,password):
-        raise HTTPException(status_code=403, detail="Username or password does not match.")
+    if not await authenticate_user(session,username,password):
+         raise HTTPException(status_code=403, detail="Username or password does not match.")
     jwt_token=create_jwt_token(user)
     return {"access_token": jwt_token, "token_type": "bearer"}
 

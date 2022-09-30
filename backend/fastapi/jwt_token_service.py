@@ -21,3 +21,5 @@ def create_jwt_token(user: Users_pydantic, secret_key= secret_key):
     to_encode = {"sub":user.username,"exp":expiration}
     jwt_token=jwt.encode(to_encode, secret_key, algorithm=algorithm)
     return jwt_token
+
+# print(password_check('kalina','JDJiJDEyJEVrQzhic3hwV0hwbzMuSnI3WEpJQXVkUzBOS1I2ak83ZnpjTC55OVVJamtiQktHbnMuaG11'))

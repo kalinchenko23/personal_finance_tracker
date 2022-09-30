@@ -32,12 +32,12 @@ async def create_user(session: AsyncSession, user: Users_pydantic):
 
 async def authenticate_user(session: AsyncSession, username: str, password: str):
     stmt = select(Users).where(Users.username == username)
-    user = await session.scalars(stmt)
-    if not user.first():
-        return False
-    if not password_check(password, user.first().password):
+    obj = await session.scalars(stmt)
+    user=obj.first()
+    if not password_check(password, user.password) or not user:
         return False
     return True
+
 
 
 async def get_current_user(session: AsyncSession, token:str):

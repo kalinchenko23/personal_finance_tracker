@@ -12,3 +12,5 @@ uvicorn
 bcrypt
 pyjwt
 asyncpg
+email-validator
+pytest
