@@ -1,5 +1,5 @@
-import datetime,sys
-sys.path.insert(1,'/home/ubuntu/personal_finance_tracker/backend/plaid_service')
+import datetime,sys, pathlib
+sys.path.insert(1,f'{pathlib.Path(__file__).parents[1]}/plaid_service')
 from pydantic_models import Expenses_pydantic, Accounts_pydantic, Expenses_additional_info_pydantic
 from plaid_dashboard import plaid_service
 
@@ -21,4 +21,5 @@ def pydantic_validation_accounts(bank: str):
     for account in plaid_service.get_acounts_info(bank):
         accounts.append(Accounts_pydantic(**account).dict())
     return accounts
+
 

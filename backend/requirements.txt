@@ -9,3 +9,8 @@ mongoengine
 sshtunnel
 fastapi
 uvicorn
+bcrypt
+pyjwt
+asyncpg
+email-validator
+pytest

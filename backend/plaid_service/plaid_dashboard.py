@@ -2,7 +2,7 @@ import datetime
 import sys
 import pathlib
 import time
-sys.path.insert(1,"/home/ubuntu/personal_finance_tracker/backend/token_service")
+sys.path.insert(1,f"{pathlib.Path(__file__).parents[1]}/token_service")
 from plaid.model.accounts_get_request import AccountsGetRequest
 from plaid.model.transactions_get_request import TransactionsGetRequest
 from token_workflow import token, amex, navy, chase, bofa
