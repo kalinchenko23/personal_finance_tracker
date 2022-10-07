@@ -1,13 +1,26 @@
 import React from 'react';
+import { ThemeContext } from '@/context/ThemeProvider';
+import clsx from 'clsx';
 
 
-const Chip = ({text}:{text:string}) => {
+const Chip = ({text, className}:{text:string, className?:string}) => {
+  const { mode } = React.useContext(ThemeContext);
+
+  const chipStyle = mode === 'dark' ? 
+  'bg-gray-100 rounded-md text-gray-800'
+  : 'bg-zinc-800 rounded-md text-gray-50';
+
   return (
-    <div className='bg-gray-100 border border-slate-400 px-3 py-1 m-1 rounded-xl text-gray-800
-    font-semibold tracking-wider
-    transition duration-150 ease-out hover:ease-in
-    hover:bg-gradient-to-tr from-primary-400 via-primary-600 to-primary-500 hover:border-transparent
-    hover:text-white cursor-pointer inline-block'>{text}</div>
+    <div className={clsx(
+      'font-semibold tracking-wider px-2 py-1 m-1',
+      'transition duration-150 ease-out hover:ease-in',
+      'hover:bg-gradient-to-tr from-primary-400 via-primary-600 to-primary-500 hover:border-transparent',
+      'hover:text-white cursor-pointer inline-block',
+      chipStyle,
+      className
+    )}>
+      {text}
+    </div>
   )
 }
 
