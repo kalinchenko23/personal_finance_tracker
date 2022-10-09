@@ -10,9 +10,10 @@ sys.path.insert(0, f'{pathlib.Path(__file__).parents[2]}/fastapi')
 from jwt_token_service import password_check
 import sqlalchemy
 from sqlalchemy import select
-from pydantic_models import Users_pydantic
+from pydantic_service.pydantic_models import Users_pydantic, Tokens_pydantic
 from session_sql import Session_aws, engine_aws
-from db_tables import Users, base
+from db_tables import Users,Tokens,base
+from jwt_token_service import decode_jwt_token
 
 with open(f'{pathlib.Path(__file__).parents[2]}/classified.json') as secret_file:
     secrets = json.load(secret_file)
@@ -24,7 +25,7 @@ async def get_user(session: AsyncSession, username: str):
     user = await session.scalars(stmt)
     return user.first()
 
-
+# User specific functions
 async def create_user(session: AsyncSession, user: Users_pydantic):
     session.add(Users(**user.dict()))
     await session.commit()
@@ -39,11 +40,10 @@ async def authenticate_user(session: AsyncSession, username: str, password: str)
     return True
 
 
-
-async def get_current_user(session: AsyncSession, token:str):
-    try:
-        username = jwt.decode(token, secret_key, algorithm)["sub"]
-    except jwt.ExpiredSignatureError:
-        raise jwt.ExpiredSignatureError
+async def get_current_user(session: AsyncSession, jwt_token:str):
+    username=decode_jwt_token(jwt_token)["sub"]
     user = await get_user(session, username)
     return user
+
+
+

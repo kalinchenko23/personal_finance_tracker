@@ -3,7 +3,7 @@ import pathlib
 sys.path.insert(1, f'{pathlib.Path(__file__).parents[1]}')
 from sqlalchemy import select, update
 from session_sql import Session
-from db_service import pydantic_validation_transactions, pydantic_validation_transactions_additional_info, \
+from pydantic_service.pydantic_validation import pydantic_validation_transactions, pydantic_validation_transactions_additional_info, \
     pydantic_validation_accounts, banks
 from db_tables import Expenses, Expenses_additional_info, Accounts
 

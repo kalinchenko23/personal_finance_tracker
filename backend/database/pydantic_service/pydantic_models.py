@@ -79,3 +79,9 @@ class Users_pydantic(BaseModel):
     def hashing_p(cls, v):
         v = hash_password(v)
         return v
+
+
+class Tokens_pydantic(BaseModel):
+    user_id: int
+    name: str
+    token: str

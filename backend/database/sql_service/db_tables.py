@@ -13,6 +13,7 @@ class Users(base):
     first_name: str = Column(String)
     last_name: str = Column(String)
     accounts=relationship("Accounts", back_populates="user")
+    tokens=relationship("Tokens", back_populates="user")
 
 class Accounts(base):
     __tablename__ = 'accounts'
@@ -43,5 +44,9 @@ class Expenses_additional_info(base):
     expense = relationship("Expenses", back_populates='expense_additional_info', uselist=False)
 
 
-
-
+class Tokens(base):
+    __tablename__ = 'tokens'
+    user_id: int = Column(Integer, ForeignKey('users.id'), primary_key=True)
+    name: str = Column(String, nullable=False)
+    token: str = Column(String,nullable=False)
+    user = relationship("Users", back_populates="tokens")
