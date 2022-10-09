@@ -28,7 +28,8 @@ async def link_token(public_token:str=Body(), name:str=Body(), session: AsyncSes
         current_user=await get_current_user(session,jwt_token)
         try:
             access_token=Token_dash(public_token=public_token).access_token()
-            await create_access_token (session,access_token,current_user.id,name)
-            return {"message": f'Access token: {access_token} was added to a user with id {current_user.id}'}
         except plaid.exceptions.ApiException:
             raise HTTPException(status_code=400, detail="Invalid public token.")
+        await create_access_token (session,access_token,current_user.id,name)
+        return {"message": f'Access token: {access_token} was added to a user with id {current_user.id}'}
+
