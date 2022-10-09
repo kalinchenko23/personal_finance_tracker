@@ -1,4 +1,5 @@
 import json
+import plaid
 from pathlib import Path
 from client import client
 from link_token import create_link_token
@@ -30,8 +31,11 @@ class Token_dash():
         return linc_token_update_mode
 
     def access_token(self):
-        access_token=exchange(self.client,self.public_token)
-        return access_token
+        try:
+            access_token=exchange(self.client,self.public_token)
+            return access_token
+        except plaid.exceptions.ApiException:
+            return plaid.exceptions.ApiException
 
     def remove_access_token(self):
         request=ItemRemoveRequest(access_token=self.access_token_to_remove)
