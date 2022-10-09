@@ -20,42 +20,81 @@ ChartJS.register(
   Legend
 );
 
+import type { ChartData, ChartArea, ScriptableContext } from 'chart.js';
+
 export const options = {
   plugins: {
-    title: {
-      display: true,
-      text: 'Chart.js Bar Chart - Stacked',
-    },
+    // title: {
+    //   display: true,
+    //   text: 'Chart.js Bar Chart - Stacked',
+    // },
   },
   responsive: true,
+  maintainAspectRatio: false,
   scales: {
+    xAxis: {
+      display: false,
+    },
+    yAxis: {
+      display:false
+    },
     x: {
       stacked: true,
+      grid: {
+        color: 'transparent'
+      },
+      ticks:{
+        color:'#374151'
+      }
     },
     y: {
       stacked: true,
+      grid: {
+        color: 'transparent',
+        beginAtZero:true
+      },
+      ticks:{
+        color:'#374151',
+        beginAtZero:true
+      }
     },
   },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const fakeDataset = {
   labels,
   datasets: [
     {
-      label: 'Dataset 1',
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      backgroundColor: 'rgb(255, 99, 132)',
+      label: 'Checking Account',
+      data: labels.map(() => faker.datatype.number({ min: 5000, max: 12000 })),
+      backgroundColor: ({chart:{ctx}}: ScriptableContext<"bar">) => {
+        // const ctx = chart.ctx;
+        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+        gradient.addColorStop(0, "#fde047");
+        gradient.addColorStop(1, "#f97316");
+        return gradient;
+      },
     },
     {
-      label: 'Dataset 2',
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      backgroundColor: 'rgb(75, 192, 192)',
+      label: 'Saving Account',
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 5000 })),
+      backgroundColor: ({chart:{ctx}}: ScriptableContext<"bar">) => {
+        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+        gradient.addColorStop(0, "#bae6fd");
+        gradient.addColorStop(1, "#2563eb");
+        return gradient;
+      },
     },
     {
-      label: 'Dataset 3',
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      backgroundColor: 'rgb(53, 162, 235)',
+      label: 'Credit Account',
+      data: labels.map(() => faker.datatype.number({ min: 1000, max: 3000 })),
+      backgroundColor: ({chart:{ctx}}: ScriptableContext<"bar">) => {
+        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+        gradient.addColorStop(0, "#a78bfa");
+        gradient.addColorStop(1, "#c026d3");
+        return gradient;
+      },
     },
   ],
 };

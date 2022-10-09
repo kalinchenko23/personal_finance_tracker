@@ -2,44 +2,67 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 
+import type { ChartData, ChartArea, ScriptableContext } from 'chart.js';
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+
+// 'rgba(200, 200, 200, .7)',
+// 'rgba(180, 180, 180, .7)',
+// 'rgba(150, 150, 150, .7)',
+// 'rgba(120, 120, 120, .7)',
+
 export const fakeDataset = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  labels: ['Grocery', 'Shopping', 'Subsciptions', 'Travel' ],
   datasets: [
     {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      // label: '# of Votes',
+      data: [7, 19, 3, 5,],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
+        'rgba(70, 70, 70, .2)',
+        'rgba(70, 70, 70, .2)',
+        'rgba(70, 70, 70, .2)',
+        'rgba(70, 70, 70, .2)',
+
       ],
       borderColor: [
         'rgba(255, 99, 132, 1)',
         'rgba(54, 162, 235, 1)',
         'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
+        'rgba(12, 206, 86, 1)',
       ],
-      borderWidth: 1,
+      borderWidth: 4,
     },
   ],
 };
 
 
+function createGradient({
+  context,
+}:{
+  context: ScriptableContext<"pie">,
+}){
+  const ctx = context.chart.ctx;
+  const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+  gradient.addColorStop(0, 'rgba(54, 162, 235, 1)');
+  gradient.addColorStop(1, 'rgba(255, 206, 86, 1)');
+  return gradient;
+}
+
+
 const PieChart:React.FC<{
-    width:string, height:string, isFakeData?:boolean
-}> = ({width, height, isFakeData}) => {
+  radius:string, isFakeData?:boolean
+}> = ({radius, isFakeData}) => {
   return (
     <Pie 
         data={fakeDataset} 
-        width={width} 
-        height={height} 
+        // width={width} 
+        // height={height} 
+        options={{
+          responsive: true,
+          maintainAspectRatio: true,
+          radius:radius,
+        }}
      />
   )
 }

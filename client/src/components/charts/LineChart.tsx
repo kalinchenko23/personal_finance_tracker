@@ -20,21 +20,59 @@ ChartJS.register(
     Tooltip,
     Legend,
     Filler,
-)
+);
 
+// import { Chart } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 import { ThemeContext } from '@/context/ThemeProvider';
 import {faker} from '@faker-js/faker'
+import type { ChartData, ChartArea, ScriptableContext } from 'chart.js';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun','Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-const fakeDataset = {
-    labels:months,
-    datasets:[
-        {   
-            data: months.map(() => faker.datatype.number({ min: 1000, max: 20000 })),
+const colors = [
+    'red',
+    'orange',
+    'yellow',
+    'lime',
+    'green',
+    'teal',
+    'blue',
+    'purple',
+];
+
+// export const data = {
+//     months,
+//     datasets: [
+//       {
+//         label: 'Dataset 1',
+//         data: months.map(() => faker.datatype.number({ min: 1000, max: 20000 })),
+//       },
+//       {
+//         label: 'Dataset 2',
+//         data: months.map(() => faker.datatype.number({ min: 1000, max: 20000 })),
+//       },
+//     ],
+//   };
+
+
+const data = () => {
+    return {
+      labels: months,
+      datasets: [{
+        // label: "First dataset",
+        data: months.map(() => faker.datatype.number({ min: 1000, max: 20000 })),
+        fill: "start",
+        backgroundColor: ({chart:{ctx}}: ScriptableContext<"line">) => {
+          const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+          gradient.addColorStop(0, "#fde047");
+          gradient.addColorStop(1, "#f97316");
+          return gradient;
         },
-    ],
+        borderColor: "transparent"
+      }]
+    };
 };
+
 
 
 const LineChart:React.FC<{
@@ -43,8 +81,9 @@ const LineChart:React.FC<{
 
     const {mode} = React.useContext(ThemeContext);
 
-
     const options = {
+        responsive: true,
+        maintainAspectRatio: false,
         plugins:{
             legend:{
                 display:false
@@ -53,13 +92,13 @@ const LineChart:React.FC<{
         elements:{
             line:{
                 tension:.4,
-                borderWidth:2,
-                borderColor: `${mode === 'dark' ? 'rgba(255,255, 255, 1)' : 'rgba(0,0, 0, 1)' }`,
+                borderWidth:7,
+                borderColor: `${'rgba(250,0,0, 0)'}`,
                 fill:'start',
                 backgroundColor:'transparent'
             },
             point:{
-                radius:6,
+                radius:0,
                 itRadius:1
             },
         },
@@ -72,7 +111,7 @@ const LineChart:React.FC<{
             },
             x: {
                 grid: {
-                    // color: 'red'
+                    color: 'transparent'
                 }
             }
         },
@@ -80,12 +119,12 @@ const LineChart:React.FC<{
 
     return (
         <Line 
-            data={fakeDataset} 
+            data={data()} 
             width={width} 
             height={height} 
             options={options} 
         />
     )
-}
+};
 
-export default LineChart
+export default LineChart;
