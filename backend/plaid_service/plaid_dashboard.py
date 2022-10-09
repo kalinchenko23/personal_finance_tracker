@@ -5,11 +5,11 @@ import time
 sys.path.insert(1,f"{pathlib.Path(__file__).parents[1]}/token_service")
 from plaid.model.accounts_get_request import AccountsGetRequest
 from plaid.model.transactions_get_request import TransactionsGetRequest
-from token_workflow import token, amex, navy, chase, bofa
+from token_workflow import Token_dash, amex, navy, chase, bofa
 
 
 class Plaid_service():
-    def __init__(self, amex=amex, navy=navy, bofa=bofa, chase=chase, client=token.client):
+    def __init__(self, amex=amex, navy=navy, bofa=bofa, chase=chase, client=Token_dash().client):
         self.navy = navy
         self.amex = amex
         self.chase = chase
@@ -47,4 +47,4 @@ class Plaid_service():
 
 
 plaid_service = Plaid_service()
-
+# print(plaid_service.get_acounts_info("navy"))

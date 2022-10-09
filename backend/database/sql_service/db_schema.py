@@ -1,17 +1,19 @@
 from alembic.operations import Operations
 from alembic.runtime.migration import MigrationContext
 from sqlalchemy import Column, String
-
+import asyncio
 from db_tables import base
 from session_sql import engine_aws
+from db_tables import Tokens
 
 conn = engine_aws.connect()
-ctx = MigrationContext.configure(conn)
-op = Operations(ctx)
+# ctx = MigrationContext.configure(conn)
+# op = Operations(ctx)
 
 # This function creates tables from classes in db_tables.py
-def create_tables():
-    base.metadata.create_all(engine_aws)
+async def create_tables():
+    async with engine_aws.begin() as conn:
+        await conn.run_sync(base.metadata.create_all)
 
 # This file is used to modify a state of database schema, you can
 # add new function as needed using https://alembic.sqlalchemy.org/en/latest/ops.html documentation
@@ -31,5 +33,5 @@ def alter_table_multiple_statements():
 
 
 
-create_tables()
 
+# asyncio.run(create_tables())

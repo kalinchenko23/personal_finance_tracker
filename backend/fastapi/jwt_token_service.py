@@ -5,7 +5,8 @@ import bcrypt
 import datetime
 import json
 import jwt
-from pydantic_models import Users_pydantic
+from fastapi import HTTPException
+from pydantic_service.pydantic_models import Users_pydantic
 
 with open(f'{pathlib.Path(__file__).parents[1]}/classified.json') as secret_file:
     secrets = json.load(secret_file)
@@ -22,4 +23,14 @@ def create_jwt_token(user: Users_pydantic, secret_key= secret_key):
     jwt_token=jwt.encode(to_encode, secret_key, algorithm=algorithm)
     return jwt_token
 
-# print(password_check('kalina','JDJiJDEyJEVrQzhic3hwV0hwbzMuSnI3WEpJQXVkUzBOS1I2ak83ZnpjTC55OVVJamtiQktHbnMuaG11'))
+def decode_jwt_token(jwt_token: str):
+    with open(f'{pathlib.Path(__file__).parents[1]}/classified.json') as secret_file:
+        secrets = json.load(secret_file)
+        secret_key, algorithm = secrets['jwt']['secret_key'], secrets['jwt']['algorithm']
+    try:
+        token_info = jwt.decode(jwt_token, secret_key, algorithm)
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Your session has expired")
+    except jwt.exceptions.DecodeError:
+        raise HTTPException(status_code=401, detail="Please provide valid jwt token")
+    return token_info
