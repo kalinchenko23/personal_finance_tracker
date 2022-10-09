@@ -31,11 +31,8 @@ class Token_dash():
         return linc_token_update_mode
 
     def access_token(self):
-        try:
-            access_token=exchange(self.client,self.public_token)
-            return access_token
-        except plaid.exceptions.ApiException:
-            return plaid.exceptions.ApiException
+        access_token=exchange(self.client,self.public_token)
+        return access_token
 
     def remove_access_token(self):
         request=ItemRemoveRequest(access_token=self.access_token_to_remove)
