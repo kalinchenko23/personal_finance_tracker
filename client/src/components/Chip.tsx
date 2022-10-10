@@ -12,9 +12,9 @@ const Chip = ({text, className}:{text:string, className?:string}) => {
 
   return (
     <div className={clsx(
-      'font-semibold tracking-wider px-2 py-1 m-1',
+      'font-semibold p-1',
       'transition duration-150 ease-out hover:ease-in',
-      'hover:bg-gradient-to-tr from-primary-400 via-primary-600 to-primary-500 hover:border-transparent',
+      'hover:bg-gradient-to-tr from-primary-700 via-primary-600 to-primary-400 hover:border-transparent',
       'hover:text-white cursor-pointer inline-block',
       chipStyle,
       className
