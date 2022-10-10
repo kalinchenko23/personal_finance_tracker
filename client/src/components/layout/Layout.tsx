@@ -7,17 +7,23 @@ import { ThemeContext } from '@/context/ThemeProvider';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const { color, mode } = React.useContext(ThemeContext);
+  const textColor = mode === 'dark' ? 'text-gray-300' : 'text-gray-800';
 
   return (
     <div
-      className={clsx(mode === 'dark' ? 'bg-zinc-900' : 'bg-gray-50', color)}
+      className={clsx(
+        'w-full overflow-x-hidden',
+        mode === 'dark' ? 'bg-zinc-900' : 'bg-gray-300', 
+        color, 
+        textColor)}
     >
       <Header />
       <div
         className={clsx(
           'relative h-full',
           'min-h-[90vh] w-screen',
-          'px-3 lg:px-0',
+          'py-8',
+
         )}
       >
         {children}
