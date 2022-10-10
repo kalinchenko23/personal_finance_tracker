@@ -1,5 +1,4 @@
 import * as React from 'react';
-import axios from 'axios';
 
 import Layout from '@/components/layout/Layout';
 import ArrowLink from '@/components/links/ArrowLink';
@@ -8,13 +7,15 @@ import UnstyledLink from '@/components/links/UnstyledLink';
 import Accent from '@/components/Accent';
 import Seo from '@/components/Seo';
 
+import BanksCard from '@/components/landing-page-components/BanksCard';
+import ExpensesCard from '@/components/landing-page-components/ExpensesCard';
+import StepCard from '@/components/landing-page-components/StepCard';
+
 import { ThemeContext } from '@/context/ThemeProvider';
-import LineChart from '@/components/charts/LineChart';
 import { VscAccount } from 'react-icons/vsc';
 import { AiOutlineLineChart } from 'react-icons/ai';
-import Image from 'next/image';
+
 import plaidSvg from '../assets/plaid.png';
-import PieChart from '@/components/charts/PieChart';
 /**
  * SVGR Support
  * Caveat: No React Props Type.
@@ -26,6 +27,7 @@ import PieChart from '@/components/charts/PieChart';
 import Chip from '@/components/Chip';
 import clsx from 'clsx';
 import Button from '@/components/buttons/Button';
+import { IconType } from 'react-icons';
 
 // !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
 // Before you begin editing, follow all comments with `STARTERCONF`,
@@ -33,10 +35,10 @@ import Button from '@/components/buttons/Button';
 
 export default function HomePage() {
   const { mode } = React.useContext(ThemeContext);
-  const textColor = mode === 'dark' ? 'text-gray-300' : 'text-gray-800';
+  // const textColor = mode === 'dark' ? 'text-gray-300' : 'text-gray-800';
   const cardStyle =
     mode === 'dark'
-      ? 'border-solid border border-primary-500 shadow-primary-500/40'
+      ? 'border-solid border border-primary-500 shadow-primary-500/30'
       : 'bg-white border-solid border border-gary-50';
 
   const [card, setCard] = React.useState<string>('Banks');
@@ -45,12 +47,15 @@ export default function HomePage() {
     <Layout>
       <Seo templateTitle='Home' />
 
-      <main className={clsx('flex h-full w-full flex-col', textColor)}>
+      <main>
         <div
           className={clsx(
-            'flex w-full flex-col items-center',
-            'sm:flex-row',
-            'p-4'
+            'flex flex-col items-center',
+            'md:flex-row',
+            'py-8',
+            'px-2',
+            'md:px-4',
+            'lg:px-8'
           )}
         >
           <section
@@ -64,7 +69,7 @@ export default function HomePage() {
               <h1
                 className={clsx(
                   'text-4xl font-extrabold tracking-tight',
-                  'sm:text-5xl md:text-3xl  xl:text-6xl'
+                  'sm:text-6xl md:text-5xl  xl:text-6xl'
                 )}
               >
                 Take{' '}
@@ -75,12 +80,17 @@ export default function HomePage() {
               <h1
                 className={clsx(
                   'text-4xl font-extrabold tracking-tight',
-                  'sm:text-5xl md:text-3xl  xl:text-6xl'
+                  'sm:text-6xl md:text-5xl  xl:text-6xl'
                 )}
               >
                 over your money
               </h1>
-              <div className='my-5 h-[1px] w-full bg-gray-500' />
+              <div
+                className={clsx(
+                  'my-5 h-[2px] w-4/5 rounded',
+                  mode === 'light' ? 'bg-gray-700' : 'bg-gray-300'
+                )}
+              />
               <p className='mt-4 text-2xl'>
                 <Accent> PersonalFinance </Accent> will help you organize your
                 bank data
@@ -88,7 +98,7 @@ export default function HomePage() {
               <div className='mt-6'>
                 <ArrowLink
                   as={ButtonLink}
-                  variant='light'
+                  variant={mode === 'light' ? 'dark' : 'light'}
                   className='inline-flex items-center'
                   href='#'
                 >
@@ -100,30 +110,34 @@ export default function HomePage() {
 
           <section
             className={clsx(
-              'h-full w-full',
+              'h-full w-3/4',
               'my-2 flex flex-col-reverse items-center',
-              'sm:h-full sm:w-3/4 sm:flex-col '
+              'sm:h-full sm:w-3/4 sm:flex-col'
             )}
           >
             <div
               className={clsx(
-                'w-full  rounded-2xl p-4 shadow-2xl',
-                'sm:h-4/5 sm:w-fit md:p-5',
+                'w-3/4  rounded-md shadow-2xl',
+                'sm:h-4/5 sm:w-fit',
                 cardStyle
               )}
             >
-              <div className='mb-2 flex flex-wrap'>
-                {chipsList.map((el) => {
+              <div className={clsx('mb-2 flex', 'px-2 sm:py-2')}>
+                {chipsList.map((text) => {
                   return (
-                    <button onClick={() => setCard(el)}>
-                      <Chip className='text-xl' key={el} text={el} />
-                    </button>
+                    <Button
+                      variant={mode === 'light' ? 'dark' : 'light'}
+                      className={clsx('m-[2px] py-[2px] px-2 text-sm')}
+                      onClick={() => setCard(text)}
+                    >
+                      {text}
+                    </Button>
                   );
                 })}
               </div>
 
               <div className='my-2 h-[1px] w-full bg-gray-500' />
-              <div className='min-h-80 h-full w-full'>
+              <div className='min-h-80 h-full w-full px-4'>
                 {card === 'Banks' && <BanksCard />}
                 {card === 'Expenses' && <ExpensesCard />}
               </div>
@@ -137,61 +151,112 @@ export default function HomePage() {
             `h-full w-screen text-gray-800`
           )}
         >
-          <div className='flex h-full  w-full flex-col items-center p-8'>
-            <h1 className=' my-8 text-4xl font-extrabold tracking-tight md:text-6xl'>
+          <div
+            className={clsx(
+              'flex h-full  w-screen flex-col items-center',
+              'px-2 py-2',
+              'sm:px-4 sm:py-4',
+              'md:px-6 md:py-6',
+              'lg:px-8 lg:py-8'
+            )}
+          >
+            <h1
+              className={clsx(
+                'font-extrabold tracking-tight',
+                'my-8',
+                'text-4xl',
+                'md:text-5xl',
+                'text-center'
+              )}
+            >
               Financial tools for your {'  '}
               <span
                 className={clsx(
-                  ['text-white'],
+                  'text-white',
                   'text-4xl font-extrabold  tracking-tight md:text-6xl'
                 )}
               >
                 Goals
               </span>
             </h1>
-            <div className='flex items-center'>
-              <h2 className='mb-14 font-extrabold tracking-tight'>
-                We visualize data provided by Plaid API
-              </h2>
-            </div>
+            <h2
+              className={clsx(
+                'font-extrabold tracking-tight',
+                'text-center',
+                'text-2xl',
+                'lg:text-3xl'
+              )}
+            >
+              We visualize data provided by Plaid API
+            </h2>
           </div>
         </section>
 
-        <section className=' h-screen w-screen text-gray-800'>
-          <div className='mt-10 flex w-full justify-center'>
+        <section className=' h-full w-screen'>
+          <div
+            className={clsx(
+              'flex flex-col',
+              'mt-10 w-full',
+              'justify-between',
+              'items-center'
+            )}
+          >
             <div
-              className={clsx(
-                'h-[10rem] w-[25rem]',
-                'mx-2 py-3 px-2',
-                'flex  flex-col items-center',
-                'justify-center rounded-3xl bg-white shadow-xl'
-              )}
+              className={clsx('m-2', 'flex justify-between', 'max-w-screen-lg group')}
             >
-              <Image src={plaidSvg} width={'90%'} height={'90%'} className='' />
-              <h3> Set up your Plaid Account </h3>
+              <StepCard
+                text1={'Set Up'}
+                text2={'Your Plaid Account '}
+                imageSrc={plaidSvg}
+                className={clsx()}
+              />
+              <p
+                className={clsx(
+                  'h-48 w-3/5 ',
+                  'p-2 text-xl font-semibold',
+                )}
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
             </div>
             <div
-              className={clsx(
-                'h-[10rem] w-[25rem]',
-                'mx-2 py-3 px-2',
-                'flex  flex-col items-center',
-                'justify-center rounded-3xl bg-white shadow-xl'
-              )}
+              className={clsx('m-2', 'flex justify-between', 'max-w-screen-lg group')}
             >
-              <VscAccount className='mb-2 text-5xl' />
-              <h3> Sign Up </h3>
-              <Accent className='text-3xl'> Personal Finance</Accent>
+              <StepCard
+                text1={'Sign Up'}
+                text2={'PersonalFinance'}
+                icon={<VscAccount />}
+                className={clsx()}
+              />
+              <p
+                className={clsx(
+                  'h-48 w-3/5 ',
+                  'p-2 text-xl font-semibold',
+                )}
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
             </div>
             <div
-              className={clsx(
-                'h-[10rem] w-[25rem]',
-                'mx-2 py-3 px-2',
-                'flex  flex-col items-center',
-                'justify-center rounded-3xl bg-white shadow-xl'
-              )}
+              className={clsx('m-2', 'flex justify-between', 'max-w-screen-lg group')}
             >
-              <AiOutlineLineChart className='mb-2 text-5xl' />
-              <h3>Analyze your cash flow</h3>
+              <StepCard
+                text1={'Analyze'}
+                text2={'Your cash flow'}
+                icon={<AiOutlineLineChart />}
+                className={clsx()}
+              />
+              <p
+                className={clsx(
+                  'h-48 w-3/5 ',
+                  'p-2 text-xl font-semibold',
+                )}
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
             </div>
           </div>
         </section>
@@ -200,76 +265,10 @@ export default function HomePage() {
   );
 }
 
+
+
 const chipsList = ['Banks', 'Transactions', 'Income', 'Expenses', 'Credits'];
 
-const BanksCard: React.FC = () => {
-  return (
-    <div className='mb-4 '>
-      <h4 className='mx-1 font-mono text-xl font-semibold'>Banks:</h4>
-      <div className='mb-4 flex'>
-        {banks.map((b) => (
-          <Chip key={b} text={b} />
-        ))}
-      </div>
 
-      <div
-        className={clsx(
-          'mb-4 h-1/5 w-full',
-          'flex items-center justify-center',
-          'relative overflow-hidden'
-        )}
-      >
-        {/* add chart randomizer */}
-        <LineChart width={'100%'} height={'35%'} />
-      </div>
-    </div>
-  );
-};
-const banks = ['Bank of America', 'Chase', 'Capital One'];
 
-const ExpensesCard: React.FC = () => {
-  return (
-    <>
-      <div
-        className={clsx(
-          'mb-4 h-1/5 w-full',
-          'flex items-center justify-center',
-          'relative overflow-hidden'
-        )}
-      >
-        <div className='h-3/5 w-3/5'>
-          <div className=' h-full rounded-xl border border-gray-400/40 p-3'>
-            <h1 className='font-italic'> Dec 2022</h1>
-            <div className='my-1 h-[1px] w-full bg-gray-400/40' />
-            <h4 className='font-normal'>Monthly expenses</h4>
-            <h4>
-              cutted by <Accent className='font-mono'>12%</Accent>
-            </h4>
-            <div className='my-1 h-[1px] w-full bg-gray-400/40' />
 
-            <h4 className='font-normal'>Biggest expense in</h4>
-            <h4>
-              <Accent className='font-mono'>Travel</Accent>
-            </h4>
-
-            <h4 className='font-normal'>Most often spendings</h4>
-            <div className='flex justify-around'>
-              <h4>
-                <Accent>Shopping</Accent>
-              </h4>
-              <h4>
-                <Accent red>Groceries</Accent>
-              </h4>
-              <h4>
-                <Accent green>Gas</Accent>
-              </h4>
-            </div>
-          </div>
-        </div>
-        <div className=' h-full w-3/5'>
-          <PieChart radius={'100%'} />
-        </div>
-      </div>
-    </>
-  );
-};
