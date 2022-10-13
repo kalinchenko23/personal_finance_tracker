@@ -13,8 +13,9 @@ const StepCard: React.FC<{
     return (
       <div
         className={clsx(
-          'h-48 w-80',
-          'py-3 px-2',
+          'h-44 w-52',
+          'md:h-48 md:w-80',
+          'py-3 px-2 my-2',
           'flex flex-col items-center',
           'justify-center rounded-3xl shadow-xl',
           'bg-white',
