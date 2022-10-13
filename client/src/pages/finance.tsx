@@ -41,8 +41,8 @@ const SideMenu = () => {
         )}
       >
         <ul>
-          {menu.map(({ Icon, text, disabled, path }) => (
-            <li className='my-2 rounded px-2 py-1 hover:bg-gray-400 ' key={text}>
+          {menu.map(({ Icon, text, path }) => (
+            <li className='my-2 rounded px-2 py-1 hover:bg-gray-400' key={text}>
               <a className='flex items-center' href={path}>
                 {[
                   <span className='mx-1  mr-2 text-2xl'>{Icon}</span>,
@@ -279,25 +279,21 @@ const menu = [
     Icon: <AiOutlineLineChart />,
     text: 'Overview',
     path: '/finance',
-    disabled: false,
   },
   {
     Icon: <AiFillBank />,
     text: 'Banks',
-    path: '/banks',
-    disabled: false,
+    path: '/',
   },
   {
     Icon: <AiFillPieChart />,
     text: 'Statistics',
-    path: '/statistics',
-    disabled: true,
+    path: '/',
   },
   {
     Icon: <AiFillCreditCard />,
     text: 'Transactions',
-    path: '/transactions',
-    disabled: true,
+    path: '/',
   },
 ];
 
