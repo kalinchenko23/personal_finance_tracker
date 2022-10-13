@@ -28,6 +28,7 @@ import Chip from '@/components/Chip';
 import clsx from 'clsx';
 import Button from '@/components/buttons/Button';
 import { IconType } from 'react-icons';
+import StepSection from '@/components/landing-page-components/StepSection';
 
 // !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
 // Before you begin editing, follow all comments with `STARTERCONF`,
@@ -52,20 +53,30 @@ export default function HomePage() {
           className={clsx(
             'flex flex-col items-center',
             'md:flex-row',
-            'py-8',
+            // 'py-8',
             'px-2',
             'md:px-4',
-            'lg:px-8'
+            // 'lg:px-8',
+            'min-h-[90vh]',
+            'md:min-h-[65vh]',
+            'md:h-[65vh]'
           )}
         >
           <section
             className={clsx(
               'h-full w-full ',
               'my-2 flex flex-col-reverse items-center',
-              'md:items-start md:justify-center'
+              'md:items-start md:justify-center',
+              'min-w-[50%]'
             )}
           >
-            <div className={clsx()}>
+            <div
+              className={clsx(
+                'h-full w-full ',
+                'my-2 flex flex-col items-center',
+                'md:items-start md:justify-center'
+              )}
+            >
               <h1
                 className={clsx(
                   'text-4xl font-extrabold tracking-tight',
@@ -91,7 +102,7 @@ export default function HomePage() {
                   mode === 'light' ? 'bg-gray-700' : 'bg-gray-300'
                 )}
               />
-              <p className='mt-4 text-2xl'>
+              <p className='mt-4 text-center text-2xl md:text-left'>
                 <Accent> PersonalFinance </Accent> will help you organize your
                 bank data
               </p>
@@ -110,25 +121,38 @@ export default function HomePage() {
 
           <section
             className={clsx(
-              'h-full w-3/4',
-              'my-2 flex flex-col-reverse items-center',
-              'sm:h-full sm:w-3/4 sm:flex-col'
+              'h-full w-full',
+              'flex flex-col-reverse items-center',
+              'text-gray-800'
             )}
           >
             <div
               className={clsx(
-                'w-3/4  rounded-md shadow-2xl',
-                'sm:h-4/5 sm:w-fit',
-                cardStyle
+                'h-full w-full rounded-tl-md rounded-tr-md shadow-lg',
+                'transition-all duration-100',
+                // 'hover:shadow-lg',
+                'scale-100 hover:scale-[1.003]',
+                // 'hover:shadow-gray-700/60',
+                'border-gary-50 border border-solid bg-white'
               )}
             >
-              <div className={clsx('mb-2 flex', 'px-2 sm:py-2')}>
+              <div
+                className={clsx(
+                  'flex items-center',
+                  'px-2 sm:py-2',
+                  'overflow-x-scroll'
+                )}
+              >
                 {chipsList.map((text) => {
                   return (
                     <Button
                       key={text}
-                      variant={mode === 'light' ? 'dark' : 'light'}
-                      className={clsx('m-[2px] py-[2px] px-2 text-sm')}
+                      variant={'dark'}
+                      className={clsx(
+                        'm-1 py-1 px-2 text-sm',
+                        // 'mx-1 py-2 px-2 text-sm',
+                        ''
+                      )}
                       onClick={() => setCard(text)}
                     >
                       {text}
@@ -138,7 +162,7 @@ export default function HomePage() {
               </div>
 
               <div className='my-2 h-[1px] w-full bg-gray-500' />
-              <div className='min-h-80 h-full w-full px-4'>
+              <div className='min-h-80 h-full w-full'>
                 {card === 'Banks' && <BanksCard />}
                 {card === 'Expenses' && <ExpensesCard />}
               </div>
@@ -164,7 +188,7 @@ export default function HomePage() {
             <h1
               className={clsx(
                 'font-extrabold tracking-tight',
-                'my-8',
+                'my-6',
                 'text-4xl',
                 'md:text-5xl',
                 'text-center'
@@ -174,7 +198,7 @@ export default function HomePage() {
               <span
                 className={clsx(
                   'text-white',
-                  'text-4xl font-extrabold  tracking-tight md:text-6xl'
+                  'font-mono text-4xl  font-extrabold tracking-tight md:text-5xl'
                 )}
               >
                 Goals
@@ -186,15 +210,23 @@ export default function HomePage() {
                 'text-center',
                 'text-2xl',
                 'lg:text-3xl',
-                'lg:my-2'
+                'my-4'
               )}
             >
-              We visualize data provided by Plaid API
+              We visualize data provided by {'  '}
+              <span
+                className={clsx(
+                  'text-white',
+                  'font-mono text-2xl  font-extrabold tracking-tight md:text-3xl'
+                )}
+              >
+                Plaid API
+              </span>
             </h2>
           </div>
         </section>
 
-        <section className=' h-full w-screen'>
+        <section className='h-full w-screen'>
           <div
             className={clsx(
               'flex flex-col',
@@ -203,121 +235,78 @@ export default function HomePage() {
               'items-center'
             )}
           >
-            <div
-              className={clsx(
-                'm-4 py-2',
-                'flex justify-between',
-                'group max-w-screen-lg'
-              )}
+            <StepSection
+              text1={'Set Up'}
+              text2={'Your Plaid Account '}
+              imageSrc={plaidSvg}
             >
-              <StepCard
-                text1={'Set Up'}
-                text2={'Your Plaid Account '}
-                imageSrc={plaidSvg}
-                className={clsx()}
-              />
-              <div
+              <h3 className={clsx('text-center text-2xl', 'md:text-left')}>
+                The safer way to connect financial accounts
+              </h3>
+              <p className={clsx('text-center', 'md:text-left')}>
+                Connect your accounts and control access to them. Easy and
+                accessible experiences for users.
+              </p>
+              <span
                 className={clsx(
-                  'h-48 w-3/5 ',
-                  'p-2 text-xl',
-                  'flex flex-col',
-                  'justify-between'
+                  'my-2 inline-flex items-end gap-1 md:self-start '
                 )}
               >
-                <h2>
-                  The safer way for people to connect financial accounts to an
-                  app
-                </h2>
-                <p className={clsx()}>
-                  Connect your accounts and control access to them. Easy and
-                  accessible experiences for users.
+                <p className={clsx('text-center', 'md:text-left')}>
+                  Read more about Plaid
                 </p>
-                <span className={clsx('inline-flex items-end gap-1')}>
-                  <p>Read more about Plaid on thei website</p>
-                  <ArrowLink
-                    as={ButtonLink}
-                    variant={mode === 'light' ? 'dark' : 'light'}
-                    className='inline-flex items-center p-1 text-sm'
-                    href='#'
-                  >
-                    PLAID
-                  </ArrowLink>
-                </span>
-              </div>
-            </div>
-            <div
-              className={clsx(
-                'm-4 py-2',
-                'flex justify-between',
-                'group max-w-screen-lg'
-              )}
+                <ArrowLink
+                  as={ButtonLink}
+                  variant={mode === 'light' ? 'dark' : 'light'}
+                  className='inline-flex items-center p-1 text-sm'
+                  href='#'
+                >
+                  PLAID
+                </ArrowLink>
+              </span>
+            </StepSection>
+            <StepSection
+              text1={'Sign Up'}
+              text2={'PersonalFinance'}
+              icon={<VscAccount />}
             >
-              <StepCard
-                text1={'Sign Up'}
-                text2={'PersonalFinance'}
-                icon={<VscAccount />}
-                className={clsx()}
-              />
-              <div
-                className={clsx(
-                  'h-48 w-3/5 ',
-                  'p-2 text-xl',
-                  'flex flex-col',
-                  'justify-between'
-                )}
-              >
-                <h2>
-                  Create Account in PersonalFinance and connect your Plaid
-                  account
-                </h2>
-                <p className={clsx()}>
-                  We use special Plaid Key to display your data in our app.{' '}
-                  <br />
-                </p>
-                <p className={clsx()}>
-                  Not a single piece of Your data is being stored.
-                </p>
-              </div>
-            </div>
-            <div
-              className={clsx(
-                'm-4 py-2',
-                'flex justify-between',
-                'group max-w-screen-lg'
-              )}
+              <h3 className={clsx('text-center', 'md:text-left')}>
+                Create PersonalFinance Account
+              </h3>
+              <h3 className={clsx('text-center', 'md:text-left')}>
+                Connect your Plaid
+              </h3>
+              <p className={clsx('text-center', 'md:text-left')}>
+                We use special Plaid Key to display your data in our app. <br />
+              </p>
+              <p className={clsx('text-center', 'md:text-left')}>
+                Not a single piece of Your data is being stored.
+              </p>
+            </StepSection>
+            <StepSection
+              text1={'Analyze'}
+              text2={'Your cash flow'}
+              icon={<AiOutlineLineChart />}
             >
-              <StepCard
-                text1={'Analyze'}
-                text2={'Your cash flow'}
-                icon={<AiOutlineLineChart />}
-                className={clsx()}
-              />
-              <div
-                className={clsx(
-                  'h-48 w-3/5 ',
-                  'p-2 text-xl',
-                  'flex flex-col',
-                  'justify-between'
-                )}
-              >
-                <h2>Checkout Demo</h2>
-                <p className={clsx()}>
-                  Use PersonalFinance charts and tools to get track the dynamic
-                  of your cash flow.
-                </p>
-                <span className={clsx('inline-flex items-end gap-1')}>
-                  <p>Checkout app before signing up</p>
-                  <ArrowLink
-                    as={ButtonLink}
-                    variant={mode === 'light' ? 'dark' : 'light'}
-                    className='inline-flex items-center p-1 text-sm'
-                    href='#'
-                  >
-                    Demo version
-                  </ArrowLink>
-                </span>
-              </div>
-            </div>
+              <h2 className={clsx('text-center', 'md:text-left')}>
+                Checkout Demo
+              </h2>
+              <p className={clsx('text-center', 'md:text-left')}>
+                Use PersonalFinance charts and tools to track the dynamic of
+                your cash flow.
+              </p>
+              <span className={clsx('inline-flex items-end gap-1')}>
+                <p>Checkout app before signing up</p>
+                <ArrowLink
+                  as={ButtonLink}
+                  variant={mode === 'light' ? 'dark' : 'light'}
+                  className='inline-flex items-center p-1 text-sm'
+                  href='/finance'
+                >
+                  Demo version
+                </ArrowLink>
+              </span>
+            </StepSection>
           </div>
         </section>
       </main>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Dashboard from '@/components/Dashboard';
 import Accent from '@/components/Accent';
 import LineChart from '@/components/charts/LineChart';
 import BarChart from '@/components/charts/BarChart';
@@ -7,6 +6,7 @@ import Logo from '@/components/Logo';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import Link from 'next/link';
 import clsx from 'clsx';
+import DataLine from '@/components/app-components/DataLine';
 
 import {
   AiOutlineLineChart,
@@ -88,35 +88,6 @@ const SideMenu = () => {
   );
 };
 
-const DataLine: React.FC<{ text: string; data: string }> = ({ text, data }) => {
-  return (
-    <div
-      className={clsx(
-        'group flex w-full items-center justify-between ',
-        'border-gray-400 px-5 py-1  hover:bg-gray-300'
-      )}
-    >
-      <h3
-        className={clsx(
-          'cursor-default  font-semibold uppercase',
-          'sm:text-md text-sm md:text-lg lg:text-xl'
-        )}
-      >
-        {' '}
-        {text}{' '}
-      </h3>
-      <div
-        className={clsx(
-          'rounded px-2 font-mono font-semibold',
-          'cursor-default group-hover:bg-white',
-          'sm:text-md text-sm md:text-lg lg:text-2xl'
-        )}
-      >
-        {data}
-      </div>
-    </div>
-  );
-};
 
 const FinanceAppPage = () => {
   return (
@@ -175,7 +146,7 @@ const FinanceAppPage = () => {
             'border-b border-gray-300 py-4'
           )}
         >
-          <DataLine text={'Current Total Balance:'} data={'$17 500'} />
+          <DataLine text={'Current Total Balance:'} data={['$17 500']} />
         </div>
         <div className='mt-6 h-full w-full px-2'>
           <LineChart width={'100%'} height={'100%'} isFakeData />
@@ -207,9 +178,7 @@ const FinanceAppPage = () => {
           </button>
         </div>
         <h5>Some content...</h5>
-        <h5>Some content...</h5>
-        <h5>Some content...</h5>
-        <h5>Some content...</h5>
+
       </section>
 
       <section
@@ -268,9 +237,9 @@ const FinanceAppPage = () => {
           {/* horizontal scroller for each acc type */}
         </div>
 
-        <DataLine text={'Checking Accounts'} data={'$12 000'} />
-        <DataLine text={'Savings Accounts'} data={'$5 000'} />
-        <DataLine text={'Credit Accounts'} data={'$1 200'} />
+        <DataLine text={'Checking Accounts'} data={['$12 000']} />
+        <DataLine text={'Savings Accounts'} data={['$5 000']} />
+        <DataLine text={'Credit Accounts'} data={['$1 200']} />
         <div className='h-full p-2'>
           <StackedBar width={'100%'} height={'100%'} />
         </div>
@@ -380,3 +349,10 @@ const DropDownMenu = () => {
     </div>
   );
 };
+
+
+/*  ideas:
+timeframe for each colimn 
+timeframe for all page
+
+*/
