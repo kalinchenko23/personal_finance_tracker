@@ -126,6 +126,7 @@ export default function HomePage() {
                 {chipsList.map((text) => {
                   return (
                     <Button
+                      key={text}
                       variant={mode === 'light' ? 'dark' : 'light'}
                       className={clsx('m-[2px] py-[2px] px-2 text-sm')}
                       onClick={() => setCard(text)}
@@ -184,7 +185,8 @@ export default function HomePage() {
                 'font-extrabold tracking-tight',
                 'text-center',
                 'text-2xl',
-                'lg:text-3xl'
+                'lg:text-3xl',
+                'lg:my-2'
               )}
             >
               We visualize data provided by Plaid API
@@ -202,7 +204,11 @@ export default function HomePage() {
             )}
           >
             <div
-              className={clsx('m-2', 'flex justify-between', 'max-w-screen-lg group')}
+              className={clsx(
+                'm-4 py-2',
+                'flex justify-between',
+                'group max-w-screen-lg'
+              )}
             >
               <StepCard
                 text1={'Set Up'}
@@ -210,18 +216,41 @@ export default function HomePage() {
                 imageSrc={plaidSvg}
                 className={clsx()}
               />
-              <p
+              <div
                 className={clsx(
                   'h-48 w-3/5 ',
-                  'p-2 text-xl font-semibold',
+                  'p-2 text-xl',
+                  'flex flex-col',
+                  'justify-between'
                 )}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+                <h2>
+                  The safer way for people to connect financial accounts to an
+                  app
+                </h2>
+                <p className={clsx()}>
+                  Connect your accounts and control access to them. Easy and
+                  accessible experiences for users.
+                </p>
+                <span className={clsx('inline-flex items-end gap-1')}>
+                  <p>Read more about Plaid on thei website</p>
+                  <ArrowLink
+                    as={ButtonLink}
+                    variant={mode === 'light' ? 'dark' : 'light'}
+                    className='inline-flex items-center p-1 text-sm'
+                    href='#'
+                  >
+                    PLAID
+                  </ArrowLink>
+                </span>
+              </div>
             </div>
             <div
-              className={clsx('m-2', 'flex justify-between', 'max-w-screen-lg group')}
+              className={clsx(
+                'm-4 py-2',
+                'flex justify-between',
+                'group max-w-screen-lg'
+              )}
             >
               <StepCard
                 text1={'Sign Up'}
@@ -229,18 +258,33 @@ export default function HomePage() {
                 icon={<VscAccount />}
                 className={clsx()}
               />
-              <p
+              <div
                 className={clsx(
                   'h-48 w-3/5 ',
-                  'p-2 text-xl font-semibold',
+                  'p-2 text-xl',
+                  'flex flex-col',
+                  'justify-between'
                 )}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+                <h2>
+                  Create Account in PersonalFinance and connect your Plaid
+                  account
+                </h2>
+                <p className={clsx()}>
+                  We use special Plaid Key to display your data in our app.{' '}
+                  <br />
+                </p>
+                <p className={clsx()}>
+                  Not a single piece of Your data is being stored.
+                </p>
+              </div>
             </div>
             <div
-              className={clsx('m-2', 'flex justify-between', 'max-w-screen-lg group')}
+              className={clsx(
+                'm-4 py-2',
+                'flex justify-between',
+                'group max-w-screen-lg'
+              )}
             >
               <StepCard
                 text1={'Analyze'}
@@ -248,15 +292,31 @@ export default function HomePage() {
                 icon={<AiOutlineLineChart />}
                 className={clsx()}
               />
-              <p
+              <div
                 className={clsx(
                   'h-48 w-3/5 ',
-                  'p-2 text-xl font-semibold',
+                  'p-2 text-xl',
+                  'flex flex-col',
+                  'justify-between'
                 )}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+                <h2>Checkout Demo</h2>
+                <p className={clsx()}>
+                  Use PersonalFinance charts and tools to get track the dynamic
+                  of your cash flow.
+                </p>
+                <span className={clsx('inline-flex items-end gap-1')}>
+                  <p>Checkout app before signing up</p>
+                  <ArrowLink
+                    as={ButtonLink}
+                    variant={mode === 'light' ? 'dark' : 'light'}
+                    className='inline-flex items-center p-1 text-sm'
+                    href='#'
+                  >
+                    Demo version
+                  </ArrowLink>
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -265,10 +325,4 @@ export default function HomePage() {
   );
 }
 
-
-
 const chipsList = ['Banks', 'Transactions', 'Income', 'Expenses', 'Credits'];
-
-
-
-
