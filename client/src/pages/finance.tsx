@@ -44,10 +44,8 @@ const SideMenu = () => {
           {menu.map(({ Icon, text, path }) => (
             <li className='my-2 rounded px-2 py-1 hover:bg-gray-400' key={text}>
               <a className='flex items-center' href={path}>
-                {[
-                  <span className='mx-1  mr-2 text-2xl'>{Icon}</span>,
-                  <span className='hidden text-lg sm:block'>{text}</span>,
-                ]}
+                  <span className='mx-1  mr-2 text-2xl'>{Icon}</span>
+                  <span className='hidden text-lg sm:block'>{text}</span>
               </a>
             </li>
           ))}
