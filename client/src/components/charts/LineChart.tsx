@@ -143,7 +143,7 @@ const options = {
       ticks: {
         // Include a dollar sign in the ticks
         callback: (value: string | number, index: number, ticks: any) => {
-            let formatter = Intl.NumberFormat('en', {
+            const formatter = Intl.NumberFormat('en', {
                 notation: 'compact',
                 compactDisplay: 'short',
             });
