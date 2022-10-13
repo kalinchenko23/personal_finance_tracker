@@ -6,9 +6,9 @@ import PieChart from '../charts/PieChart';
 const ExpensesCard: React.FC = () => {
   return (
     <>
-      <div
+      {/* <div
         className={clsx(
-          'mb-4 h-1/5 w-full',
+          'py-4 h-full w-full',
           'flex items-center justify-center',
           'relative overflow-hidden'
         )}
@@ -45,7 +45,7 @@ const ExpensesCard: React.FC = () => {
         <div className=' h-full w-3/5'>
           <PieChart radius={'100%'} />
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
