@@ -1,10 +1,6 @@
 import React from 'react';
-import Accent from '@/components/Accent';
 import LineChart from '@/components/charts/LineChart';
 import BarChart from '@/components/charts/BarChart';
-import Logo from '@/components/Logo';
-import UnderlineLink from '@/components/links/UnderlineLink';
-import Link from 'next/link';
 import clsx from 'clsx';
 import DataLine from '@/components/app-components/DataLine';
 
@@ -46,7 +42,7 @@ const SideMenu = () => {
       >
         <ul>
           {menu.map(({ Icon, text, disabled, path }) => (
-            <li className='my-2 rounded px-2 py-1 hover:bg-gray-400 '>
+            <li className='my-2 rounded px-2 py-1 hover:bg-gray-400 ' key={text}>
               <a className='flex items-center' href={path}>
                 {[
                   <span className='mx-1  mr-2 text-2xl'>{Icon}</span>,
@@ -62,7 +58,7 @@ const SideMenu = () => {
             <AiOutlineInfoCircle className='mx-1 mr-2 text-xl' />
             <h5
               className={clsx(
-                'text-lg hidden sm:block',
+                'hidden text-lg sm:block',
                 'border-b-2 border-transparent',
                 'group-hover:border-b-gray-500'
               )}
@@ -74,7 +70,7 @@ const SideMenu = () => {
             <AiFillFlag className='mx-1  mr-2 text-xl' />
             <h5
               className={clsx(
-                'text-lg hidden sm:block',
+                'hidden text-lg sm:block',
                 'border-b-2 border-transparent',
                 'group-hover:border-b-gray-500'
               )}
@@ -87,7 +83,6 @@ const SideMenu = () => {
     </>
   );
 };
-
 
 const FinanceAppPage = () => {
   return (
@@ -178,7 +173,6 @@ const FinanceAppPage = () => {
           </button>
         </div>
         <h5>Some content...</h5>
-
       </section>
 
       <section
@@ -336,7 +330,7 @@ const DropDownMenu = () => {
         )}
       >
         {range.map((option) => (
-          <li>
+          <li key={option}>
             <button
               onClick={() => setPeriod(option)}
               className='whitespace-no-wrap block w-full py-1 px-5 hover:bg-gray-400'
@@ -349,10 +343,3 @@ const DropDownMenu = () => {
     </div>
   );
 };
-
-
-/*  ideas:
-timeframe for each colimn 
-timeframe for all page
-
-*/

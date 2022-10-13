@@ -26,6 +26,7 @@ const DataLine: React.FC<{ text: string; data: string[] }> = ({
         {data.map((element) => {
           return (
             <li
+              key={element}
               className={clsx(
                 'rounded px-2 font-mono font-semibold',
                 'cursor-default group-hover:bg-white',
