@@ -7,9 +7,10 @@ import {
   Title,
   Tooltip,
   Legend,
+  registerables,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import {faker} from '@faker-js/faker'
+import { faker } from '@faker-js/faker';
 
 ChartJS.register(
   CategoryScale,
@@ -17,7 +18,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ...registerables
 );
 
 export const options = {
@@ -50,17 +52,14 @@ const fakeDataset = {
   ],
 };
 
-const VerticalBar:React.FC<{
-    width:string, height:string, isFakeData?:boolean
-}> = ({width, height, isFakeData}) => {
+const VerticalBar: React.FC<{
+  width: string;
+  height: string;
+  isFakeData?: boolean;
+}> = ({ width, height, isFakeData }) => {
   return (
-    <Bar 
-        data={fakeDataset} 
-        options={options} 
-        width={width} 
-        height={height} 
-    />
-  )
-}
+    <Bar data={fakeDataset} options={options} width={width} height={height} />
+  );
+};
 
 export default VerticalBar;

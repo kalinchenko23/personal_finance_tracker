@@ -7,6 +7,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  registerables
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import {faker} from '@faker-js/faker'
@@ -17,7 +18,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ...registerables
 );
 import type { ChartData, ChartArea, ScriptableContext } from 'chart.js';
 
