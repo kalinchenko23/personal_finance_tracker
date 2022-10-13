@@ -17,7 +17,7 @@ const links = [
 export default function Header() {
   const { mode, setMode } = React.useContext(ThemeContext);
 
-  const [openLogin, setOpenLogin] = React.useState(false);
+  const [openLoginForm, setOpenLoginForm] = React.useState(false);
   return (
     <header
       className={clsx(
@@ -29,7 +29,7 @@ export default function Header() {
         'sm:py-4 lg:px-4'
       )}
     >
-      <LoginForm openLogin={openLogin} setOpenLogin={setOpenLogin} />
+      <LoginForm openLoginForm={openLoginForm} setOpenLoginForm={setOpenLoginForm} />
 
       <div className='flex items-center justify-between '>
         <Logo withText={true} mode={mode} />
@@ -40,7 +40,7 @@ export default function Header() {
               // 'text-base',
             )}
             variant={mode === 'dark' ? 'light' : 'dark'}
-            onClick={() => setOpenLogin(true)}
+            onClick={() => setOpenLoginForm(true)}
           >
             Login
           </Button>
@@ -52,7 +52,7 @@ export default function Header() {
             variant={mode === 'dark' ? 'light' : 'dark'}
             onClick={() => {
               setMode(mode === 'light' ? 'dark' : 'light');
-              setOpenLogin(false);
+              setOpenLoginForm(false);
             }}
           >
             {mode === 'light' ? <FaMoon /> : <FaSun />}
