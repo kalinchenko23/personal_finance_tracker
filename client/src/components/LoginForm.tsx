@@ -80,7 +80,9 @@ const LoginForm = ({
     }
   }
 
-  async function handleLogOut() {}
+  async function handleLogOut() {
+    return 1
+  }
 
   return (
     <div
