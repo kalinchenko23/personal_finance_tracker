@@ -1,6 +1,6 @@
 import datetime,sys, pathlib
-sys.path.insert(1,f'{pathlib.Path(__file__).parents[1]}/plaid_service')
-from pydantic_models import Expenses_pydantic, Accounts_pydantic, Expenses_additional_info_pydantic
+sys.path.insert(1,f'{pathlib.Path(__file__).parents[2]}/plaid_service')
+from .pydantic_models import Expenses_pydantic, Accounts_pydantic, Expenses_additional_info_pydantic
 from plaid_dashboard import plaid_service
 
 banks = ['amex', 'bofa', 'chase', 'navy']
