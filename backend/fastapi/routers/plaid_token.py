@@ -9,15 +9,16 @@ from dependencies import get_session,oauth2_scheme
 from token_workflow import Token_dash
 from token_service import create_access_token
 from user_service import get_user, create_user, authenticate_user, get_current_user
-from jwt_token_service import decode_jwt_token
+from jwt_token_service import jwt_t_service
 from sqlalchemy.ext.asyncio import AsyncSession
+from fastapi.responses import JSONResponse
 router = APIRouter()
 
 #Token section of API
 
 @router.get("/link_token", status_code=201)
 def link_token(jwt_token:str = Depends(oauth2_scheme)):
-    decode_jwt_token(jwt_token)
+    jwt_t_service.decode_jwt_token(jwt_token)
     link_token=Token_dash().create_link()
     return {"message": link_token}
 
@@ -31,5 +32,4 @@ async def link_token(public_token:str=Body(), name:str=Body(), session: AsyncSes
         except plaid.exceptions.ApiException:
             raise HTTPException(status_code=400, detail="Invalid public token.")
         await create_access_token (session,access_token,current_user.id,name)
-        return {"message": f'Access token: {access_token} was added to a user with id {current_user.id}'}
-
+        return JSONResponse()

@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed small errors at access token endpoint">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="catching an exception for invalid public token">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/fastapi_sql/user_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_service/token_workflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/token_workflow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_service/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/client.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +70,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.token_workflow">
+  <component name="RunManager" selected="Python.api_service">
     <configuration name="api_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,7 +92,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="aws_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="jwt_token_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -95,11 +100,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/sql_service" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/fastapi" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/sql_service/aws_service.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -173,18 +178,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.api_service" />
-      <item itemvalue="Python.aws_service" />
       <item itemvalue="Python.plaid_dashboard" />
       <item itemvalue="Python.user" />
       <item itemvalue="Python.token_workflow" />
+      <item itemvalue="Python.jwt_token_service" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.token_workflow" />
         <item itemvalue="Python.api_service" />
         <item itemvalue="Python.user" />
+        <item itemvalue="Python.jwt_token_service" />
         <item itemvalue="Python.plaid_dashboard" />
-        <item itemvalue="Python.aws_service" />
+        <item itemvalue="Python.token_workflow" />
       </list>
     </recent_temporary>
   </component>
@@ -330,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665276369817</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="catching an exception for invalid public token">
+      <created>1665277145371</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1665277145371</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -362,7 +374,8 @@
     <MESSAGE value="refactored DB structure, added email verification, async DB capabilities" />
     <MESSAGE value="added plaid token endpoints and split api structure into different route files" />
     <MESSAGE value="fixed small errors at access token endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed small errors at access token endpoint" />
+    <MESSAGE value="catching an exception for invalid public token" />
+    <option name="LAST_COMMIT_MESSAGE" value="catching an exception for invalid public token" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

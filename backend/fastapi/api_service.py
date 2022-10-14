@@ -16,7 +16,6 @@ from pydantic_service.pydantic_models import Users_pydantic, Tokens_pydantic
 from pydantic import BaseModel
 from session_sql import Session_aws
 from user_service import get_user, create_user, authenticate_user, get_current_user
-from jwt_token_service import create_jwt_token
 from sqlalchemy.ext.asyncio import AsyncSession
 from dependencies import get_session, oauth2_scheme
 from routers import plaid_token, user
@@ -35,7 +34,6 @@ app.add_middleware(
 )
 
 app.add_event_handler("startup",get_session)
-
 
 @app.get("/")
 def status_check():
