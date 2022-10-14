@@ -20,14 +20,14 @@ export async function register(signUpCred: {
     return { status, data, message: 'User succesfully created' };
   } catch (error: any) {
     if (error.response.status === 404) {
-        // console.log(error)
+        console.log(error)
       return {
         status: error.response.status,
         data: {},
         message: error.response.data.detail[0].msg,
       };
     } else {
-    //   console.log('Unexpected error: ', error);
+      console.log('Unexpected error: ', error);
       return {
         status: error.response.status,
         data: {},
@@ -47,6 +47,7 @@ export async function login(loginCred: { username: string; password: string }) {
     return { status, data, message: 'Successfull login' };
   } catch (error: any) { 
     if (error.response.status === 404) { 
+      console.log(error)
       return {
         status: error.response.status,
         data: {},
