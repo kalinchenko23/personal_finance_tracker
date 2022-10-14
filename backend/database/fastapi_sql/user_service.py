@@ -13,7 +13,7 @@ from sqlalchemy import select
 from pydantic_service.pydantic_models import Users_pydantic, Tokens_pydantic
 from session_sql import Session_aws, engine_aws
 from db_tables import Users,Tokens,base
-from jwt_token_service import decode_jwt_token
+from jwt_token_service import jwt_t_service
 
 with open(f'{pathlib.Path(__file__).parents[2]}/classified.json') as secret_file:
     secrets = json.load(secret_file)
@@ -41,7 +41,7 @@ async def authenticate_user(session: AsyncSession, username: str, password: str)
 
 
 async def get_current_user(session: AsyncSession, jwt_token:str):
-    username=decode_jwt_token(jwt_token)["sub"]
+    username=jwt_t_service.decode_jwt_token(jwt_token)["sub"]
     user = await get_user(session, username)
     return user
 

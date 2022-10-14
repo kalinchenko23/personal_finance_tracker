@@ -12,3 +12,4 @@ config = plaid.Configuration(host=plaid.Environment.Development,
 api_client = plaid.ApiClient(config)
 client = plaid_api.PlaidApi(api_client)
 
+
