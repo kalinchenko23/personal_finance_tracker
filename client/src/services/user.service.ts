@@ -11,12 +11,13 @@ export async function register(signUpCred: {
   last_name: string;
 }) {
   try {                                                                             //re-do response when backend updated
-    const { data, status } = await axios.post(
+    const response = await axios.post(
       `${process.env.NEXT_PUBLIC_SERVER_PATH}/create_user`,
       signUpCred,
       { headers }
     );
-
+    let {data, status } = response
+    console.log(response)   
     return { status, data, message: 'User succesfully created' };
   } catch (error: any) {
     if (error.response.status === 404) {
@@ -39,11 +40,13 @@ export async function register(signUpCred: {
 
 export async function login(loginCred: { username: string; password: string }) {
   try {                                                                             //re-do response when backend updated
-    const { data, status } = await axios.post(
+    let response = await axios.post(
       `${process.env.NEXT_PUBLIC_SERVER_PATH}/login`,
       loginCred,
       { headers }
-    );                              
+    );
+    let {data, status } = response
+    console.log(response)                              
     return { status, data, message: 'Successfull login' };
   } catch (error: any) { 
     if (error.response.status === 404) { 
