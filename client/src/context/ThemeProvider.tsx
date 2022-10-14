@@ -3,7 +3,6 @@ import React from 'react'
 
 type Color = typeof colorList[number];
 
-
 export const ThemeContext = React.createContext<{
     color:Color,
     mode:'dark' | 'light';

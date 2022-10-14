@@ -4,15 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="catching an exception for invalid public token">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="converted JWT to separate class">
+      <change afterPath="$PROJECT_DIR$/client/src/components/app-components/DataLine.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/charts/BarChart.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/charts/PieChart.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/charts/StackedBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/charts/VerticalBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/landing-page-components/BanksCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/landing-page-components/ExpensesCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/landing-page-components/StepCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/landing-page-components/StepSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/finance.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/services/user.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/fastapi_sql/user_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_service/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Accent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Accent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Chip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Chip.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Logo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/buttons/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/buttons/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/charts/LineChart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/charts/LineChart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/context/ThemeProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/context/ThemeProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665277145371</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="converted JWT to separate class">
+      <created>1665708899166</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1665708899166</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -375,7 +402,8 @@
     <MESSAGE value="added plaid token endpoints and split api structure into different route files" />
     <MESSAGE value="fixed small errors at access token endpoint" />
     <MESSAGE value="catching an exception for invalid public token" />
-    <option name="LAST_COMMIT_MESSAGE" value="catching an exception for invalid public token" />
+    <MESSAGE value="converted JWT to separate class" />
+    <option name="LAST_COMMIT_MESSAGE" value="converted JWT to separate class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

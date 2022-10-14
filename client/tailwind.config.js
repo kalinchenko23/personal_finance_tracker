@@ -9,7 +9,8 @@ module.exports = {
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
         backgroundImage:{
-          'blurry-gradient': "url('./src/assets/blurry-gradient-haikei.svg')"
+          'blurry-gradient': "url('./src/assets/blurry-gradient-haikei.svg')",
+          'blob-gradient': "url('./src/assets/pf.svg')",
         }
       },
       colors: {

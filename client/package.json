@@ -23,8 +23,12 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.5.0",
+    "axios": "^0.27.2",
     "chart.js": "^3.9.1",
     "clsx": "^1.2.1",
+    "js-cookie": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
     "next": "^12.2.5",
     "plaid": "^10.9.0",
     "react": "^18.2.0",
@@ -51,6 +55,8 @@
     "@tailwindcss/forms": "^0.5.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
+    "@types/js-cookie": "^3.0.2",
+    "@types/jsonwebtoken": "^8.5.9",
     "@types/react": "^18.0.18",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
