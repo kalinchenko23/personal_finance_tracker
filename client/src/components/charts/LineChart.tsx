@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import type { ChartData, ChartArea, ScriptableContext } from 'chart.js';
 import {
   Chart as ChartJS,
+  registerables,
   CategoryScale,
   LinearScale,
   PointElement,
@@ -19,7 +20,8 @@ ChartJS.register(
   LineElement,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  ...registerables
 );
 
 const LineChart: React.FC<{
@@ -143,11 +145,11 @@ const options = {
       ticks: {
         // Include a dollar sign in the ticks
         callback: (value: string | number, index: number, ticks: any) => {
-            const formatter = Intl.NumberFormat('en', {
-                notation: 'compact',
-                compactDisplay: 'short',
-            });
-            return index % 2 === 0 ? '$' + formatter.format(Number(value)) : '';
+          const formatter = Intl.NumberFormat('en', {
+            notation: 'compact',
+            compactDisplay: 'short',
+          });
+          return index % 2 === 0 ? '$' + formatter.format(Number(value)) : '';
         },
       },
     },
