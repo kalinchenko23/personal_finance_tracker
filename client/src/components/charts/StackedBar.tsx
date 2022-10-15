@@ -7,7 +7,6 @@ import {
   Title,
   Tooltip,
   Legend,
-  registerables,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
@@ -19,10 +18,26 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  ...registerables
 );
 
 import type { ChartData, ChartArea, ScriptableContext } from 'chart.js';
+
+const StackedBar: React.FC<{
+  width: string;
+  height: string;
+  isFakeData?: boolean;
+}> = ({ width, height, isFakeData }) => {
+  return (
+    <Bar
+      data={fakeDataset}
+      width={width}
+      height={height}
+      options={options}
+    />
+  );
+};
+
+export default StackedBar;
 
 export const options = {
   plugins: {
@@ -113,15 +128,3 @@ const fakeDataset = {
     },
   ],
 };
-
-const StackedBar: React.FC<{
-  width: string;
-  height: string;
-  isFakeData?: boolean;
-}> = ({ width, height, isFakeData }) => {
-  return (
-    <Bar data={fakeDataset} width={width} height={height} options={options} />
-  );
-};
-
-export default StackedBar;
