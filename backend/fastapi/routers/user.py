@@ -13,32 +13,33 @@ from user_service import get_user, create_user, authenticate_user, get_current_u
 from jwt_token_service import jwt_t_service
 from sqlalchemy.ext.asyncio import AsyncSession
 from pydantic_service.pydantic_models import Users_pydantic
+from fastapi.responses import JSONResponse
 router = APIRouter()
 
 
-@router.post("/login")
+@router.post("/login", responses={404:{'description':'User not found!'}})
 async def login_for_access_token(username: str = Body(), password: str = Body(),
                                  session: AsyncSession = Depends(get_session)):
     user = await get_user(session, username)
     if not user:
-        raise HTTPException(status_code=404, detail="User not found.")
+        raise HTTPException(status_code=403, detail={"messege":"Username or password does not match.","data":""})
     if not await authenticate_user(session, username, password):
-        raise HTTPException(status_code=403, detail="Username or password does not match.")
+        raise HTTPException(status_code=403, detail={"messege":"Username or password does not match.","data":""})
     jwt_token = jwt_t_service.create_jwt_token(user)
-    return {"access_token": jwt_token, "token_type": "bearer"}
+    return {"detail":{"data":{"access_token": jwt_token, "token_type": "bearer"},"message":"JWT token was created!"}}
 
 
 @router.post("/create_user/", status_code=201)
 async def new_user(user: Users_pydantic, session: AsyncSession = Depends(get_session)):
     try:
         await create_user(session, user)
-        return user
+        return {"detail":{"data":user,"message":"user was created!"}}
     except sqlalchemy.exc.IntegrityError:
-        raise HTTPException(status_code=400, detail="User already exist")
+        raise HTTPException(status_code=400, detail={"messege":"User already exist","data":""})
 
 
 @router.get("/user/home")
 async def read_user(session: AsyncSession = Depends(get_session), jwt_token: str = Depends(oauth2_scheme)):
     user = await get_current_user(session, jwt_token)
-    return user
+    return {"detail":{"data":user,"message":"current logged in user"}}
 

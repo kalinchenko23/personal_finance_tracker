@@ -20,7 +20,7 @@ router = APIRouter()
 def link_token(jwt_token:str = Depends(oauth2_scheme)):
     jwt_t_service.decode_jwt_token(jwt_token)
     link_token=Token_dash().create_link()
-    return {"message": link_token}
+    return {"detail":{"data":link_token,"message":"link token was created"}}
 
 
 @router.post("/access_token", status_code=201)
@@ -30,6 +30,6 @@ async def link_token(public_token:str=Body(), name:str=Body(), session: AsyncSes
         try:
             access_token=Token_dash(public_token=public_token).access_token()
         except plaid.exceptions.ApiException:
-            raise HTTPException(status_code=400, detail="Invalid public token.")
+            raise HTTPException(status_code=400, detail={"messege":"Invalid public token.","data":""})
         await create_access_token (session,access_token,current_user.id,name)
-        return JSONResponse()
+        return {"detail":{"data":"","message":"access token was created"}}
