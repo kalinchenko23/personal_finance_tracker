@@ -31,9 +31,9 @@ class JWT():
         try:
             token_info = jwt.decode(jwt_token, self.secret_key, self.algorithm)
         except jwt.ExpiredSignatureError:
-            raise HTTPException(status_code=401, detail="Your session has expired")
+            raise HTTPException(status_code=401, detail={"message":"Your session has expired","data":""})
         except jwt.exceptions.DecodeError:
-            raise HTTPException(status_code=401, detail="Please provide valid jwt token")
+            raise HTTPException(status_code=401, detail={"message":"Please provide valid jwt token","data":""})
         return token_info
 
 jwt_t_service=JWT()
