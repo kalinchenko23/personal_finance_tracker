@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="reformatted Response structure">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed password return bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/fastapi_sql/user_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -366,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665802609876</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="fixed password return bug">
+      <created>1665883740959</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1665883740959</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -401,7 +407,8 @@
     <MESSAGE value="catching an exception for invalid public token" />
     <MESSAGE value="converted JWT to separate class" />
     <MESSAGE value="reformatted Response structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="reformatted Response structure" />
+    <MESSAGE value="fixed password return bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed password return bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
