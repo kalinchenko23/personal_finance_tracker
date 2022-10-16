@@ -30,6 +30,6 @@ async def link_token(public_token:str=Body(), name:str=Body(), session: AsyncSes
         try:
             access_token=Token_dash(public_token=public_token).access_token()
         except plaid.exceptions.ApiException:
-            raise HTTPException(status_code=400, detail={"messege":"Invalid public token.","data":""})
+            raise HTTPException(status_code=400, detail={"message":"Invalid public token.","data":""})
         await create_access_token (session,access_token,current_user.id,name)
         return {"detail":{"data":"","message":"access token was created"}}
