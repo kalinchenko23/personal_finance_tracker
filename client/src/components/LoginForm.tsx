@@ -1,41 +1,35 @@
 import React, { ChangeEvent } from 'react';
-import axios from 'axios';
 import Logo from '@/components/Logo';
 import Button from '@/components/buttons/Button';
 import clsx from 'clsx';
 import Cookies from 'js-cookie';
-// import jwt from 'jsonwebtoken';
 import { register, login } from '@/services/user.service';
+import toast from 'react-hot-toast';
+import { AiOutlineClose } from 'react-icons/ai';
+import jwt from 'jsonwebtoken'
+import { UserContext } from '@/context/UserProvider';
 
-const LoginForm = ({
-  openLoginForm,
-  setOpenLoginForm,
-}: {
+
+
+
+const LoginForm: React.FC<{
   openLoginForm: boolean;
   setOpenLoginForm: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+}> = ({ openLoginForm, setOpenLoginForm }) => {
+
+  const {user, setUser} = React.useContext(UserContext)
+
   const [toggle, setToggle] = React.useState(false);
-  const [registerCred, setRegisterCred] = React.useState({
+  const [credentials, setCredentials] = React.useState({
     username: '',
     first_name: '',
     last_name: '',
     password: '',
   });
-  const [loginrCred, setLoginCred] = React.useState({
-    username: '',
-    password: '',
-  });
-  const [message, setMessage] = React.useState('');
 
-  function handleRegisterCredentials(e: ChangeEvent<HTMLInputElement>) {
-    setRegisterCred({
-      ...registerCred,
-      [e.target.name]: e.target.value,
-    });
-  }
-  function handleLogInCredentials(e: ChangeEvent<HTMLInputElement>) {
-    setLoginCred({
-      ...loginrCred,
+  function handleCredentials(e: ChangeEvent<HTMLInputElement>) {
+    setCredentials({
+      ...credentials,
       [e.target.name]: e.target.value,
     });
   }
@@ -43,87 +37,104 @@ const LoginForm = ({
   async function handleCreate(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const credentials = {
-      username: registerCred.username,
-      password: registerCred.password,
-      first_name: registerCred.first_name,
-      last_name: registerCred.last_name,
+    const cred = {
+      username: credentials.username,
+      password: credentials.password,
+      first_name: credentials.first_name,
+      last_name: credentials.last_name,
     };
-    register(credentials);
-    // if status === 201
-    // clean inputs
-    // close form
-    // display toast
-    // else
-    // display toast error message
+    const { status, data, message } = await register(cred);
+
+    if (status === 201) {
+      toast.success(message);
+      setCredentials({
+        username: '',
+        first_name: '',
+        last_name: '',
+        password: '',
+      });
+      setToggle(true);
+    } else {
+      toast.error(message);
+    }
   }
 
   async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const credentials = {
-      username: registerCred.username,
-      password: registerCred.password,
+    const cred = {
+      username: credentials.username,
+      password: credentials.password,
     };
-    const response = await login(credentials);
+    const { status, data, message } = await login(cred);
 
-    if (response && response.status === 200) {
-      console.log('SUCCESS');
-      // Cookies.set('response', data)
-      // display success toast
-      // set user state
-      // close loginForm
-      Cookies.get('token') || '';
+    if (status === 200) {
+      console.log(data);
+      Cookies.set('token', data.detail.data.access_token, { secure: true });
+      toast.success(message);
+      const usr = jwt.decode(data.detail.data.access_token)
+      setUser({email:usr?.sub})
+      setCredentials({
+        username: '',
+        first_name: '',
+        last_name: '',
+        password: '',
+      });
+      setOpenLoginForm(false);
     } else {
       //else display error message
-      console.log('ERROR');
+      toast.error(message);
+      console.log(data);
     }
   }
 
-  async function handleLogOut() {
-    return 1
-  }
 
   return (
     <div
       className={clsx(
-        'h-screen w-screen',
-        'fixed inset-0 z-50 flex items-center ',
-        'justify-center bg-dark/75 transition duration-500 ease-out',
-        openLoginForm ? 'block' : 'hidden '
+        'fixed inset-0 z-50 h-screen w-screen overflow-y-hidden',
+        'flex items-center justify-center px-8',
+        openLoginForm
+          ? 'scroll-y-none pointer-events-auto bg-opacity-50 bg-clip-padding backdrop-blur-sm backdrop-filter '
+          : 'pointer-events-none opacity-0',
+        'transition-all delay-100 duration-200'
       )}
     >
       <section
         className={clsx(
-          'justify-top relative flex  h-3/4 ',
-          'w-full flex-col items-center rounded-md bg-white ',
-          'p-2 shadow-lg shadow-dark/40 sm:w-96'
+          'h-4/5 w-full sm:w-[28rem]',
+          'justify-top relative flex ',
+          'flex-col items-center rounded-xl bg-white ',
+          'p-2 shadow-lg shadow-dark/40',
+          openLoginForm ? 'scale-100 opacity-100' : 'scale-0 opacity-0',
+          'transition-all duration-200'
         )}
       >
         <button
           className={clsx(
-            'absolute right-4 top-2',
+            'absolute right-3 top-3',
             'text-2xl font-bold text-zinc-900'
           )}
           onClick={() => setOpenLoginForm(false)}
         >
-          X
+          <AiOutlineClose className='text-4xl' />
         </button>
 
-        <p className='mt-4 text-lg font-semibold'>Sign in to</p>
+        <p className='mt-10 text-2xl font-semibold text-gray-600'>Sign in to</p>
         <Logo />
+        <div className='my-1 h-[2px] w-3/4 rounded bg-gray-700' />
 
-        <div className='mt-4 flex w-full justify-center text-dark'>
+        <div className='mt-4 flex w-full justify-center '>
           <Button
             variant='light'
-            className='shawod-slate-800 flex w-2/4 justify-center shadow-md '
+            className='shawod-slate-800 flex w-2/4 justify-center shadow-md text-gray-600'
             onClick={() => setToggle(true)}
           >
             Sign In
           </Button>
           <Button
             variant='light'
-            className='shawod-slate-800 flex w-2/4 justify-center shadow-md '
+            className='shawod-slate-800 flex w-2/4 justify-center shadow-md text-gray-600'
             onClick={() => setToggle(false)}
           >
             Sign Up
@@ -132,18 +143,18 @@ const LoginForm = ({
 
         {/* SIGN UP */}
         <SignUpForm
-          handleRegisterCredentials={handleRegisterCredentials}
-          handleSubmit={handleCreate}
           toggle={toggle}
-          message={message}
+          credentials={credentials}
+          handleSubmit={handleCreate}
+          handleRegisterCredentials={handleCredentials}
         />
 
         {/* SIGN IN */}
         <SignInForm
-          handleLogInCredentials={handleLogInCredentials}
-          handleSubmit={handleLogin}
           toggle={toggle}
-          message={message}
+          credentials={credentials}
+          handleSubmit={handleLogin}
+          handleLogInCredentials={handleCredentials}
         />
       </section>
     </div>
@@ -154,11 +165,16 @@ export default LoginForm;
 
 // #region SignUpForm
 const SignUpForm: React.FC<{
-  handleRegisterCredentials: any;
-  handleSubmit: any;
-  toggle: any;
-  message: any;
-}> = ({ handleRegisterCredentials, handleSubmit, toggle, message }) => {
+  credentials: {
+    username: string;
+    first_name: string;
+    last_name: string;
+    password: string;
+  };
+  handleRegisterCredentials: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  toggle: boolean;
+}> = ({ credentials, handleRegisterCredentials, handleSubmit, toggle }) => {
   return (
     <form
       onSubmit={handleSubmit}
@@ -166,15 +182,20 @@ const SignUpForm: React.FC<{
         toggle === false ? 'block' : 'hidden'
       }`}
     >
-      <h2 className='mt-2 mb-2 text-dark'>Sign Up</h2>
-      <h3>{message}</h3>
-      <label className='flex-col text-lg font-semibold text-zinc-700'>
+      <h2 className='mt-2 mb-2 text-center font-extralight text-gray-600'>
+        Sign Up
+      </h2>
+      <label
+        htmlFor='username'
+        className='flex-col text-lg font-normal text-gray-500'
+      >
         Enter email:
       </label>
       <input
         id='username'
         type='text'
         name='username'
+        value={credentials.username}
         onChange={(e) => handleRegisterCredentials(e)}
         className={clsx(
           'shawod-slate-800 mb-1 rounded',
@@ -182,12 +203,16 @@ const SignUpForm: React.FC<{
         )}
       />
 
-      <label className='flex-col text-lg font-semibold text-zinc-700'>
+      <label
+        htmlFor='first_name'
+        className='flex-col text-lg font-normal text-gray-500'
+      >
         Enter your first name:
       </label>
       <input
         type='text'
         name='first_name'
+        value={credentials.first_name}
         onChange={(e) => handleRegisterCredentials(e)}
         className={clsx(
           'shawod-slate-800 mb-1 rounded',
@@ -195,12 +220,16 @@ const SignUpForm: React.FC<{
         )}
       />
 
-      <label className='flex-col text-lg font-semibold text-zinc-700'>
+      <label
+        htmlFor='last_name'
+        className='flex-col text-lg font-normal text-gray-500'
+      >
         Enter your last name:
       </label>
       <input
         type='text'
         name='last_name'
+        value={credentials.last_name}
         onChange={(e) => handleRegisterCredentials(e)}
         className={clsx(
           'shawod-slate-800 mb-1 rounded',
@@ -208,12 +237,16 @@ const SignUpForm: React.FC<{
         )}
       />
 
-      <label className='flex-col text-lg font-semibold text-zinc-700'>
+      <label
+        htmlFor='password'
+        className='flex-col text-lg font-normal text-gray-500'
+      >
         Enter password:
       </label>
       <input
         type='password'
         name='password'
+        value={credentials.password}
         onChange={(e) => handleRegisterCredentials(e)}
         className={clsx(
           'shawod-slate-800 mb-1 rounded',
@@ -237,11 +270,16 @@ const SignUpForm: React.FC<{
 
 // #region SignUpForm
 const SignInForm: React.FC<{
-  handleLogInCredentials: any;
-  handleSubmit: any;
-  toggle: any;
-  message: any;
-}> = ({ handleLogInCredentials, handleSubmit, toggle, message }) => {
+  credentials: {
+    username: string;
+    first_name: string;
+    last_name: string;
+    password: string;
+  };
+  handleLogInCredentials: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  toggle: boolean;
+}> = ({ credentials, handleLogInCredentials, handleSubmit, toggle }) => {
   return (
     <form
       onSubmit={handleSubmit}
@@ -249,14 +287,21 @@ const SignInForm: React.FC<{
         toggle === true ? 'block' : 'hidden'
       }`}
     >
-      <h2 className='mt-2 mb-2 text-dark'>Sign In</h2>
-      <label className='flex-col text-lg font-semibold text-zinc-700'>
+      <h2 className='mt-2 mb-2 text-center font-extralight text-gray-600'>
+        Sign In
+      </h2>
+      <label
+        htmlFor='username-login'
+        className='flex-col text-lg font-normal text-gray-500'
+      >
         {' '}
         Enter email:
       </label>
       <input
+        id='username-login'
         type='text'
         name='username'
+        value={credentials.username}
         onChange={(e) => handleLogInCredentials(e)}
         className={clsx(
           'shawod-slate-800 mb-1 rounded',
@@ -264,13 +309,18 @@ const SignInForm: React.FC<{
         )}
       />
 
-      <label className='flex-col text-lg font-semibold text-zinc-700'>
+      <label
+        htmlFor='password'
+        className='flex-col text-lg font-normal text-gray-500'
+      >
         {' '}
         Enter password:{' '}
       </label>
       <input
+        id='password'
         type='password'
         name='password'
+        value={credentials.password}
         onChange={(e) => handleLogInCredentials(e)}
         className={clsx(
           'shawod-slate-800 mb-1 rounded',

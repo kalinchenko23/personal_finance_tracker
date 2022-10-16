@@ -9,7 +9,7 @@ const StepSection: React.FC<{
   text2: string;
   imageSrc?: StaticImageData;
   className?: string;
-  children:ReactNode
+  children: ReactNode;
 }> = ({ icon, text1, text2, imageSrc, className, children }) => {
   return (
     <div
@@ -19,32 +19,31 @@ const StepSection: React.FC<{
         'max-w-screen-lg',
         'flex-col',
         'group',
-        'items-center justify-between w-full',
+        'w-full items-center justify-between',
         'md:flex-row',
-        'my-6',
+        'my-6'
       )}
     >
       <StepCard
-        text1={'Set Up'}
-        text2={'Your Plaid Account '}
+        text1={text1}
+        text2={text2}
         imageSrc={imageSrc ?? imageSrc}
         icon={icon ?? icon}
         className={clsx()}
       />
       <div
         className={clsx(
-          'h-48 w-4/5 ',
+          'h-48 w-full ',
           'md:h-48 md:w-3/5 ',
           'p-2 text-xl',
           'flex flex-col',
-          'justify-between',
+          'justify-start',
           'items-center',
-          'md:items-start'
+          'md:items-start',
+          'md:max-w-[50%]'
         )}
       >
-        <>
-        {children}
-        </>
+        <>{children}</>
       </div>
     </div>
   );
