@@ -37,9 +37,10 @@ const StepSection: React.FC<{
           'md:h-48 md:w-3/5 ',
           'p-2 text-xl',
           'flex flex-col',
-          'justify-between',
+          'justify-start',
           'items-center',
-          'md:items-start'
+          'md:items-start',
+          'max-w-[50%]'
         )}
       >
         <>
