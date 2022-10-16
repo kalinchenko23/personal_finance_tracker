@@ -2,7 +2,7 @@ import datetime
 import bcrypt
 from decimal import Decimal
 from typing import Optional, List
-from pydantic import BaseModel, validator, Field, EmailStr
+from pydantic import BaseModel,create_model, validator, Field, EmailStr
 
 
 def hash_password(password: str, salt=bcrypt.gensalt()):
@@ -77,9 +77,16 @@ class Users_pydantic(BaseModel):
 
     @validator('password', pre=True)
     def hashing_p(cls, v):
-        v = hash_password(v)
+        if type(v) != bytes:
+            v = hash_password(v)
         return v
 
+class Users_pydantic_out(BaseModel):
+    data:Users_pydantic
+    message:str
+
+class Users_pydantic_out_wrapper(BaseModel):
+    detail: Users_pydantic_out
 
 class Tokens_pydantic(BaseModel):
     user_id: int
