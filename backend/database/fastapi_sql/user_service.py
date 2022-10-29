@@ -41,7 +41,7 @@ async def authenticate_user(session: AsyncSession, username: str, password: str)
 
 
 async def get_current_user(session: AsyncSession, jwt_token:str):
-    username=jwt_t_service.decode_jwt_token(jwt_token)["sub"]
+    username=jwt_t_service.decode_jwt_token(jwt_token)["username"]
     user = await get_user(session, username)
     return user
 
