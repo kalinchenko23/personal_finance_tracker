@@ -47,6 +47,6 @@ class Expenses_additional_info(base):
 class Tokens(base):
     __tablename__ = 'tokens'
     user_id: int = Column(Integer, ForeignKey('users.id'), primary_key=True)
-    name: str = Column(String, nullable=False)
+    bank_name: str = Column(String, nullable=False)
     token: str = Column(String,nullable=False)
     user = relationship("Users", back_populates="tokens")

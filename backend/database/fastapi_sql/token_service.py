@@ -16,10 +16,8 @@ from db_tables import Users,Tokens,base
 
 #Token specific functions
 
-async def create_access_token(session: AsyncSession, access_token:str,user_id:int,
-                              name:str):
-
-    token=Tokens_pydantic(**{"user_id":user_id,"name":name,"token":access_token})
+async def create_access_token(session: AsyncSession, access_token:str,user_id:int):
+    token=Tokens_pydantic(**{"user_id":user_id,"token":access_token})
     session.add(Tokens(**token.dict()))
     await session.commit()
 
