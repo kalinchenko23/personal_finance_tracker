@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="added first and last name to jwt token">
-      <change afterPath="$PROJECT_DIR$/backend/database/mongoDB/fastapi_mongo/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/mongoDB/fastapi_mongo/user_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/token_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/fastapi_sql/token_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/mongoDB/documents.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoDB/documents.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" afterDir="false" />
-    </list>
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed bank_name issue" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -387,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665946788612</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fixed bank_name issue">
+      <created>1667261949868</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1667261949868</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -424,7 +419,8 @@
     <MESSAGE value="reformatted Response structure" />
     <MESSAGE value="fixed password return bug" />
     <MESSAGE value="added first and last name to jwt token" />
-    <option name="LAST_COMMIT_MESSAGE" value="added first and last name to jwt token" />
+    <MESSAGE value="fixed bank_name issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bank_name issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

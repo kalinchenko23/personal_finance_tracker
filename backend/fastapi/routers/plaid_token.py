@@ -16,7 +16,7 @@ router = APIRouter()
 
 #Token section of API
 
-@router.get("/link_token", status_code=201)
+@router.get("/link/token/create", status_code=201)
 def link_token(jwt_token:str = Depends(oauth2_scheme)):
     jwt_t_service.decode_jwt_token(jwt_token)
     link_token=Token_dash().create_link()
