@@ -14,6 +14,7 @@ from jwt_token_service import jwt_t_service
 from sqlalchemy.ext.asyncio import AsyncSession
 from pydantic_service.pydantic_models import Users_pydantic, Users_pydantic_out_wrapper
 from fastapi.responses import JSONResponse
+from mongoDB.fastapi_mongo.user_service import user_mongo
 router = APIRouter()
 
 
@@ -34,6 +35,7 @@ async def login_for_access_token(username: str = Body(), password: str = Body(),
 
 async def new_user(user: Users_pydantic, session: AsyncSession = Depends(get_session)):
     try:
+        user_mongo.create_user(user)
         await create_user(session, user)
         return {"detail":{"data":user,"message":"user was created!"}}
     except sqlalchemy.exc.IntegrityError:

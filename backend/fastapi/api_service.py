@@ -8,6 +8,7 @@ sys.path.insert(0, f'{pathlib.Path(__file__).parents[1]}/plaid_service')
 sys.path.insert(1, f'{pathlib.Path(__file__).parents[1]}/database')
 sys.path.insert(2, f'{pathlib.Path(__file__).parents[1]}/database/fastapi_sql')
 sys.path.insert(3, f'{pathlib.Path(__file__).parents[1]}/database/sql_service')
+import sentry_sdk
 from fastapi import FastAPI, Query, Body, HTTPException, Depends, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,6 +21,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from dependencies import get_session, oauth2_scheme
 from routers import plaid_token, user
 
+sentry_sdk.init(dsn="https://820d3647275849e19803f04aab475e9e@o995707.ingest.sentry.io/4504001351974912",
+                traces_sample_rate=1.0)
 app = FastAPI()
 app.include_router(plaid_token.router)
 app.include_router(user.router)
@@ -37,7 +40,7 @@ app.add_event_handler("startup",get_session)
 
 @app.get("/")
 def status_check():
-    return {"message": "It's working!"}
+    return {"message": f"It's working!"}
 
 if __name__ == "__main__":
     uvicorn.run(app)

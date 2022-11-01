@@ -4,6 +4,18 @@ import mongoengine
 from mongoengine import Document, EmbeddedDocument, EmbeddedDocumentField, StringField, DateTimeField, FloatField, \
     ReferenceField, DynamicField
 
+class Users(Document):
+    username = StringField(required=True, unique=True)
+    password = StringField(required=True)
+    first_name = StringField(required=True, unique=True)
+    last_name = StringField(required=True, unique=True)
+    meta = {
+        'indexes': ['$username']}
+
+class Tokens(Document):
+    user_id=ReferenceField('Users',reverse_delete_rule=mongoengine.NULLIFY)
+    name= StringField()
+    token= StringField(required=True)
 
 class Accounts(Document):
     id = StringField(primary_key=True)

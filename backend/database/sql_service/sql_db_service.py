@@ -4,14 +4,13 @@ sys.path.insert(1, f'{pathlib.Path(__file__).parents[1]}')
 from sqlalchemy import select, update
 from session_sql import Session
 from pydantic_service.pydantic_validation import pydantic_validation_transactions, pydantic_validation_transactions_additional_info, \
-    pydantic_validation_accounts, banks
+    pydantic_validation_accounts
 from db_tables import Expenses, Expenses_additional_info, Accounts
 
 
 # This class is responsible for writing and updating entities to SQL DB
 class DB_service():
-    def __init__(self, banks, session):
-        self.banks = banks
+    def __init__(self, session):
         self.session = session
 
     async def insert_account_info(self):

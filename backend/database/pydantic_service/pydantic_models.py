@@ -1,9 +1,12 @@
+import sys
+import pathlib
+sys.path.insert(0, f'{pathlib.Path(__file__).parents[2]}/plaid_service')
 import datetime
 import bcrypt
 from decimal import Decimal
 from typing import Optional, List
 from pydantic import BaseModel,create_model, validator, Field, EmailStr
-
+from plaid_dashboard import plaid_service
 
 def hash_password(password: str, salt=bcrypt.gensalt()):
     hashed_pass = bcrypt.hashpw(password.encode('utf-8'), salt)
@@ -90,5 +93,10 @@ class Users_pydantic_out_wrapper(BaseModel):
 
 class Tokens_pydantic(BaseModel):
     user_id: int
-    name: str
+    bank_name: Optional[str]
     token: str
+    @validator('bank_name', pre=True)
+    def hashing_p(cls, v):
+        inst_id=plaid_service.get_institutions_id(token)
+        v=plaid_service.get_institutions_name(inst_id)
+        return v
