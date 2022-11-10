@@ -3,7 +3,7 @@ import plaid
 import pathlib
 import jwt
 sys.path.insert(0, f'{pathlib.Path(__file__).parents[2]}/token_service')
-sys.path.insert(1, f'{pathlib.Path(__file__).parents[2]}/database/fastapi_sql')
+sys.path.insert(1, f'{pathlib.Path(__file__).parents[2]}/database/sql_service')
 from fastapi import FastAPI, Query, Body, HTTPException, Depends, Body, APIRouter
 from dependencies import get_session,oauth2_scheme
 from token_workflow import Token_dash
@@ -33,4 +33,3 @@ async def link_token(public_token:str=Body(embed=True), session: AsyncSession = 
             raise HTTPException(status_code=400, detail={"message":"Invalid public token.","data":""})
         await create_access_token (session,access_token,current_user.id)
         return {"detail":{"data":"","message":"access token was created"}}
-

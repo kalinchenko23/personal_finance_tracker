@@ -19,13 +19,14 @@ from session_sql import Session_aws
 from user_service import get_user, create_user, authenticate_user, get_current_user
 from sqlalchemy.ext.asyncio import AsyncSession
 from dependencies import get_session, oauth2_scheme
-from routers import plaid_token, user
+from routers import plaid_token, user, user_data
 
 sentry_sdk.init(dsn="https://820d3647275849e19803f04aab475e9e@o995707.ingest.sentry.io/4504001351974912",
                 traces_sample_rate=1.0)
 app = FastAPI()
 app.include_router(plaid_token.router)
 app.include_router(user.router)
+app.include_router(user_data.router)
 data = plaid_service.get_acounts_info
 
 app.add_middleware(

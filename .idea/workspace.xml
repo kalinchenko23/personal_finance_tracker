@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed bank_name issue" />
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed bank_name issue">
+      <change afterPath="$PROJECT_DIR$/backend/database/sql_service/plaid_functionality_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/sql_service/token_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/sql_service/user_data_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database/sql_service/user_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/fastapi/routers/user_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/token_service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/fastapi_sql/user_service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/mongoDB/mongo_connection_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoDB/mongo_connection_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/sql_db_service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_service/token_workflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/token_workflow.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,10 +74,10 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/database/sql_service" />
       <recent name="$PROJECT_DIR$/backend/database/pydantic " />
       <recent name="$PROJECT_DIR$/backend" />
       <recent name="$PROJECT_DIR$/logging_service" />
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -83,7 +103,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="plaid_dashboard" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="mongo_connection_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -91,11 +111,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/plaid_service" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/mongoDB" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/mongoDB/mongo_connection_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -104,7 +124,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pydantic_models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="plaid_functionality_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -112,11 +132,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/pydantic_service" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/sql_service" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/sql_service/plaid_functionality_service.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -169,18 +189,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.api_service" />
-      <item itemvalue="Python.pydantic_models" />
+      <item itemvalue="Python.mongo_connection_service" />
+      <item itemvalue="Python.plaid_functionality_service" />
       <item itemvalue="Python.user" />
       <item itemvalue="Python.user_service" />
-      <item itemvalue="Python.plaid_dashboard" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.api_service" />
-        <item itemvalue="Python.plaid_dashboard" />
-        <item itemvalue="Python.user_service" />
-        <item itemvalue="Python.pydantic_models" />
         <item itemvalue="Python.user" />
+        <item itemvalue="Python.plaid_functionality_service" />
+        <item itemvalue="Python.user_service" />
+        <item itemvalue="Python.mongo_connection_service" />
       </list>
     </recent_temporary>
   </component>
@@ -382,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667261949868</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fixed bank_name issue">
+      <created>1667262735720</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1667262735720</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

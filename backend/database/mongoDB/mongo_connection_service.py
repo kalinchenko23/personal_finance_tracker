@@ -1,7 +1,7 @@
 import mongoengine
 import json
 import pathlib
-with open(f'{pathlib.Path.cwd().parents[0]}/classified.json') as secret_file:
+with open(f'{pathlib.Path(__file__).parents[2]}/classified.json') as secret_file:
     secrets = json.load(secret_file)
     user, password = secrets['db']['user'], secrets['aws']['password']
 

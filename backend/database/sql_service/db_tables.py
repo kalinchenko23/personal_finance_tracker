@@ -1,5 +1,5 @@
 import datetime
-from sqlalchemy import Column, Integer, DateTime, String, ForeignKey, Float, Identity, LargeBinary
+from sqlalchemy import Column, Integer, String, ForeignKey, Float, Identity, LargeBinary, Date
 from sqlalchemy.orm import declarative_base, relationship
 
 base = declarative_base()
@@ -29,7 +29,7 @@ class Accounts(base):
 class Expenses(base):
     __tablename__ = 'expenses'
     transaction_id: str = Column(String, primary_key=True)
-    created_date: datetime.datetime = Column(DateTime, default=None, index=True)
+    created_date: datetime.date = Column(Date, default=None, index=True)
     amount: float = Column(Float)
     account_id: str = Column(String, ForeignKey('accounts.id'))
     expense_additional_info = relationship("Expenses_additional_info", back_populates='expense', uselist=False)

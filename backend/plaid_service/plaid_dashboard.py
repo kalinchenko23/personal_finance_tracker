@@ -28,7 +28,7 @@ class Plaid_service(Token_dash):
         response = self.client.institutions_get_by_id(request)
         return response.to_dict()['institution']['name']
 
-    def get_transactions(self, start_date: str, end_date: str):
+    def get_transactions(self,access_token:str, start_date: str, end_date: str):
         request = TransactionsGetRequest(access_token=access_token,start_date=start_date,end_date=end_date)
         response = self.client.transactions_get(request)
         # returning dict instead of PLAID API object.

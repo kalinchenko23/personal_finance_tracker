@@ -19,9 +19,6 @@ class Expenses_pydantic(BaseModel):
     account_id: str
     transaction_id: str
 
-    @validator('created_date')
-    def category_check(cls, v):
-        return v.strftime("%m/%d/%Y")
 
     class Config:
         extra = 'ignore'
@@ -31,6 +28,7 @@ class Expenses_additional_info_pydantic(BaseModel):
     transaction_id: str
     category: List
     merchant_name: str | None
+
 
     @validator('category')
     def category_check(cls, v):
@@ -45,32 +43,13 @@ class Accounts_pydantic(BaseModel):
     name: str
     balance: Decimal = Field(alias='balances')
     subtype: str
+    user_id: int
 
     # argument pre specifies that this validation will occur prior to
     # all other validations including field type validation
     @validator('balance', pre=True)
     def current_balance(cls, v):
         return v['current']
-
-    @validator('name')
-    def name_change(cls, n):
-        match n:
-            case "MAKSYM KALINCHENKO -91008":
-                n = "amex credit card"
-            case "Customized Cash Rewards World Mastercard Card":
-                n = "bofa credit card"
-            case "More Rewards Amex":
-                n = "navy credit card"
-            case "CREDIT CARD":
-                n = "chase credit card"
-            case "TOTAL CHECKING":
-                n = "chase checking"
-            case "Active Duty Checking":
-                n = "navy checking"
-            case "Share Savings":
-                n = "navy savings"
-        return n
-
 
 class Users_pydantic(BaseModel):
     username: EmailStr
@@ -85,8 +64,8 @@ class Users_pydantic(BaseModel):
         return v
 
 class Users_pydantic_out(BaseModel):
-    data:Users_pydantic
-    message:str
+    data: Users_pydantic
+    message: str
 
 class Users_pydantic_out_wrapper(BaseModel):
     detail: Users_pydantic_out
