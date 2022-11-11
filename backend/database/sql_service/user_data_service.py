@@ -10,8 +10,9 @@ from db_tables import Accounts, Users, Tokens
 from plaid_functionality_service import DB_service
 
 async def get_user_accounts_info(session, user_id):
-    access_token = await session.execute(select(Tokens).filter(Tokens.user_id == user_id))
-    access_token = access_token.scalars().first().token
+    res = await session.execute(select(Tokens).filter(Tokens.user_id == user_id))
+    obj = res.scalars().first()
+    access_token,bank_name=obj.token,obj.bank_name
     await DB_service(session, access_token).insertORupdate_account_info(user_id)
     result = await session.execute(select(Accounts).filter(Accounts.user_id == user_id))
-    return result.scalars().all()
+    return result.scalars().all(),bank_name

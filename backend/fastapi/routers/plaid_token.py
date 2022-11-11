@@ -33,3 +33,4 @@ async def link_token(public_token:str=Body(embed=True), session: AsyncSession = 
             raise HTTPException(status_code=400, detail={"message":"Invalid public token.","data":""})
         await create_access_token (session,access_token,current_user.id)
         return {"detail":{"data":"","message":"access token was created"}}
+

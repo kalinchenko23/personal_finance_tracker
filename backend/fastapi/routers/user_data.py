@@ -13,5 +13,5 @@ router = APIRouter()
 @router.get("/accounts/get", status_code=200)
 async def link_token(session: AsyncSession = Depends(get_session),jwt_token: str = Depends(oauth2_scheme)):
     current_user_id= await get_current_user(session,jwt_token)
-    result = await get_user_accounts_info(session,current_user_id.id)
-    return {"detail": {"data": result, "message": "available accounts"}}
+    accounts, bank_name = await get_user_accounts_info(session,current_user_id.id)
+    return {"detail": {"data": {bank_name : accounts}, "message": f"available accounts for {bank_name}"}}
