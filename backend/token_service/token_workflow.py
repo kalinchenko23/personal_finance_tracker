@@ -37,6 +37,3 @@ class Token_dash():
         request=ItemRemoveRequest(access_token=self.access_token)
         self.client.item_remove(request)
         return f"{self.access_token} was removed"
-
-service=Token_dash(access_token="access-development-d8de2350-dfe0-4393-aeb2-a47f25117937")
-print(service.update_mode())

@@ -44,6 +44,7 @@ class Accounts_pydantic(BaseModel):
     balance: Decimal = Field(alias='balances')
     subtype: str
     user_id: int
+    bank_name:str
 
     # argument pre specifies that this validation will occur prior to
     # all other validations including field type validation

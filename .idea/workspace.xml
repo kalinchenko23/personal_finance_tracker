@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="added new features (updaing/deleating users). Added bank account info retrieval as well as fixed some minor issues.">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed response for accounts/get">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/plaid_functionality_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/plaid_functionality_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/session_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/session_sql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/sql_service/user_data_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/user_data_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/user_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/token_service/token_workflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/token_workflow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_service/update_mode.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/update_mode.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +77,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.token_workflow">
+  <component name="RunManager" selected="Python.api_service">
     <configuration name="api_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -89,7 +99,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="plaid_functionality_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="personal_finanse_tracker" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/token_service" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/token_service/client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="db_schema" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -101,7 +132,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/sql_service/plaid_functionality_service.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/sql_service/db_schema.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -131,7 +162,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="user" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="update_mode" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,32 +170,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/fastapi/routers" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/token_service" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/fastapi/routers/user.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="user_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="personal_finanse_tracker" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/mongoDB/fastapi_mongo" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/mongoDB/fastapi_mongo/user_service.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/token_service/update_mode.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -175,18 +185,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.api_service" />
-      <item itemvalue="Python.user_service" />
-      <item itemvalue="Python.plaid_functionality_service" />
-      <item itemvalue="Python.user" />
+      <item itemvalue="Python.client" />
+      <item itemvalue="Python.db_schema" />
       <item itemvalue="Python.token_workflow" />
+      <item itemvalue="Python.update_mode" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.token_workflow" />
         <item itemvalue="Python.api_service" />
-        <item itemvalue="Python.user" />
-        <item itemvalue="Python.plaid_functionality_service" />
-        <item itemvalue="Python.user_service" />
+        <item itemvalue="Python.token_workflow" />
+        <item itemvalue="Python.db_schema" />
+        <item itemvalue="Python.update_mode" />
+        <item itemvalue="Python.client" />
       </list>
     </recent_temporary>
   </component>
@@ -402,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668045347734</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fixed response for accounts/get">
+      <created>1668131928314</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1668131928314</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,7 +458,8 @@
     <MESSAGE value="added first and last name to jwt token" />
     <MESSAGE value="fixed bank_name issue" />
     <MESSAGE value="added new features (updaing/deleating users). Added bank account info retrieval as well as fixed some minor issues." />
-    <option name="LAST_COMMIT_MESSAGE" value="added new features (updaing/deleating users). Added bank account info retrieval as well as fixed some minor issues." />
+    <MESSAGE value="fixed response for accounts/get" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed response for accounts/get" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

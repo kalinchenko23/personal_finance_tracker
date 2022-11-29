@@ -17,5 +17,5 @@ Session = sessionmaker(engine,expire_on_commit=False, class_=AsyncSession)
 
 # AWS connection
 SQLALCHEMY_AWS_DATABASE_URI = f'postgresql+asyncpg://{user_aws}:{password_aws}@{endpoint_aws}:{port_aws}/{db_name_aws}'
-engine_aws = create_async_engine(SQLALCHEMY_AWS_DATABASE_URI, echo=True)
+engine_aws = create_async_engine(SQLALCHEMY_AWS_DATABASE_URI, echo=False)
 Session_aws = sessionmaker(engine_aws,expire_on_commit=False, class_=AsyncSession)
