@@ -37,4 +37,3 @@ class Token_dash():
         request=ItemRemoveRequest(access_token=self.access_token)
         self.client.item_remove(request)
         return f"{self.access_token} was removed"
-

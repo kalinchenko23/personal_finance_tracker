@@ -29,8 +29,11 @@ async def login_for_access_token(username: str = Body(), password: str = Body(),
     if not await authenticate_user(session, username, password):
         raise HTTPException(status_code=403, detail={"message": "Username or password does not match.", "data": ""})
     jwt_token = jwt_t_service.create_jwt_token(user)
+    refresh_token=jwt_t_service.create_jwt_refresh_token(user)
     return {
-        "detail": {"data": {"access_token": jwt_token, "token_type": "bearer"}, "message": "JWT token was created!"}}
+        "detail": {"data": {"access_token": jwt_token, "token_type": "bearer",
+                            "refresh_token": refresh_token, "refresh_token_type": "bearer"},
+                   "message": "JWT token was created!"}}
 
 
 @router.post("/create_user/", status_code=201, response_model=Users_pydantic_out_wrapper,

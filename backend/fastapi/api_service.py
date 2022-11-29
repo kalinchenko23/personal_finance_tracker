@@ -20,7 +20,8 @@ from user_service import get_user, create_user, authenticate_user, get_current_u
 from sqlalchemy.ext.asyncio import AsyncSession
 from dependencies import get_session, oauth2_scheme
 from routers import plaid_token, user, user_data
-
+from jwt_token_service import jwt_t_service
+from user_service import get_current_user
 sentry_sdk.init(dsn="https://820d3647275849e19803f04aab475e9e@o995707.ingest.sentry.io/4504001351974912",
                 traces_sample_rate=1.0)
 app = FastAPI()
@@ -42,6 +43,16 @@ app.add_event_handler("startup",get_session)
 @app.get("/")
 def status_check():
     return {"message": f"It's working!"}
+
+@app.get("/refresh")
+async def refresh_jwt_access_token(session:AsyncSession = Depends(get_session), refresh_token:str = Depends(oauth2_scheme)):
+    user=await get_current_user(session, refresh_token)
+    if user:
+        print(user)
+        jwt_token=jwt_t_service.create_jwt_token(user)
+        return {"message":"new jwt access token","data":jwt_token}
+    else:
+        {"message": "please try different refresh token", "data": jwt_token}
 
 if __name__ == "__main__":
     uvicorn.run(app)
