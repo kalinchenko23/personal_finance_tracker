@@ -17,6 +17,6 @@ async def link_token(session: AsyncSession = Depends(get_session),jwt_token: str
     try:
         response = await get_user_accounts_info(session,current_user_id.id)
         return {"detail": {"data": response, "message": f"available accounts"}}
-    except ApiException:
-        return update_access_token(session,current_user_id,bank_name)
-
+    except ApiException as e:
+        # return update_access_token(session,current_user_id,bank_name)
+        return {"detail": {"data": "", "message": f"{str(e)}"}}
