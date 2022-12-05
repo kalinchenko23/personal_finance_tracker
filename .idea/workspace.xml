@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="added refresh token logic for JWT authentication.">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="modified CORS middleware">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -414,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669688442734</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="modified CORS middleware">
+      <created>1670205340589</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1670205340589</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -430,7 +436,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added DB support and functionality" />
     <MESSAGE value="added SQL service" />
     <MESSAGE value="fixed all the DB malfunctions" />
     <MESSAGE value="added venv" />
@@ -455,7 +460,8 @@
     <MESSAGE value="added new features (updaing/deleating users). Added bank account info retrieval as well as fixed some minor issues." />
     <MESSAGE value="fixed response for accounts/get" />
     <MESSAGE value="added refresh token logic for JWT authentication." />
-    <option name="LAST_COMMIT_MESSAGE" value="added refresh token logic for JWT authentication." />
+    <MESSAGE value="modified CORS middleware" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified CORS middleware" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
