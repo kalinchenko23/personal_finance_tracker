@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="modified CORS middleware">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="updated DB for development testing purposes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -420,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670205340589</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="updated DB for development testing purposes">
+      <created>1670206766643</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1670206766643</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -436,7 +443,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added SQL service" />
     <MESSAGE value="fixed all the DB malfunctions" />
     <MESSAGE value="added venv" />
     <MESSAGE value="mounted a volume for token service in docker_compose file" />
@@ -461,7 +467,8 @@
     <MESSAGE value="fixed response for accounts/get" />
     <MESSAGE value="added refresh token logic for JWT authentication." />
     <MESSAGE value="modified CORS middleware" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified CORS middleware" />
+    <MESSAGE value="updated DB for development testing purposes" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated DB for development testing purposes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
