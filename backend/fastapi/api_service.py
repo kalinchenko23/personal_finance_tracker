@@ -32,7 +32,7 @@ data = plaid_service.get_acounts_info
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[*],
+    allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
