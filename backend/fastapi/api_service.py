@@ -32,8 +32,7 @@ data = plaid_service.get_acounts_info
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['https://pf-client-kdih.vercel.app','http://172.20.10.2'],
-    allow_credentials=True,
+    allow_origins=[*],
     allow_methods=["*"],
     allow_headers=["*"],
 )
