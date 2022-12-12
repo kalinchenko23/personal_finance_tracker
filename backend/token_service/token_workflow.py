@@ -13,10 +13,8 @@ with open(Path(__file__).parents[1] / 'classified.json', 'r') as f:
     client_id = secrets["token"]["clientId"]
 
 class Token_dash():
-    def __init__(self, access_token=None, public_token=None,
+    def __init__(self,
                  client_id=client_id):
-        self.access_token = access_token
-        self.public_token = public_token
         self.client=client
         self.client_id=client_id
 
@@ -25,15 +23,15 @@ class Token_dash():
         link_token=create_link_token(self.client,self.client_id)
         return link_token
 
-    def update_mode(self):
-        linc_token_update_mode=update_token(self.client,self.access_token,self.client_id)
+    def update_mode(self,access_token):
+        linc_token_update_mode=update_token(self.client,access_token,self.client_id)
         return linc_token_update_mode
 
-    def access_token(self):
-        access_token=exchange(self.client,self.public_token)
+    def access_token(self,public_token):
+        access_token=exchange(self.client, public_token)
         return access_token
 
-    def remove_access_token(self):
-        request=ItemRemoveRequest(access_token=self.access_token)
+    def remove_access_token(self,access_token):
+        request=ItemRemoveRequest(access_token=access_token)
         self.client.item_remove(request)
-        return f"{self.access_token} was removed"
+        return f"{access_token} was removed"

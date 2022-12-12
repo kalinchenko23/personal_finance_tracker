@@ -15,7 +15,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi.responses import JSONResponse
 from db_tables import Tokens
 router = APIRouter()
-
 #Token section of API
 
 @router.get("/link/token/create", status_code=201)
@@ -29,7 +28,9 @@ async def link_token(public_token:str=Body(embed=True), session: AsyncSession = 
                      jwt_token: str = Depends(oauth2_scheme)):
         current_user=await get_current_user(session,jwt_token)
         try:
-            access_token=Token_dash(public_token=public_token).access_token()
+            token_dash=Token_dash()
+            access_token=token_dash.access_token(public_token)
+
         except plaid.exceptions.ApiException:
             raise HTTPException(status_code=400, detail={"message":"Invalid public token.","data":""})
         await create_access_token (session,access_token,current_user.id)
