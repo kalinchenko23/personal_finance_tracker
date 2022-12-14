@@ -24,7 +24,7 @@ def link_token(jwt_token:str = Depends(oauth2_scheme)):
     return {"detail":{"data":link_token,"message":"link token was created"}}
 
 @router.post("/access_token", status_code=201)
-async def link_token(public_token:str=Body(embed=True), session: AsyncSession = Depends(get_session),
+async def link_token(public_token:str=Body,bank_name:str=Body, session: AsyncSession = Depends(get_session),
                      jwt_token: str = Depends(oauth2_scheme)):
         current_user=await get_current_user(session,jwt_token)
         try:
@@ -33,7 +33,7 @@ async def link_token(public_token:str=Body(embed=True), session: AsyncSession = 
 
         except plaid.exceptions.ApiException:
             raise HTTPException(status_code=400, detail={"message":"Invalid public token.","data":""})
-        await create_access_token (session,access_token,current_user.id)
+        await create_access_token (session,access_token,current_user.id,bank_name)
         return {"detail":{"data":"","message":"access token was created"}}
 
 # @router.post("/access_token/update", status_code=200)
