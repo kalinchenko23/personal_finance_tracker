@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="resolving issues wit /access_token endpoint">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="resolving issues wit /access_token endpoint, removed &quot;bank_name&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -464,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670982765996</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="resolving issues wit /access_token endpoint, removed &quot;bank_name&quot;">
+      <created>1671412607892</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1671412607892</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -480,7 +486,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed mongodb issues" />
     <MESSAGE value="Created &quot;backend&quot; folder" />
     <MESSAGE value="Refactored backend directory." />
     <MESSAGE value="edited config file for nginx" />
@@ -505,10 +510,17 @@
     <MESSAGE value="changed CORS settings back to default" />
     <MESSAGE value="fixed minor syntax error" />
     <MESSAGE value="resolving issues wit /access_token endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolving issues wit /access_token endpoint" />
+    <MESSAGE value="resolving issues wit /access_token endpoint, removed &quot;bank_name&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolving issues wit /access_token endpoint, removed &quot;bank_name&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/backend/database/sql_service/token_service.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
