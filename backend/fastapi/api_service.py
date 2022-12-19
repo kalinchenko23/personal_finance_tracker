@@ -49,9 +49,10 @@ async def refresh_jwt_access_token(session:AsyncSession = Depends(get_session), 
     if user:
         print(user)
         jwt_token=jwt_t_service.create_jwt_token(user)
-        return {"message":"new jwt access token","data":jwt_token}
+        new_refresh_token=jwt_t_service.create_jwt_refresh_token(user)
+        return {"message":"new jwt access token","data":{"jwt_token":jwt_token, "refresh_token":new_refresh_token}}
     else:
-        {"message": "please try different refresh token", "data": jwt_token}
+        {"message": "please try different refresh token", "data": refresh_token}
 
 if __name__ == "__main__":
     uvicorn.run(app)

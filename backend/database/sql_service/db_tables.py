@@ -50,5 +50,5 @@ class Tokens(base):
     id: int = Column(Integer, Identity(start=1, cycle=True), primary_key=True)
     user_id: int = Column(Integer, ForeignKey('users.id'))
     bank_name: str = Column(String, nullable=False)
-    token: str = Column(String,nullable=False)
+    token: str = Column(String, nullable=False)
     user = relationship("Users", back_populates="tokens")

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed minor syntax error">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="added &quot;new_refresh_token&quot; to the responce of /refresh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/sql_service/token_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/token_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -456,7 +455,28 @@
       <option name="project" value="LOCAL" />
       <updated>1670810623647</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="resolving issues wit /access_token endpoint">
+      <created>1670982765996</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1670982765996</updated>
+    </task>
+    <task id="LOCAL-00039" summary="resolving issues wit /access_token endpoint, removed &quot;bank_name&quot;">
+      <created>1671412607892</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1671412607892</updated>
+    </task>
+    <task id="LOCAL-00040" summary="added &quot;new_refresh_token&quot; to the responce of /refresh">
+      <created>1671413930907</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1671413930907</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -472,9 +492,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added aws rds capabilities" />
-    <MESSAGE value="fixed mongodb issues" />
-    <MESSAGE value="Created &quot;backend&quot; folder" />
     <MESSAGE value="Refactored backend directory." />
     <MESSAGE value="edited config file for nginx" />
     <MESSAGE value="edited path with pathlib for multiplatform development" />
@@ -497,10 +514,19 @@
     <MESSAGE value="added IP for CORS" />
     <MESSAGE value="changed CORS settings back to default" />
     <MESSAGE value="fixed minor syntax error" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed minor syntax error" />
+    <MESSAGE value="resolving issues wit /access_token endpoint" />
+    <MESSAGE value="resolving issues wit /access_token endpoint, removed &quot;bank_name&quot;" />
+    <MESSAGE value="added &quot;new_refresh_token&quot; to the responce of /refresh" />
+    <option name="LAST_COMMIT_MESSAGE" value="added &quot;new_refresh_token&quot; to the responce of /refresh" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/backend/database/sql_service/token_service.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
