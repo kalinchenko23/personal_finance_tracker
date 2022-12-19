@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed minor syntax error">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="resolving issues wit /access_token endpoint">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/token_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/token_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -456,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670810623647</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="resolving issues wit /access_token endpoint">
+      <created>1670982765996</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1670982765996</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -472,7 +480,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added aws rds capabilities" />
     <MESSAGE value="fixed mongodb issues" />
     <MESSAGE value="Created &quot;backend&quot; folder" />
     <MESSAGE value="Refactored backend directory." />
@@ -497,7 +504,8 @@
     <MESSAGE value="added IP for CORS" />
     <MESSAGE value="changed CORS settings back to default" />
     <MESSAGE value="fixed minor syntax error" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed minor syntax error" />
+    <MESSAGE value="resolving issues wit /access_token endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolving issues wit /access_token endpoint" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

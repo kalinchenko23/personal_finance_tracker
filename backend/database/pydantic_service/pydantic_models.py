@@ -52,6 +52,8 @@ class Accounts_pydantic(BaseModel):
     def current_balance(cls, v):
         return v['current']
 
+
+
 class Users_pydantic(BaseModel):
     username: EmailStr
     password: bytes
@@ -73,10 +75,10 @@ class Users_pydantic_out_wrapper(BaseModel):
 
 class Tokens_pydantic(BaseModel):
     user_id: int
-    bank_name: Optional[str]
+    bank_name: str
     token: str
     @validator('bank_name', pre=True)
     def hashing_p(cls, v):
         inst_id=plaid_service.get_institutions_id(token)
-        v=plaid_service.get_institutions_name(inst_id)
+        v =plaid_service.get_institutions_name(inst_id)
         return v
