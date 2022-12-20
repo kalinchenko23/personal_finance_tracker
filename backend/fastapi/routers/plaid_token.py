@@ -32,7 +32,7 @@ async def link_token(public_token:str = Body(embed=True), session: AsyncSession 
         try:
             token_dash=Token_dash()
             access_token=token_dash.access_token(public_token)
-            inst_id = plaid_service.get_institutions_id(token)
+            inst_id = plaid_service.get_institutions_id(access_token)
             bank_name = plaid_service.get_institutions_name(inst_id)
         except plaid.exceptions.ApiException:
             raise HTTPException(status_code=400, detail={"message":"Invalid public token.","data":""})
