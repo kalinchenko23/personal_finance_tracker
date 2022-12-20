@@ -3,12 +3,14 @@ import plaid
 import pathlib
 import jwt
 sys.path.insert(0, f'{pathlib.Path(__file__).parents[2]}/token_service')
+sys.path.insert(0, f'{pathlib.Path(__file__).parents[2]}/plaid_service')
 sys.path.insert(1, f'{pathlib.Path(__file__).parents[2]}/database/sql_service')
 from fastapi import FastAPI, Query, Body, HTTPException, Depends, Body, APIRouter
 from sqlalchemy import select
 from dependencies import get_session,oauth2_scheme
 from token_workflow import Token_dash
 from token_service import create_access_token
+from plaid_dashboard import plaid_service
 from user_service import get_user, create_user, authenticate_user, get_current_user
 from jwt_token_service import jwt_t_service
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -30,10 +32,11 @@ async def link_token(public_token:str = Body(embed=True), session: AsyncSession 
         try:
             token_dash=Token_dash()
             access_token=token_dash.access_token(public_token)
-
+            inst_id = plaid_service.get_institutions_id(token)
+            bank_name = plaid_service.get_institutions_name(inst_id)
         except plaid.exceptions.ApiException:
             raise HTTPException(status_code=400, detail={"message":"Invalid public token.","data":""})
-        await create_access_token (session,access_token,current_user.id )
+        await create_access_token (session,access_token,current_user.id,bank_name)
         return {"detail":{"data":"","message":"access token was created"}}
 
 # @router.post("/access_token/update", status_code=200)
