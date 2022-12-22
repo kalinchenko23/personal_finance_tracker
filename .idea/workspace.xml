@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="refactor bank_name assignment, when creating access token">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed minor mistake">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -490,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671496258031</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="fixed minor mistake">
+      <created>1671497046212</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1671497046212</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -506,7 +512,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edited path with pathlib for multiplatform development" />
     <MESSAGE value="fixed pathlib IndexError on the server" />
     <MESSAGE value="refactored DB structure" />
     <MESSAGE value="refactored DB structure, added email verification, async DB capabilities" />
@@ -531,7 +536,8 @@
     <MESSAGE value="added &quot;new_refresh_token&quot; to the responce of /refresh" />
     <MESSAGE value="/access_token minor issue fix" />
     <MESSAGE value="refactor bank_name assignment, when creating access token" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor bank_name assignment, when creating access token" />
+    <MESSAGE value="fixed minor mistake" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed minor mistake" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

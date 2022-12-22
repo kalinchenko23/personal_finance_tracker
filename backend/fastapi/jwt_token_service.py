@@ -22,13 +22,13 @@ class JWT():
         self.algorithm=algorithm
 
     def create_jwt_token(self,user: Users_pydantic):
-        expiration = datetime.datetime.utcnow() + datetime.timedelta(minutes=15)
+        expiration = datetime.datetime.utcnow() + datetime.timedelta(seconds=30)
         to_encode = {"username":user.username,"first":user.first_name,"last":user.last_name,"exp":expiration}
         jwt_token=jwt.encode(to_encode, self.secret_key, algorithm=self.algorithm)
         return jwt_token
 
     def create_jwt_refresh_token(self, user: Users_pydantic):
-        expiration = datetime.datetime.utcnow() + datetime.timedelta(days=7)
+        expiration = datetime.datetime.utcnow() + datetime.timedelta(minutes=1)
         to_encode = {"username": user.username, "first": user.first_name, "last": user.last_name, "exp": expiration}
         refresh_token = jwt.encode(to_encode, self.secret_key, algorithm=self.algorithm)
         return refresh_token
