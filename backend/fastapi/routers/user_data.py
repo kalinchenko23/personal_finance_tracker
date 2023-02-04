@@ -11,7 +11,7 @@ from user_service import get_current_user
 from plaid.exceptions import ApiException
 router = APIRouter()
 
-@router.get("/accounts/get", status_code=200)
+@router.get("/api/accounts/get", status_code=200)
 async def link_token(session: AsyncSession = Depends(get_session),jwt_token: str = Depends(oauth2_scheme)):
     current_user_id= await get_current_user(session,jwt_token)
     try:
