@@ -9,7 +9,7 @@ def update_token(client:client, old_access_token, client_id:str):
         client_name="US ARMY",
         country_codes=[CountryCode('US')],
         language='en',
-        redirect_uri="https://pf-client-kdih.vercel.app/cabinet",
+        redirect_uri="https://pf-client-kdih.vercel.app/oauth",
         access_token=old_access_token,
         user=LinkTokenCreateRequestUser(client_user_id=client_id)
     )

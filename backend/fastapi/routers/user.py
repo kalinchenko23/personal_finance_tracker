@@ -20,7 +20,7 @@ from mongoDB.fastapi_mongo.user_service import user_mongo
 router = APIRouter()
 
 
-@router.post("/login", responses={404: {'description': 'User not found!'}})
+@router.post("/api/login", responses={404: {'description': 'User not found!'}})
 async def login_for_access_token(username: str = Body(), password: str = Body(),
                                  session: AsyncSession = Depends(get_session)):
     user = await get_user(session, username)
@@ -36,7 +36,7 @@ async def login_for_access_token(username: str = Body(), password: str = Body(),
                    "message": "JWT token was created!"}}
 
 
-@router.post("/create_user/", status_code=201, response_model=Users_pydantic_out_wrapper,
+@router.post("/api/create_user/", status_code=201, response_model=Users_pydantic_out_wrapper,
              response_model_exclude={"detail": {"data": {"password"}}})
 async def new_user(user: Users_pydantic, session: AsyncSession = Depends(get_session)):
     try:
@@ -47,19 +47,19 @@ async def new_user(user: Users_pydantic, session: AsyncSession = Depends(get_ses
         raise HTTPException(status_code=400, detail={"message": "User already exist", "data": ""})
 
 
-@router.get("/user",status_code=200, response_model=Users_pydantic_out_wrapper,
+@router.get("/api/user",status_code=200, response_model=Users_pydantic_out_wrapper,
             response_model_exclude={"detail": {"data": {"password"}}})
 async def read_user(session: AsyncSession = Depends(get_session), jwt_token: str = Depends(oauth2_scheme)):
     user = await get_current_user(session, jwt_token)
     return {"detail": {"data": user.__dict__, "message": "current logged in user"}}
 
-@router.delete("/user/delete",status_code=200)
+@router.delete("/api/user/delete",status_code=200)
 async def read_user(session: AsyncSession = Depends(get_session), jwt_token: str = Depends(oauth2_scheme)):
     user_id = await get_current_user(session,jwt_token)
     await delete_user(session,user_id.id)
     return {"detail": {"data": "", "message": "user was deleted"}}
 
-@router.put("/user/update",status_code=200)
+@router.put("/api/user/update",status_code=200)
 async def update_username(new_username: str = Body(embed=True), session: AsyncSession = Depends(get_session)
                           ,jwt_token: str = Depends(oauth2_scheme)):
     user_id = await get_current_user(session,jwt_token)

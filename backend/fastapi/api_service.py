@@ -43,7 +43,7 @@ app.add_event_handler("startup",get_session)
 def status_check():
     return {"message": f"It's working!"}
 
-@app.get("/refresh")
+@app.get("/api/refresh")
 async def refresh_jwt_access_token(session:AsyncSession = Depends(get_session), refresh_token:str = Depends(oauth2_scheme)):
     user=await get_current_user(session, refresh_token)
     if user:

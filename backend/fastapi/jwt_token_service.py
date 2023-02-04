@@ -22,7 +22,7 @@ class JWT():
         self.algorithm=algorithm
 
     def create_jwt_token(self,user: Users_pydantic):
-        expiration = datetime.datetime.utcnow() + datetime.timedelta(seconds=30)
+        expiration = datetime.datetime.utcnow() + datetime.timedelta(minutes=15)
         to_encode = {"username":user.username,"first":user.first_name,"last":user.last_name,"exp":expiration}
         jwt_token=jwt.encode(to_encode, self.secret_key, algorithm=self.algorithm)
         return jwt_token
@@ -37,7 +37,7 @@ class JWT():
         try:
             token_info = jwt.decode(jwt_token, self.secret_key, self.algorithm)
         except jwt.ExpiredSignatureError:
-            raise HTTPException(status_code=401, detail={"message":"Your session has expired","data":""})
+            raise HTTPException(status_code=403, detail={"message":"Your session has expired","data":""})
         except jwt.exceptions.DecodeError:
             raise HTTPException(status_code=401, detail={"message":"Please provide valid jwt token","data":""})
         return token_info
