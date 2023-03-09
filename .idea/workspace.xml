@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="fixed minor mistake">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="updating api urls as well as JWT error response codes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/api_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/api_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/plaid_functionality_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/plaid_functionality_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/user_data_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/user_data_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_service/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/token_service/token_workflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/token_workflow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/token_service/update_mode.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/update_mode.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +118,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="db_schema" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="plaid_dashboard" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="personal_finanse_tracker" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -120,11 +126,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/database/sql_service" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/plaid_service" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/database/sql_service/db_schema.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,17 +183,17 @@
     </configuration>
     <list>
       <item itemvalue="Python.api_service" />
-      <item itemvalue="Python.client" />
-      <item itemvalue="Python.db_schema" />
       <item itemvalue="Python.token_workflow" />
+      <item itemvalue="Python.plaid_dashboard" />
+      <item itemvalue="Python.client" />
       <item itemvalue="Python.update_mode" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.api_service" />
         <item itemvalue="Python.token_workflow" />
-        <item itemvalue="Python.db_schema" />
         <item itemvalue="Python.update_mode" />
+        <item itemvalue="Python.plaid_dashboard" />
         <item itemvalue="Python.client" />
       </list>
     </recent_temporary>
@@ -509,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671667762152</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="updating api urls as well as JWT error response codes">
+      <created>1675530228944</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1675530228945</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -525,7 +538,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed pathlib IndexError on the server" />
     <MESSAGE value="refactored DB structure" />
     <MESSAGE value="refactored DB structure, added email verification, async DB capabilities" />
     <MESSAGE value="added plaid token endpoints and split api structure into different route files" />
@@ -550,7 +562,8 @@
     <MESSAGE value="/access_token minor issue fix" />
     <MESSAGE value="refactor bank_name assignment, when creating access token" />
     <MESSAGE value="fixed minor mistake" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed minor mistake" />
+    <MESSAGE value="updating api urls as well as JWT error response codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating api urls as well as JWT error response codes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

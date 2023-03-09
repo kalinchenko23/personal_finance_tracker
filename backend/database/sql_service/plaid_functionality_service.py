@@ -16,8 +16,8 @@ class DB_service():
         self.session = session
         self.access_token = access_token
 
-    async def insertORupdate_account_info(self, user_id,bank_name):
-        for account in accounts(self.access_token, user_id,bank_name):
+    async def insertORupdate_account_info(self, user_id, bank_name, bank_id):
+        for account in accounts(self.access_token, user_id, bank_name, bank_id):
             res = await self.session.execute(select(Accounts).filter(Accounts.id == account.id))
             if res.scalars().first() is None:
                 self.session.add(Accounts(**account.dict()))
@@ -30,20 +30,20 @@ class DB_service():
                 )
                 await self.session.execute(stmt)
                 await self.session.commit()
+
     async def insert_transactions(self, start_date: datetime.datetime, stop_date: datetime.datetime):
         async with self.session() as sess, sess.begin():
             for row in transactions(self.access_token, start_date, stop_date):
-                res= await sess.execute(select(Expenses).filter(Expenses.transaction_id == row.transaction_id))
+                res = await sess.execute(select(Expenses).filter(Expenses.transaction_id == row.transaction_id))
                 if res.scalars().first() is None:
                     sess.add(Expenses(**row.dict()))
                     await self.session.commit()
             for row in transactions_additional_info(self.access_token, start_date, stop_date):
-                res= await sess.execute(select(Expenses_additional_info).filter(Expenses_additional_info.transaction_id == row.transaction_id))
+                res = await sess.execute(select(Expenses_additional_info).filter(
+                    Expenses_additional_info.transaction_id == row.transaction_id))
                 if res.scalars().first() is None:
                     sess.add(Expenses_additional_info(**row.dict()))
                     await self.session.commit()
-
-
 
 # service = DB_service(Session_aws, "access-development-34d02990-da5b-4c13-9ae7-7293ced2bb42")
 #

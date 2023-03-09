@@ -35,3 +35,6 @@ class Token_dash():
         request=ItemRemoveRequest(access_token=access_token)
         self.client.item_remove(request)
         return f"{access_token} was removed"
+# td=Token_dash()
+# result=td.update_mode("access-development-6110ea03-98ab-4317-b2c8-cef5f07ad2fd")
+# print(result)

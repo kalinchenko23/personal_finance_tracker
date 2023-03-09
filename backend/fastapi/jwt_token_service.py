@@ -28,7 +28,7 @@ class JWT():
         return jwt_token
 
     def create_jwt_refresh_token(self, user: Users_pydantic):
-        expiration = datetime.datetime.utcnow() + datetime.timedelta(minutes=1)
+        expiration = datetime.datetime.utcnow() + datetime.timedelta(days=14)
         to_encode = {"username": user.username, "first": user.first_name, "last": user.last_name, "exp": expiration}
         refresh_token = jwt.encode(to_encode, self.secret_key, algorithm=self.algorithm)
         return refresh_token
