@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="updating api urls as well as JWT error response codes">
+    <list default="true" id="19061fa8-07fd-4453-ac24-0a98158f8d08" name="Changes" comment="added &quot;bank_id&quot; field to accounts DB table. Changed response schema for /api/accounts/get endpoint">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/pydantic_service/pydantic_validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/db_tables.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/sql_service/plaid_functionality_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/plaid_functionality_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/sql_service/user_data_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/sql_service/user_data_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/jwt_token_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/plaid_token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/fastapi/routers/user_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/fastapi/routers/user_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/plaid_service/plaid_dashboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_service/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/token_service/token_workflow.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/token_workflow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/token_service/update_mode.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/token_service/update_mode.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -522,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675530228945</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="added &quot;bank_id&quot; field to accounts DB table. Changed response schema for /api/accounts/get endpoint">
+      <created>1678327641303</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1678327641303</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -538,7 +535,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactored DB structure" />
     <MESSAGE value="refactored DB structure, added email verification, async DB capabilities" />
     <MESSAGE value="added plaid token endpoints and split api structure into different route files" />
     <MESSAGE value="fixed small errors at access token endpoint" />
@@ -563,7 +559,8 @@
     <MESSAGE value="refactor bank_name assignment, when creating access token" />
     <MESSAGE value="fixed minor mistake" />
     <MESSAGE value="updating api urls as well as JWT error response codes" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating api urls as well as JWT error response codes" />
+    <MESSAGE value="added &quot;bank_id&quot; field to accounts DB table. Changed response schema for /api/accounts/get endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="added &quot;bank_id&quot; field to accounts DB table. Changed response schema for /api/accounts/get endpoint" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

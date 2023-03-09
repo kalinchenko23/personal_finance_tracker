@@ -45,8 +45,4 @@ class DB_service():
                     sess.add(Expenses_additional_info(**row.dict()))
                     await self.session.commit()
 
-# service = DB_service(Session_aws, "access-development-34d02990-da5b-4c13-9ae7-7293ced2bb42")
-#
-# async def main():
-#     await service.insert_transactions(datetime.date(2022, 1, 5), datetime.date.today())
-# asyncio.run(main())
+
