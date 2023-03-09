@@ -3,7 +3,7 @@ from plaid.model.country_code import CountryCode
 from plaid.model.link_token_create_request import LinkTokenCreateRequest
 from plaid.model.link_token_create_request_user import LinkTokenCreateRequestUser
 from plaid.model.link_token_create_request_update import LinkTokenCreateRequestUpdate
-import requests, json
+
 
 def update_token(client: client, old_access_token, client_id: str):
     request = LinkTokenCreateRequest(
