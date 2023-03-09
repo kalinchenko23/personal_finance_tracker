@@ -15,6 +15,16 @@ class Users(base):
     accounts=relationship("Accounts", back_populates="user")
     tokens=relationship("Tokens", back_populates="user")
 
+
+class Tokens(base):
+    __tablename__ = 'tokens'
+    id: int = Column(Integer, Identity(start=1, cycle=True), primary_key=True)
+    user_id: int = Column(Integer, ForeignKey('users.id'))
+    bank_name: str = Column(String, nullable=False)
+    token: str = Column(String, nullable=False)
+    user = relationship("Users", back_populates="tokens")
+    account = relationship("Accounts", back_populates="token")
+
 class Accounts(base):
     __tablename__ = 'accounts'
     id: str = Column(String, primary_key=True)
@@ -22,10 +32,11 @@ class Accounts(base):
     balance: float = Column(Integer)
     subtype: str = Column(String, index=True)
     user_id=Column(Integer,ForeignKey("users.id"))
+    bank_id=Column (Integer,ForeignKey("tokens.id"))
     bank_name=Column(String)
     expenses = relationship("Expenses", back_populates='account')
     user=relationship("Users", back_populates="accounts")
-
+    token=relationship("Tokens", back_populates="account")
 
 class Expenses(base):
     __tablename__ = 'expenses'
@@ -44,11 +55,3 @@ class Expenses_additional_info(base):
     merchant_name: str = Column(String, index=True)
     expense = relationship("Expenses", back_populates='expense_additional_info', uselist=False)
 
-
-class Tokens(base):
-    __tablename__ = 'tokens'
-    id: int = Column(Integer, Identity(start=1, cycle=True), primary_key=True)
-    user_id: int = Column(Integer, ForeignKey('users.id'))
-    bank_name: str = Column(String, nullable=False)
-    token: str = Column(String, nullable=False)
-    user = relationship("Users", back_populates="tokens")

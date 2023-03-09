@@ -45,6 +45,7 @@ class Accounts_pydantic(BaseModel):
     subtype: str
     user_id: int
     bank_name:str
+    bank_id:int
 
     # argument pre specifies that this validation will occur prior to
     # all other validations including field type validation
