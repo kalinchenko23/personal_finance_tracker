@@ -36,12 +36,12 @@ async def get_user_accounts_info(session, user_id):
             await DB_service(session, access_token).insertORupdate_account_info(user_id,bank_name,bank_id)
             result = await session.execute(select(Accounts).filter((Accounts.user_id == user_id) &
                                                                (Accounts.bank_id == bank_id)))
-            response[bank_id]={"bank_name":bank_name,"accounts":result.scalars().all(), "status":True}
+            response[bank_id]={"bank_name":bank_name,"accounts":result.scalars().all(),"link_in_update_mode": None, "status":True}
         except ApiException as e:
             if "ITEM_LOGIN_REQUIRED" in e.body:
                 token_dash=Token_dash()
                 link_in_update_mode = token_dash.update_mode(access_token)
-                response[bank_id] = {"bank_name":bank_name, "link_in_update_mode": link_in_update_mode, "status":False}
+                response[bank_id] = {"bank_name":bank_name,"accounts":[], "link_in_update_mode": link_in_update_mode, "status":False}
             else:
                 response[bank.bank_name] = e
     return response
