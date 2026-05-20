@@ -1,0 +1,14 @@
+# secrets
+.env
+
+# stored access tokens & item data — never commit these
+data/
+
+# compiled binary
+finance-tracker
+/finance-tracker.exe
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
