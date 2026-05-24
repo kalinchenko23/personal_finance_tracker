@@ -135,6 +135,33 @@ func (c *Client) AccountsGet(accessToken string) ([]plaidsdk.AccountBase, string
 	return resp.GetAccounts(), institutionID, nil
 }
 
+// TransactionsSync returns one page from /transactions/sync.
+// On first call for an item, pass cursor="" — Plaid returns history from scratch.
+// Caller loops while hasMore, passing nextCursor each iteration.
+// Accounts comes back in every page response (Plaid resends it each time)
+// so the caller can upsert account rows before referencing them from transactions.
+func (c *Client) TransactionsSync(accessToken, cursor string) (
+	accounts []plaidsdk.AccountBase,
+	added, modified []plaidsdk.Transaction,
+	removed []plaidsdk.RemovedTransaction,
+	nextCursor string,
+	hasMore bool,
+	err error,
+) {
+	req := plaidsdk.NewTransactionsSyncRequest(accessToken)
+	if cursor != "" {
+		req.SetCursor(cursor)
+	}
+
+	resp, _, err := c.api.PlaidApi.TransactionsSync(c.ctx).TransactionsSyncRequest(*req).Execute()
+	if err != nil {
+		return nil, nil, nil, nil, "", false, fmt.Errorf("transactions_sync: %w", plaidErr(err))
+	}
+
+	return resp.GetAccounts(), resp.GetAdded(), resp.GetModified(), resp.GetRemoved(),
+		resp.GetNextCursor(), resp.GetHasMore(), nil
+}
+
 // InstitutionName fetches the human-readable name for an institution ID.
 // Used right after a successful link so we can store something nicer than "ins_3".
 func (c *Client) InstitutionName(institutionID string) (string, error) {

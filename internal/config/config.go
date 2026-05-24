@@ -12,6 +12,7 @@ type Config struct {
 	ClientID    string
 	Secret      string
 	Environment plaid.Environment
+	DatabaseURL string
 }
 
 // Load reads .env and returns a validated Config.
@@ -22,12 +23,16 @@ func Load() (*Config, error) {
 	clientID := os.Getenv("PLAID_CLIENT_ID")
 	secret := os.Getenv("PLAID_SECRET")
 	envName := os.Getenv("PLAID_ENV")
+	dbURL := os.Getenv("DATABASE_URL")
 
 	if clientID == "" {
 		return nil, fmt.Errorf("PLAID_CLIENT_ID is not set (check .env)")
 	}
 	if secret == "" {
 		return nil, fmt.Errorf("PLAID_SECRET is not set (check .env)")
+	}
+	if dbURL == "" {
+		return nil, fmt.Errorf("DATABASE_URL is not set (check .env)")
 	}
 
 	env, err := parseEnv(envName)
@@ -39,6 +44,7 @@ func Load() (*Config, error) {
 		ClientID:    clientID,
 		Secret:      secret,
 		Environment: env,
+		DatabaseURL: dbURL,
 	}, nil
 }
 

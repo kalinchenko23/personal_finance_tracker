@@ -10,9 +10,12 @@ import (
 	"time"
 
 	"finance-tracker/internal/config"
+	"finance-tracker/internal/db"
 	"finance-tracker/internal/plaid"
 	"finance-tracker/internal/store"
 
+	"github.com/jackc/pgx/v5/pgxpool"
+	plaidsdk "github.com/plaid/plaid-go/v42/plaid"
 	"github.com/urfave/cli/v2"
 )
 
@@ -38,6 +41,11 @@ func main() {
 				Usage:     "Show accounts + balances for a linked bank",
 				ArgsUsage: "<item_id>",
 				Action:    runAccounts,
+			},
+			{
+				Name:   "sync",
+				Usage:  "Pull new/modified/removed transactions from Plaid into Postgres",
+				Action: runSync,
 			},
 		},
 	}
@@ -179,4 +187,179 @@ func runAccounts(c *cli.Context) error {
 		fmt.Fprintf(w, "%s\t%s\t%s\t%s\t%s\n", a.Name, a.Type, mask, avail, curr)
 	}
 	return w.Flush()
+}
+
+func runSync(c *cli.Context) error {
+	cfg, err := config.Load()
+	if err != nil {
+		return err
+	}
+
+	items, err := store.Load()
+	if err != nil {
+		return err
+	}
+	if len(items) == 0 {
+		fmt.Println("no banks linked yet — run `finance-tracker link` to add one")
+		return nil
+	}
+
+	ctx := context.Background()
+	pool, err := db.Connect(ctx, cfg)
+	if err != nil {
+		return err
+	}
+	defer pool.Close()
+
+	if err := db.Migrate(ctx, pool); err != nil {
+		return err
+	}
+
+	client := plaid.New(cfg)
+
+	for _, item := range items {
+		if err := syncItem(ctx, pool, client, item); err != nil {
+			// One bank's failure shouldn't block the others.
+			fmt.Fprintf(os.Stderr, "✗ %s: %v\n", item.InstitutionName, err)
+		}
+	}
+	return nil
+}
+
+func syncItem(ctx context.Context, pool *pgxpool.Pool, client *plaid.Client, item store.Item) error {
+	cursor, err := db.GetCursor(ctx, pool, item.ItemID)
+	if err != nil {
+		return err
+	}
+
+	var totalAdded, totalModified, totalRemoved int
+
+	for {
+		accounts, added, modified, removed, nextCursor, hasMore, err := client.TransactionsSync(item.AccessToken, cursor)
+		if err != nil {
+			return err
+		}
+
+		if err := writePage(ctx, pool, item.ItemID, accounts, added, modified, removed, nextCursor); err != nil {
+			return err
+		}
+
+		totalAdded += len(added)
+		totalModified += len(modified)
+		totalRemoved += len(removed)
+		cursor = nextCursor
+
+		if !hasMore {
+			break
+		}
+	}
+
+	fmt.Printf("✓ %s: +%d added, %d modified, %d removed\n",
+		item.InstitutionName, totalAdded, totalModified, totalRemoved)
+	return nil
+}
+
+// writePage commits one /transactions/sync page atomically: accounts → added/modified
+// transactions → removals → cursor. If anything in the page fails, the transaction
+// rolls back and the next run retries the same page from the same cursor.
+func writePage(
+	ctx context.Context,
+	pool *pgxpool.Pool,
+	itemID string,
+	accounts []plaidsdk.AccountBase,
+	added, modified []plaidsdk.Transaction,
+	removed []plaidsdk.RemovedTransaction,
+	nextCursor string,
+) error {
+	tx, err := pool.Begin(ctx)
+	if err != nil {
+		return fmt.Errorf("begin tx: %w", err)
+	}
+	defer tx.Rollback(ctx) // no-op after a successful Commit
+
+	for _, a := range accounts {
+		if err := db.UpsertAccount(ctx, tx, toDBAccount(itemID, a)); err != nil {
+			return err
+		}
+	}
+	for _, t := range append(append([]plaidsdk.Transaction{}, added...), modified...) {
+		dbt, err := toDBTransaction(t)
+		if err != nil {
+			return err
+		}
+		if err := db.UpsertTransaction(ctx, tx, dbt); err != nil {
+			return err
+		}
+	}
+	for _, r := range removed {
+		if err := db.DeleteTransaction(ctx, tx, r.TransactionId); err != nil {
+			return err
+		}
+	}
+	if err := db.SetCursor(ctx, tx, itemID, nextCursor); err != nil {
+		return err
+	}
+	return tx.Commit(ctx)
+}
+
+func toDBAccount(itemID string, a plaidsdk.AccountBase) db.Account {
+	var subtype *string
+	if s := a.Subtype.Get(); s != nil {
+		v := string(*s)
+		subtype = &v
+	}
+	return db.Account{
+		AccountID:       a.AccountId,
+		ItemID:          itemID,
+		Name:            a.Name,
+		OfficialName:    a.OfficialName.Get(),
+		Mask:            a.Mask.Get(),
+		Type:            string(a.Type),
+		Subtype:         subtype,
+		IsoCurrencyCode: a.Balances.IsoCurrencyCode.Get(),
+	}
+}
+
+func toDBTransaction(t plaidsdk.Transaction) (db.Transaction, error) {
+	date, err := time.Parse("2006-01-02", t.Date)
+	if err != nil {
+		return db.Transaction{}, fmt.Errorf("parse date %q for txn %s: %w", t.Date, t.TransactionId, err)
+	}
+
+	var authDate *time.Time
+	if s := t.AuthorizedDate.Get(); s != nil && *s != "" {
+		if d, err := time.Parse("2006-01-02", *s); err == nil {
+			authDate = &d
+		}
+	}
+
+	var catPrimary, catDetailed *string
+	if pfc := t.PersonalFinanceCategory.Get(); pfc != nil {
+		p, d := pfc.Primary, pfc.Detailed
+		catPrimary, catDetailed = &p, &d
+	}
+
+	var paymentChannel *string
+	if t.PaymentChannel != "" {
+		v := t.PaymentChannel
+		paymentChannel = &v
+	}
+
+	return db.Transaction{
+		TransactionID:        t.TransactionId,
+		AccountID:            t.AccountId,
+		Amount:               t.Amount,
+		IsoCurrencyCode:      t.IsoCurrencyCode.Get(),
+		Date:                 date,
+		AuthorizedDate:       authDate,
+		Name:                 t.Name,
+		MerchantName:         t.MerchantName.Get(),
+		Pending:              t.Pending,
+		PendingTransactionID: t.PendingTransactionId.Get(),
+		PaymentChannel:       paymentChannel,
+		CategoryPrimary:      catPrimary,
+		CategoryDetailed:     catDetailed,
+		LocationAddress:      t.Location.Address.Get(),
+		LocationCity:         t.Location.City.Get(),
+	}, nil
 }
